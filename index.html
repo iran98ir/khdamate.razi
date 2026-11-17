@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="description" content="نت‌کده | بسته‌های اینترنت ارزان با عضویت در کانال‌های ما">
+<title>نت‌کده | اینترنت ارزان، فقط با یک عضویت</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+
+<style>
+:root{
+  /* پالت کاملاً متفاوت: تیره، نئونی، سایبری */
+  --bg:#070a14;
+  --bg-2:#0d1220;
+  --bg-3:#141a2e;
+  --panel:#111728;
+  --panel-2:#1a2238;
+  --ink:#e8ecf5;
+  --ink-soft:#a8b0c4;
+  --muted:#6b7391;
+  --line:#252d45;
+  --line-soft:#1a2238;
+
+  /* نئون‌های زنده */
+  --neon:#00e5c7;         /* فیروزه‌ای */
+  --neon-2:#7c5cff;       /* بنفش برقی */
+  --neon-3:#ff3d8b;       /* سرخابی */
+  --neon-4:#ffb84d;       /* کهربایی */
+  --electric:#4dd8ff;
+
+  --grad-primary:linear-gradient(135deg,#00e5c7 0%,#4dd8ff 50%,#7c5cff 100%);
+  --grad-hot:linear-gradient(135deg,#ff3d8b 0%,#ffb84d 100%);
+  --grad-violet:linear-gradient(135deg,#7c5cff 0%,#4dd8ff 100%);
+
+  --glow-neon:0 0 30px rgba(0,229,199,.35);
+  --glow-violet:0 0 30px rgba(124,92,255,.35);
+  --glow-pink:0 0 30px rgba(255,61,139,.35);
+
+  --shadow-panel:0 25px 60px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.04);
+  --shadow-card:0 30px 80px rgba(0,0,0,.6);
+
+  --max:1200px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:Vazirmatn,Tahoma,sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+  padding-bottom:110px;
+  position:relative;
+  -webkit-font-smoothing:antialiased;
+}
+button,a{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:transparent}
+a{text-decoration:none}
+svg{display:block}
+::selection{background:var(--neon);color:var(--bg)}
+
+/* ────────── BACKGROUND: سایبری/نئونی ────────── */
+.site-bg{
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  pointer-events:none;
+  overflow:hidden;
+  background:
+    radial-gradient(1200px 800px at 80% -10%, rgba(124,92,255,.18), transparent 60%),
+    radial-gradient(1000px 700px at -10% 30%, rgba(0,229,199,.14), transparent 55%),
+    radial-gradient(900px 700px at 100% 90%, rgba(255,61,139,.12), transparent 55%),
+    var(--bg);
+}
+/* گرید نئونی */
+.site-bg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(0,229,199,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(124,92,255,.06) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(circle at 50% 30%,#000 25%,transparent 80%);
+}
+/* نویز لطیف */
+.site-bg::after{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  opacity:.06;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grainShift .6s steps(2) infinite;
+}
+@keyframes grainShift{
+  0%{transform:translate(0,0)}
+  50%{transform:translate(-3%,2%)}
+  100%{transform:translate(2%,-2%)}
+}
+
+/* حباب‌های نئونی متحرک */
+.orb{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(80px);
+  pointer-events:none;
+  z-index:-2;
+  opacity:.55;
+  animation:orbFloat 22s ease-in-out infinite;
+}
+.orb.a{width:420px;height:420px;background:var(--neon-2);top:8%;right:-140px;animation-delay:0s}
+.orb.b{width:380px;height:380px;background:var(--neon);top:55%;left:-160px;animation-delay:-7s}
+.orb.c{width:300px;height:300px;background:var(--neon-3);bottom:5%;right:10%;animation-delay:-14s;opacity:.35}
+@keyframes orbFloat{
+  0%,100%{transform:translate(0,0) scale(1)}
+  33%{transform:translate(40px,-50px) scale(1.08)}
+  66%{transform:translate(-30px,40px) scale(.95)}
+}
+
+/* خطوط اسکن */
+.scanlines{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:repeating-linear-gradient(180deg,rgba(255,255,255,.018) 0px,rgba(255,255,255,.018) 1px,transparent 1px,transparent 4px);
+  opacity:.6;
+  mix-blend-mode:overlay;
+}
+
+/* ────────── GLOBAL ────────── */
+.wrap{
+  width:min(calc(100% - 40px),var(--max));
+  margin-inline:auto;
+}
+
+/* ────────── HEADER ────────── */
+.header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  background:rgba(7,10,20,.72);
+  border-bottom:1px solid var(--line-soft);
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:78px;
+  gap:20px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  position:relative;
+}
+.brand-mark{
+  position:relative;
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  background:var(--grad-primary);
+  color:var(--bg);
+  font-weight:900;
+  font-size:22px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.15),
+    0 10px 25px rgba(0,229,199,.35),
+    inset 0 -3px 0 rgba(0,0,0,.15);
+  overflow:hidden;
+}
+.brand-mark::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,transparent,rgba(255,255,255,.35),transparent);
+  transform:translateX(-100%);
+  animation:brandShine 4s infinite;
+}
+@keyframes brandShine{
+  0%,60%{transform:translateX(-100%)}
+  100%{transform:translateX(100%)}
+}
+.brand-name{
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:-.5px;
+  background:var(--grad-primary);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1.1;
+}
+.brand-tag{
+  display:block;
+  font-size:10px;
+  font-weight:700;
+  color:var(--muted);
+  letter-spacing:2px;
+  margin-top:4px;
+  font-family:'JetBrains Mono',monospace;
+}
+.header-nav{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.header-nav a{
+  padding:9px 15px;
+  font-size:12px;
+  font-weight:800;
+  color:var(--ink-soft);
+  border-radius:9px;
+  transition:.2s;
+  position:relative;
+}
+.header-nav a:hover{
+  color:var(--ink);
+  background:rgba(255,255,255,.04);
+}
+.header-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 18px;
+  font-size:12px;
+  font-weight:900;
+  border-radius:11px;
+  color:var(--bg);
+  background:var(--neon);
+  box-shadow:0 0 22px rgba(0,229,199,.45),inset 0 -3px 0 rgba(0,0,0,.15);
+  transition:.25s;
+}
+.header-cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 32px rgba(0,229,199,.7),inset 0 -3px 0 rgba(0,0,0,.15);
+}
+.header-cta svg{width:15px;height:15px}
+
+/* ────────── HERO ────────── */
+.hero{
+  padding:50px 0 40px;
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:50px;
+  align-items:center;
+  position:relative;
+}
+.hero-copy{position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 16px;
+  border-radius:100px;
+  background:rgba(0,229,199,.08);
+  border:1px solid rgba(0,229,199,.28);
+  color:var(--neon);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.5px;
+  margin-bottom:22px;
+  position:relative;
+  overflow:hidden;
+}
+.hero-badge::before{
+  content:"";
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--neon);
+  box-shadow:0 0 10px var(--neon);
+  animation:liveDot 1.4s infinite;
+}
+@keyframes liveDot{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.4;transform:scale(.7)}
+}
+.hero-title{
+  font-size:clamp(40px,6.4vw,74px);
+  font-weight:900;
+  line-height:1.22;
+  letter-spacing:-2.5px;
+  margin-bottom:20px;
+}
+.hero-title .row{display:block;overflow:hidden;padding-bottom:3px}
+.hero-title .row span{display:inline-block}
+.gradient-text{
+  background:var(--grad-primary);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hot-text{
+  background:var(--grad-hot);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.underline-glow{
+  position:relative;
+  display:inline-block;
+}
+.underline-glow::after{
+  content:"";
+  position:absolute;
+  bottom:2px;left:0;right:0;
+  height:8px;
+  background:linear-gradient(90deg,var(--neon-3),var(--neon-4));
+  border-radius:4px;
+  opacity:.35;
+  z-index:-1;
+  transform:scaleX(0);
+  transform-origin:right;
+  animation:drawUnder 1s .8s forwards;
+}
+@keyframes drawUnder{to{transform:scaleX(1)}}
+
+.hero-desc{
+  font-size:15px;
+  line-height:2.15;
+  color:var(--ink-soft);
+  max-width:520px;
+  font-weight:600;
+  margin-bottom:28px;
+}
+.hero-desc strong{color:var(--neon);font-weight:900}
+.hero-desc .em{
+  color:var(--neon-4);
+  font-weight:900;
+}
+
+/* شبکه‌های اجتماعی - اصلی‌ترین بخش */
+.social-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-bottom:26px;
+  max-width:520px;
+}
+.social-btn{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:16px 10px;
+  border-radius:14px;
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--line);
+  color:var(--ink);
+  font-weight:900;
+  font-size:12px;
+  overflow:hidden;
+  transition:.3s cubic-bezier(.2,.8,.2,1);
+  cursor:pointer;
+}
+.social-btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:.3s;
+  z-index:-1;
+}
+.social-btn.insta::before{background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+.social-btn.rubika::before{background:linear-gradient(135deg,#00b4ff,#7c5cff)}
+.social-btn.eitaa::before{background:linear-gradient(135deg,#ffb84d,#ff3d8b)}
+.social-btn:hover{
+  transform:translateY(-4px);
+  border-color:transparent;
+  color:#fff;
+  box-shadow:0 12px 30px rgba(0,0,0,.4);
+}
+.social-btn:hover::before{opacity:1}
+.social-btn:hover .social-icon{
+  transform:scale(1.15) rotate(-6deg);
+  color:#fff;
+}
+.social-icon{
+  width:34px;
+  height:34px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:rgba(255,255,255,.06);
+  transition:.3s;
+  z-index:1;
+}
+.social-icon svg{width:20px;height:20px}
+.social-btn.insta .social-icon{color:#e6683c;background:rgba(230,104,60,.12)}
+.social-btn.rubika .social-icon{color:#00b4ff;background:rgba(0,180,255,.12)}
+.social-btn.eitaa .social-icon{color:#ffb84d;background:rgba(255,184,77,.12)}
+.social-btn span{position:relative;z-index:1}
+.social-btn small{
+  position:relative;
+  z-index:1;
+  font-size:9px;
+  font-weight:700;
+  color:var(--muted);
+  letter-spacing:.5px;
+  transition:.3s;
+}
+.social-btn:hover small{color:rgba(255,255,255,.85)}
+
+/* خط فوریت */
+.urgency{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:12px 16px;
+  border-radius:12px;
+  background:rgba(255,61,139,.07);
+  border:1px dashed rgba(255,61,139,.35);
+  font-size:12px;
+  font-weight:800;
+  color:var(--neon-3);
+  max-width:520px;
+}
+.urgency-icon{
+  width:26px;height:26px;
+  display:grid;place-items:center;
+  background:rgba(255,61,139,.15);
+  border-radius:8px;
+  flex-shrink:0;
+  animation:pulseIcon 1.8s infinite;
+}
+.urgency-icon svg{width:15px;height:15px}
+@keyframes pulseIcon{
+  0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,61,139,.4)}
+  50%{transform:scale(1.08);box-shadow:0 0 0 8px rgba(255,61,139,0)}
+}
+.urgency b{color:var(--neon-4)}
+
+/* ────────── HERO VISUAL: کارت نئونی ────────── */
+.hero-visual{
+  position:relative;
+  min-height:480px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.neon-card{
+  position:relative;
+  width:min(100%,420px);
+  padding:32px 28px 30px;
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(124,92,255,.3),transparent 55%),
+    radial-gradient(circle at 0% 100%,rgba(0,229,199,.22),transparent 55%),
+    linear-gradient(160deg,#161d33,#0d1220);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:var(--shadow-card);
+  overflow:hidden;
+  isolation:isolate;
+  transform-style:preserve-3d;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.neon-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  padding:1.5px;
+  background:linear-gradient(135deg,rgba(0,229,199,.7),rgba(124,92,255,.3) 40%,rgba(255,61,139,.6));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+  pointer-events:none;
+  z-index:2;
+}
+.neon-card::after{
+  content:"";
+  position:absolute;
+  top:-60%;left:-60%;
+  width:220%;height:220%;
+  background:conic-gradient(from 0deg,transparent 0deg,rgba(0,229,199,.18) 40deg,transparent 90deg,transparent 180deg,rgba(124,92,255,.15) 220deg,transparent 260deg);
+  animation:cardRotate 12s linear infinite;
+  z-index:-1;
+}
+@keyframes cardRotate{
+  to{transform:rotate(360deg)}
+}
+
+.card-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:22px;
+  position:relative;
+  z-index:3;
+}
+.card-label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  color:var(--neon);
+  font-family:'JetBrains Mono',monospace;
+}
+.card-label::before{
+  content:"";
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--neon);
+  box-shadow:0 0 10px var(--neon);
+  animation:liveDot 1.5s infinite;
+}
+.card-chip{
+  width:44px;
+  height:32px;
+  border-radius:6px;
+  background:
+    linear-gradient(135deg,#d4af37,#8c6d1f 40%,#c9a227 70%,#6b5016);
+  position:relative;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 2px 8px rgba(0,0,0,.5);
+}
+.card-chip::before{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border:1px solid rgba(0,0,0,.25);
+  border-radius:3px;
+}
+
+.card-title-row{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  position:relative;
+  z-index:3;
+  margin-bottom:6px;
+}
+.card-amount{
+  font-size:clamp(48px,9vw,64px);
+  font-weight:900;
+  line-height:1;
+  letter-spacing:-3px;
+  background:var(--grad-primary);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  font-feature-settings:"tnum";
+}
+.card-unit{
+  font-size:15px;
+  font-weight:900;
+  color:var(--ink-soft);
+  letter-spacing:1px;
+}
+.card-sub{
+  font-size:12px;
+  font-weight:700;
+  color:var(--muted);
+  position:relative;
+  z-index:3;
+  margin-bottom:22px;
+}
+.card-sub b{color:var(--neon-4);font-weight:900}
+
+.card-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent);
+  margin-bottom:18px;
+  position:relative;
+  z-index:3;
+}
+
+.card-features{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+  position:relative;
+  z-index:3;
+  margin-bottom:22px;
+}
+.card-feature{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:12.5px;
+  font-weight:700;
+  color:var(--ink-soft);
+}
+.card-feature .check{
+  width:20px;height:20px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(0,229,199,.12);
+  border:1px solid rgba(0,229,199,.3);
+  color:var(--neon);
+  flex-shrink:0;
+}
+.card-feature .check svg{width:11px;height:11px}
+.card-feature b{color:var(--ink);font-weight:900}
+
+.card-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+  z-index:3;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.card-price-tag{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+.card-price-tag small{
+  font-size:9px;
+  font-weight:800;
+  color:var(--muted);
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-family:'JetBrains Mono',monospace;
+}
+.card-price-tag strong{
+  font-size:22px;
+  font-weight:900;
+  color:var(--ink);
+  letter-spacing:-.5px;
+}
+.card-price-tag strong span{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:800;
+}
+.card-badge{
+  padding:8px 12px;
+  border-radius:8px;
+  background:var(--grad-hot);
+  color:var(--bg);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.5px;
+  box-shadow:0 0 20px rgba(255,61,139,.4);
+  animation:badgePulse 2s infinite;
+}
+@keyframes badgePulse{
+  0%,100%{box-shadow:0 0 20px rgba(255,61,139,.4)}
+  50%{box-shadow:0 0 30px rgba(255,61,139,.8)}
+}
+
+/* برچسب شناور */
+.float-chip{
+  position:absolute;
+  z-index:5;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:10px 14px;
+  border-radius:11px;
+  background:rgba(13,18,32,.92);
+  border:1px solid var(--line);
+  backdrop-filter:blur(10px);
+  box-shadow:0 15px 40px rgba(0,0,0,.6);
+  font-size:11px;
+  font-weight:900;
+  animation:floatChip 4s ease-in-out infinite;
+}
+.float-chip.one{top:22px;right:-22px;color:var(--neon);animation-delay:0s}
+.float-chip.two{bottom:38px;left:-26px;color:var(--neon-4);animation-delay:-2s}
+@keyframes floatChip{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+.float-chip .dot{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:currentColor;
+  box-shadow:0 0 10px currentColor;
+  animation:liveDot 1.2s infinite;
+}
+
+/* ────────── BENEFITS STRIP ────────── */
+.benefits{
+  margin:40px 0 70px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line-soft);
+  border:1px solid var(--line-soft);
+  border-radius:18px;
+  overflow:hidden;
+  position:relative;
+}
+.benefit{
+  padding:22px 20px;
+  background:var(--bg);
+  display:flex;
+  align-items:center;
+  gap:13px;
+  transition:.3s;
+  position:relative;
+}
+.benefit:hover{
+  background:var(--bg-2);
+}
+.benefit-icon{
+  width:42px;height:42px;
+  flex-shrink:0;
+  display:grid;place-items:center;
+  border-radius:11px;
+  background:rgba(0,229,199,.08);
+  border:1px solid rgba(0,229,199,.18);
+  color:var(--neon);
+  transition:.3s;
+}
+.benefit:hover .benefit-icon{
+  transform:rotate(-8deg) scale(1.1);
+  background:rgba(0,229,199,.15);
+  box-shadow:0 0 20px rgba(0,229,199,.3);
+}
+.benefit:nth-child(2) .benefit-icon{background:rgba(124,92,255,.08);border-color:rgba(124,92,255,.18);color:var(--neon-2)}
+.benefit:nth-child(2):hover .benefit-icon{background:rgba(124,92,255,.15);box-shadow:0 0 20px rgba(124,92,255,.3)}
+.benefit:nth-child(3) .benefit-icon{background:rgba(255,184,77,.08);border-color:rgba(255,184,77,.18);color:var(--neon-4)}
+.benefit:nth-child(3):hover .benefit-icon{background:rgba(255,184,77,.15);box-shadow:0 0 20px rgba(255,184,77,.3)}
+.benefit:nth-child(4) .benefit-icon{background:rgba(255,61,139,.08);border-color:rgba(255,61,139,.18);color:var(--neon-3)}
+.benefit:nth-child(4):hover .benefit-icon{background:rgba(255,61,139,.15);box-shadow:0 0 20px rgba(255,61,139,.3)}
+.benefit-icon svg{width:21px;height:21px}
+.benefit strong{
+  display:block;
+  font-size:13px;
+  font-weight:900;
+  color:var(--ink);
+  line-height:1.3;
+}
+.benefit small{
+  display:block;
+  font-size:10px;
+  color:var(--muted);
+  font-weight:700;
+  margin-top:4px;
+}
+
+/* ────────── PACKAGES SECTION ────────── */
+.section{
+  padding:20px 0 80px;
+  position:relative;
+}
+.section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:36px;
+  flex-wrap:wrap;
+}
+.section-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:3px;
+  color:var(--neon);
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.section-label::before{
+  content:"";
+  width:24px;
+  height:1px;
+  background:var(--neon);
+  box-shadow:0 0 8px var(--neon);
+}
+.section-title{
+  font-size:clamp(26px,4.6vw,40px);
+  font-weight:900;
+  line-height:1.4;
+  letter-spacing:-1.2px;
+  color:var(--ink);
+}
+.section-title .hot{color:var(--neon-3)}
+.section-desc{
+  font-size:13px;
+  color:var(--muted);
+  font-weight:650;
+  max-width:280px;
+  line-height:2;
+  padding-right:14px;
+  border-right:2px solid var(--neon-2);
+}
+
+/* کارت‌های بسته - 3 بعدی */
+.packages{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.package{
+  position:relative;
+  padding:28px 24px;
+  border-radius:22px;
+  background:linear-gradient(160deg,var(--panel),var(--bg-2));
+  border:1px solid var(--line);
+  overflow:hidden;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s,border-color .4s;
+  isolation:isolate;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  min-height:420px;
+}
+.package::before{
+  content:"";
+  position:absolute;
+  top:0;right:0;
+  width:100%;height:2px;
+  background:var(--line);
+  transition:.4s;
+}
+.package:hover{
+  transform:translateY(-8px);
+  border-color:rgba(0,229,199,.35);
+  box-shadow:0 30px 60px -10px rgba(0,229,199,.25),0 0 0 1px rgba(0,229,199,.15);
+}
+.package:hover::before{
+  background:var(--grad-primary);
+  height:3px;
+}
+.package.featured{
+  border-color:rgba(255,61,139,.4);
+  background:linear-gradient(160deg,#1a1230,#1a0f28);
+}
+.package.featured::before{
+  background:var(--grad-hot);
+  height:3px;
+}
+.package.featured:hover{
+  box-shadow:0 30px 60px -10px rgba(255,61,139,.35),0 0 0 1px rgba(255,61,139,.2);
+}
+.package-tag{
+  position:absolute;
+  top:16px;left:16px;
+  padding:5px 10px;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+  border-radius:6px;
+  background:rgba(0,229,199,.12);
+  color:var(--neon);
+  border:1px solid rgba(0,229,199,.28);
+  font-family:'JetBrains Mono',monospace;
+}
+.package.featured .package-tag{
+  background:rgba(255,61,139,.15);
+  color:var(--neon-3);
+  border-color:rgba(255,61,139,.35);
+  animation:badgePulse 2s infinite;
+}
+.package-icon{
+  width:52px;height:52px;
+  display:grid;place-items:center;
+  border-radius:14px;
+  background:rgba(0,229,199,.08);
+  color:var(--neon);
+  margin-top:10px;
+  transition:.4s;
+}
+.package.featured .package-icon{
+  background:rgba(255,61,139,.1);
+  color:var(--neon-3);
+}
+.package:hover .package-icon{
+  transform:rotate(-6deg) scale(1.05);
+}
+.package-icon svg{width:26px;height:26px}
+.package-title{
+  font-size:19px;
+  font-weight:900;
+  color:var(--ink);
+  letter-spacing:-.3px;
+}
+.package-sub{
+  font-size:11px;
+  color:var(--muted);
+  font-weight:700;
+  margin-top:-8px;
+}
+.package-data{
+  display:flex;
+  align-items:baseline;
+  gap:8px;
+  padding:16px 0;
+  border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
+}
+.package-data strong{
+  font-size:38px;
+  font-weight:900;
+  line-height:1;
+  letter-spacing:-2px;
+  background:var(--grad-primary);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.package.featured .package-data strong{
+  background:var(--grad-hot);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.package-data span{
+  font-size:14px;
+  font-weight:800;
+  color:var(--ink-soft);
+}
+.package-features{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  flex:1;
+}
+.package-feature{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:12px;
+  font-weight:700;
+  color:var(--ink-soft);
+}
+.package-feature svg{
+  width:14px;height:14px;
+  color:var(--neon);
+  flex-shrink:0;
+}
+.package.featured .package-feature svg{color:var(--neon-3)}
+.package-cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:900;
+  background:rgba(0,229,199,.1);
+  color:var(--neon);
+  border:1px solid rgba(0,229,199,.28);
+  transition:.3s;
+  cursor:pointer;
+  margin-top:auto;
+}
+.package-cta:hover{
+  background:var(--neon);
+  color:var(--bg);
+  box-shadow:0 0 25px rgba(0,229,199,.5);
+}
+.package.featured .package-cta{
+  background:var(--grad-hot);
+  color:var(--bg);
+  border:none;
+  box-shadow:0 0 25px rgba(255,61,139,.4);
+}
+.package.featured .package-cta:hover{
+  box-shadow:0 0 40px rgba(255,61,139,.7);
+  transform:scale(1.02);
+}
+
+/* ────────── GUIDE CALLOUT (به راهنما) ────────── */
+.guide-card{
+  position:relative;
+  margin:20px 0 70px;
+  padding:44px 40px;
+  border-radius:24px;
+  background:linear-gradient(135deg,#1a1230 0%,#0d1220 60%,#0a1a24 100%);
+  border:1px solid var(--line);
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:30px;
+  align-items:center;
+  isolation:isolate;
+}
+.guide-card::before{
+  content:"";
+  position:absolute;
+  top:-50%;right:-20%;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(124,92,255,.25),transparent 65%);
+  z-index:-1;
+}
+.guide-card::after{
+  content:"";
+  position:absolute;
+  bottom:-70%;left:-10%;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(0,229,199,.18),transparent 65%);
+  z-index:-1;
+}
+.guide-content{position:relative;z-index:2}
+.guide-label{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 12px;
+  border-radius:100px;
+  background:rgba(124,92,255,.12);
+  border:1px solid rgba(124,92,255,.3);
+  font-size:10px;
+  font-weight:900;
+  color:var(--neon-2);
+  letter-spacing:1.5px;
+  margin-bottom:16px;
+  font-family:'JetBrains Mono',monospace;
+}
+.guide-label svg{width:13px;height:13px}
+.guide-title{
+  font-size:clamp(24px,3.6vw,34px);
+  font-weight:900;
+  line-height:1.45;
+  letter-spacing:-1px;
+  margin-bottom:12px;
+}
+.guide-title .g{
+  background:var(--grad-violet);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.guide-text{
+  font-size:13.5px;
+  line-height:2.1;
+  color:var(--ink-soft);
+  font-weight:650;
+  max-width:520px;
+}
+.guide-text b{color:var(--neon-4);font-weight:900}
+.guide-action{
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:stretch;
+  min-width:200px;
+}
+.guide-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:16px 22px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:900;
+  background:var(--grad-violet);
+  color:#fff;
+  box-shadow:0 0 30px rgba(124,92,255,.4),inset 0 -3px 0 rgba(0,0,0,.2);
+  transition:.3s;
+  white-space:nowrap;
+}
+.guide-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 45px rgba(124,92,255,.7),inset 0 -3px 0 rgba(0,0,0,.2);
+}
+.guide-btn svg{
+  width:17px;height:17px;
+  transition:transform .3s;
+}
+.guide-btn:hover svg{transform:translateX(-4px)}
+.guide-meta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-size:11px;
+  color:var(--muted);
+  font-weight:800;
+  padding:8px 0;
+}
+.guide-meta svg{width:14px;height:14px;color:var(--neon-4)}
+
+/* ────────── CTA FINAL ────────── */
+.final-cta{
+  margin:0 0 70px;
+  padding:50px 40px;
+  border-radius:26px;
+  background:
+    radial-gradient(circle at 0% 0%,rgba(0,229,199,.12),transparent 50%),
+    radial-gradient(circle at 100% 100%,rgba(255,61,139,.12),transparent 50%),
+    linear-gradient(135deg,#111728,#0a0e1a);
+  border:1px solid var(--line);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.final-cta::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--neon),var(--neon-2),var(--neon-3),transparent);
+  background-size:200% 100%;
+  animation:lineScan 4s linear infinite;
+}
+@keyframes lineScan{
+  0%{background-position:0% 0}
+  100%{background-position:200% 0}
+}
+.final-cta h3{
+  font-size:clamp(24px,4vw,36px);
+  font-weight:900;
+  line-height:1.4;
+  letter-spacing:-1px;
+  margin-bottom:14px;
+}
+.final-cta h3 .g{
+  background:var(--grad-primary);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.final-cta p{
+  font-size:13.5px;
+  color:var(--ink-soft);
+  line-height:2;
+  font-weight:650;
+  max-width:520px;
+  margin:0 auto 28px;
+}
+.final-cta-buttons{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.btn-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 26px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:900;
+  background:var(--grad-primary);
+  color:var(--bg);
+  box-shadow:0 0 30px rgba(0,229,199,.4),inset 0 -3px 0 rgba(0,0,0,.15);
+  transition:.3s;
+}
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 45px rgba(0,229,199,.7),inset 0 -3px 0 rgba(0,0,0,.15);
+}
+.btn-primary svg{width:17px;height:17px}
+.btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:16px 26px;
+  border-radius:13px;
+  font-size:14px;
+  font-weight:900;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--line);
+  color:var(--ink);
+  transition:.3s;
+}
+.btn-secondary:hover{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.18);
+  transform:translateY(-3px);
+}
+.btn-secondary svg{width:17px;height:17px}
+
+/* ────────── FOOTER ────────── */
+.footer{
+  border-top:1px solid var(--line-soft);
+  padding:30px 0 26px;
+  background:rgba(7,10,20,.6);
+}
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+.footer-brand-mark{
+  width:34px;height:34px;
+  border-radius:10px;
+  display:grid;place-items:center;
+  background:var(--grad-primary);
+  color:var(--bg);
+  font-weight:900;
+  font-size:15px;
+}
+.footer-brand strong{
+  font-size:15px;
+  font-weight:900;
+  background:var(--grad-primary);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  display:block;
+}
+.footer-brand small{
+  display:block;
+  font-size:10px;
+  color:var(--muted);
+  font-weight:700;
+  margin-top:2px;
+}
+.footer-note{
+  font-size:11px;
+  color:var(--muted);
+  font-weight:700;
+}
+
+/* ────────── NAVIGATION ────────── */
+.bottom-nav-wrap{
+  position:fixed;
+  z-index:100;
+  bottom:calc(12px + env(safe-area-inset-bottom));
+  left:0;right:0;
+  display:flex;
+  justify-content:center;
+  padding:0 15px;
+  pointer-events:none;
+}
+.bottom-nav{
+  pointer-events:auto;
+  width:min(100%,560px);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  align-items:center;
+  padding:6px;
+  background:rgba(13,18,32,.85);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(0,229,199,.15);
+  border-radius:16px;
+  box-shadow:0 20px 50px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03) inset;
+  min-height:74px;
+}
+.nav-btn{
+  min-height:60px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  color:var(--muted);
+  font-size:10px;
+  font-weight:850;
+  border-radius:11px;
+  position:relative;
+  transition:.3s;
+}
+.nav-btn svg{
+  width:22px;height:22px;
+  stroke-width:1.9;
+  transition:.3s;
+}
+.nav-btn:active{transform:scale(.94)}
+.nav-btn.active{
+  color:var(--neon);
+  background:rgba(0,229,199,.08);
+}
+.nav-btn.active svg{
+  filter:drop-shadow(0 0 8px var(--neon));
+  transform:translateY(-2px);
+}
+.nav-btn.active::before{
+  content:"";
+  position:absolute;
+  top:6px;
+  width:20px;height:2px;
+  background:var(--neon);
+  border-radius:2px;
+  box-shadow:0 0 8px var(--neon);
+}
+.nav-btn.highlight{
+  color:var(--neon-3);
+}
+.nav-btn.highlight svg{
+  filter:drop-shadow(0 0 8px var(--neon-3));
+}
+.nav-btn.highlight.active{
+  background:rgba(255,61,139,.1);
+}
+.nav-btn.highlight.active::before{
+  background:var(--neon-3);
+  box-shadow:0 0 8px var(--neon-3);
+}
+
+/* ────────── REVEAL ────────── */
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ────────── RESPONSIVE ────────── */
+@media(min-width:920px){
+  body{padding-bottom:35px}
+  .bottom-nav-wrap{display:none}
+}
+@media(max-width:919px){
+  .wrap{width:min(calc(100% - 34px),680px)}
+  .hero{
+    grid-template-columns:1fr;
+    gap:40px;
+    padding:36px 0 30px;
+  }
+  .hero-visual{min-height:440px;max-width:520px;margin:0 auto;width:100%}
+  .packages{grid-template-columns:1fr 1fr}
+  .packages .package:last-child{grid-column:1/-1}
+  .benefits{grid-template-columns:1fr 1fr}
+  .header-nav{display:none}
+}
+@media(max-width:600px){
+  .wrap{width:calc(100% - 28px)}
+  .header-inner{min-height:68px}
+  .brand-mark{width:42px;height:42px;font-size:19px}
+  .brand-name{font-size:19px}
+  .brand-tag{font-size:9px;letter-spacing:1.5px}
+  .header-cta{padding:9px 13px;font-size:11px;gap:6px}
+  .header-cta svg{width:13px;height:13px}
+  
+  .hero{padding:24px 0 20px;gap:34px}
+  .hero-badge{font-size:10px;padding:7px 13px;margin-bottom:16px}
+  .hero-title{font-size:clamp(34px,9.5vw,50px);letter-spacing:-1.8px;margin-bottom:16px}
+  .hero-desc{font-size:13.5px;line-height:2.1;margin-bottom:22px}
+  
+  .social-row{gap:8px}
+  .social-btn{padding:14px 6px;gap:6px}
+  .social-btn small{font-size:8px}
+  .social-icon{width:30px;height:30px}
+  .social-icon svg{width:17px;height:17px}
+  
+  .urgency{font-size:11px;padding:10px 13px;gap:9px}
+  .urgency-icon{width:24px;height:24px}
+  
+  .hero-visual{min-height:400px}
+  .neon-card{padding:26px 22px 24px;border-radius:22px}
+  .card-amount{font-size:48px}
+  .card-unit{font-size:13px}
+  .card-title-row{gap:8px}
+  .card-sub{font-size:11px;margin-bottom:18px}
+  .card-feature{font-size:11.5px}
+  .card-price-tag strong{font-size:19px}
+  .float-chip.one{top:14px;right:-14px;font-size:10px;padding:8px 11px}
+  .float-chip.two{bottom:28px;left:-16px;font-size:10px;padding:8px 11px}
+  
+  .benefits{grid-template-columns:1fr 1fr;margin:30px 0 55px;border-radius:14px}
+  .benefit{padding:16px 13px;gap:10px}
+  .benefit-icon{width:36px;height:36px}
+  .benefit-icon svg{width:18px;height:18px}
+  .benefit strong{font-size:11.5px}
+  .benefit small{font-size:9px}
+  
+  .section-head{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:26px}
+  .section-desc{max-width:100%;font-size:12px}
+  .section-title{font-size:26px}
+  
+  .packages{grid-template-columns:1fr;gap:14px}
+  .packages .package:last-child{grid-column:auto}
+  .package{padding:24px 20px;border-radius:18px;min-height:auto}
+  .package-title{font-size:17px}
+  .package-data strong{font-size:32px}
+  
+  .guide-card{
+    grid-template-columns:1fr;
+    padding:32px 24px;
+    gap:22px;
+    margin-bottom:55px;
+  }
+  .guide-title{font-size:24px}
+  .guide-text{font-size:12.5px}
+  .guide-action{min-width:0}
+  
+  .final-cta{padding:36px 24px;margin-bottom:55px;border-radius:20px}
+  .final-cta h3{font-size:24px}
+  .final-cta p{font-size:12.5px}
+  .final-cta-buttons{flex-direction:column;width:100%}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center;padding:15px 22px;font-size:13px}
+  
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:14px}
+  .footer-note{font-size:10px;line-height:1.9}
+  
+  .bottom-nav{min-height:70px;padding:5px}
+  .nav-btn{min-height:56px}
+  .nav-btn svg{width:20px;height:20px}
+  .nav-btn{font-size:9px}
+}
+@media(max-width:380px){
+  .hero-title{font-size:30px}
+  .card-amount{font-size:40px}
+  .social-row{grid-template-columns:1fr 1fr 1fr}
+  .social-btn small{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+  }
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- پس‌زمینه -->
+<div class="site-bg"></div>
+<div class="orb a"></div>
+<div class="orb b"></div>
+<div class="orb c"></div>
+<div class="scanlines"></div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">ن</div>
+      <div>
+        <div class="brand-name">نت‌کده</div>
+        <span class="brand-tag">NET / KADEH</span>
+      </div>
+    </a>
+    <nav class="header-nav">
+      <a href="#packages">بسته‌ها</a>
+      <a href="#how">چطور کار می‌کند</a>
+      <a href="guide.html">راهنما</a>
+    </nav>
+    <a href="#social" class="header-cta">
+      <span>عضویت سریع</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M13 6l6 6-6 6"/>
+      </svg>
+    </a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero wrap">
+  <div class="hero-copy">
+    <div class="hero-badge">عرضه ویژه این هفته</div>
+    <h1 class="hero-title">
+      <span class="row"><span>اینترنت <span class="gradient-text">ارزان</span>،</span></span>
+      <span class="row"><span>فقط با یک <span class="hot-text underline-glow">عضویت</span>.</span></span>
+    </h1>
+    <p class="hero-desc">
+      عضویت در کانال‌های ما، کلید دسترسی به <strong>بسته‌های اینترنت ارزان</strong> است.
+      اول با خدمات آشنا شو، عضو کانال شو، بعد بسته‌ات رو با تخفیف واقعی بگیر.
+    </p>
+
+    <!-- شبکه‌های اجتماعی -->
+    <div class="social-row" id="social">
+      <a href="#" class="social-btn insta" aria-label="عضویت در اینستاگرام">
+        <div class="social-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+        </div>
+        <span>اینستاگرام</span>
+        <small>@netkadeh</small>
+      </a>
+      <a href="#" class="social-btn rubika" aria-label="عضویت در روبیکا">
+        <div class="social-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/>
+            <circle cx="9" cy="12" r="1" fill="currentColor"/>
+            <circle cx="15" cy="12" r="1" fill="currentColor"/>
+          </svg>
+        </div>
+        <span>روبیکا</span>
+        <small>@netkadeh</small>
+      </a>
+      <a href="#" class="social-btn eitaa" aria-label="عضویت در ایتا">
+        <div class="social-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m21 3-9 18-2-8-8-2z"/>
+          </svg>
+        </div>
+        <span>ایتا</span>
+        <small>@netkadeh</small>
+      </a>
+    </div>
+
+    <div class="urgency">
+      <div class="urgency-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 7v5l3 2"/>
+        </svg>
+      </div>
+      <span>عضویت <b>رایگان</b> — شرط دریافت بسته تخفیف‌دار</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="neon-card" id="neonCard">
+      <div class="card-top">
+        <div class="card-label">NET / KADEH · 2025</div>
+        <div class="card-chip"></div>
+      </div>
+
+      <div class="card-title-row">
+        <div class="card-amount">۲۰</div>
+        <div class="card-unit">گیگابایت</div>
+      </div>
+      <div class="card-sub">بسته ویژه ماهانه · <b>فقط برای اعضای کانال</b></div>
+
+      <div class="card-divider"></div>
+
+      <div class="card-features">
+        <div class="card-feature">
+          <span class="check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m5 12 5 5L20 7"/>
+            </svg>
+          </span>
+          <span>ترافیک <b>روزانه + شبانه</b></span>
+        </div>
+        <div class="card-feature">
+          <span class="check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m5 12 5 5L20 7"/>
+            </svg>
+          </span>
+          <span>بدون <b>افت سرعت</b> پس از اتمام</span>
+        </div>
+        <div class="card-feature">
+          <span class="check">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m5 12 5 5L20 7"/>
+            </svg>
+          </span>
+          <span>فعال‌سازی <b>لحظه‌ای</b> پس از تأیید</span>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <div class="card-price-tag">
+          <small>PRICE</small>
+          <strong>۴۹<span> هزار تومان</span></strong>
+        </div>
+        <div class="card-badge">۴۰٪ تخفیف</div>
+      </div>
+    </div>
+
+    <div class="float-chip one">
+      <span class="dot"></span>
+      <span>اعضای فعال</span>
+    </div>
+    <div class="float-chip two">
+      <span class="dot"></span>
+      <span>فعال‌سازی سریع</span>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits wrap reveal" aria-label="مزایای نت‌کده">
+  <div class="benefit">
+    <div class="benefit-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2v20M2 12h20"/>
+        <circle cx="12" cy="12" r="10" opacity=".4"/>
+      </svg>
+    </div>
+    <div>
+      <strong>عضویت رایگان</strong>
+      <small>بدون هیچ هزینه‌ای</small>
+    </div>
+  </div>
+  <div class="benefit">
+    <div class="benefit-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+      </svg>
+    </div>
+    <div>
+      <strong>فعال‌سازی سریع</strong>
+      <small>در کمترین زمان</small>
+    </div>
+  </div>
+  <div class="benefit">
+    <div class="benefit-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2 15 9l7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/>
+      </svg>
+    </div>
+    <div>
+      <strong>تخفیف واقعی</strong>
+      <small>تا ۴۰٪ ارزان‌تر</small>
+    </div>
+  </div>
+  <div class="benefit">
+    <div class="benefit-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1 1 21 11.5z"/>
+      </svg>
+    </div>
+    <div>
+      <strong>پشتیبانی واقعی</strong>
+      <small>پاسخ سریع در کانال</small>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section wrap reveal" id="packages">
+  <div class="section-head">
+    <div>
+      <div class="section-label">PACKAGES / 01</div>
+      <h2 class="section-title">بسته‌های ویژه<br><span class="hot">اعضای کانال</span></h2>
+    </div>
+    <p class="section-desc">
+      برای دریافت هر بسته، ابتدا باید در یکی از کانال‌های ما عضو شوی.
+    </p>
+  </div>
+
+  <div class="packages">
+    <!-- بسته پایه -->
+    <article class="package">
+      <span class="package-tag">STARTER</span>
+      <div class="package-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 8.82a15 15 0 0 1 20 0"/>
+          <path d="M5 12.859a10 10 0 0 1 14 0"/>
+          <path d="M8.5 16.429a5 5 0 0 1 7 0"/>
+          <circle cx="12" cy="20" r="1" fill="currentColor"/>
+        </svg>
+      </div>
+      <h3 class="package-title">بسته پایه</h3>
+      <p class="package-sub">مناسب استفاده سبک روزانه</p>
+      <div class="package-data">
+        <strong>۵</strong>
+        <span>گیگابایت</span>
+      </div>
+      <div class="package-features">
+        <div class="package-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          اعتبار ۳۰ روزه
+        </div>
+        <div class="package-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          ترافیک روزانه
+        </div>
+        <div class="package-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          فعال‌سازی لحظه‌ای
+        </div>
+      </div>
+      <button class="package-cta">
+        دریافت با تخفیف
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="15" height="15">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </button>
+    </article>
+
+    <!-- بسته ویژه -->
+    <article class="package featured">
+      <span class="package-tag">⭐ BEST VALUE</span>
+      <div class="package-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
+      </div>
+      <h3 class="package-title">بسته ویژه</h3>
+      <p class="package-sub">پرفروش‌ترین بسته ماه</p>
+      <div class="package-data">
+        <strong>۲۰</strong>
+        <span>گیگابایت</span>
+      </div>
+      <div class="package-features">
+        <div class="package-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          اعتبار ۳۰ روزه
+        </div>
+        <div class="package-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          ترافیک روزانه + شبانه
+        </div>
+        <div class="package-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          بدون افت سرعت
+        </div>
+        <div class="package-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          هدیه ترافیک اضافه
+        </div>
+      </div>
+      <button class="package-cta">
+        دریافت با تخفیف
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="15" height="15">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </button>
+    </article>
+
+    <!-- بسته حرفه‌ای -->
+    <article class="package">
+      <span class="package-tag">PRO</span>
+      <div class="package-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l3 7 7 .8-5.2 4.8 1.4 7L12 18l-6.2 3.6 1.4-7L2 9.8 9 9z"/>
+        </svg>
+      </div>
+      <h3 class="package-title">بسته حرفه‌ای</h3>
+      <p class="package-sub">برای استفاده سنگین</p>
+      <div class="package-data">
+        <strong>۵۰</strong>
+        <span>گیگابایت</span>
+      </div>
+      <div class="package-features">
+        <div class="package-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          اعتبار ۳۰ روزه
+        </div>
+        <div class="package-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          ترافیک کامل روزانه
+        </div>
+        <div class="package-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          اولویت شبکه
+        </div>
+        <div class="package-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          پشتیبانی اختصاصی
+        </div>
+      </div>
+      <button class="package-cta">
+        دریافت با تخفیف
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="15" height="15">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </button>
+    </article>
+  </div>
+</section>
+
+<!-- GUIDE CARD -->
+<section class="wrap reveal">
+  <div class="guide-card">
+    <div class="guide-content">
+      <span class="guide-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+        </svg>
+        FIRST TIME HERE?
+      </span>
+      <h3 class="guide-title">
+        قبل از خرید، <span class="g">راهنمای کامل</span> رو بخون.
+      </h3>
+      <p class="guide-text">
+        شرایط عضویت، نحوه فعال‌سازی، و جزئیات بسته‌ها همه در <b>صفحه راهنما</b> توضیح داده شده.
+        یه نگاه کوتاه بنداز تا بدون دردسر بسته‌ات رو بگیری.
+      </p>
+    </div>
+    <div class="guide-action">
+      <a href="guide.html" class="guide-btn">
+        <span>مشاهده راهنما</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M11 18l-6-6 6-6"/>
+        </svg>
+      </a>
+      <div class="guide-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 7v5l3 2"/>
+        </svg>
+        فقط ۲ دقیقه مطالعه
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="wrap reveal">
+  <div class="final-cta">
+    <h3>آماده‌ای؟ <span class="g">عضو شو، بسته‌ات رو بگیر.</span></h3>
+    <p>
+      کافیه در یکی از کانال‌های ما عضو بشی. بلافاصله لینک دریافت بسته تخفیف‌دار برات فعال می‌شه.
+    </p>
+    <div class="final-cta-buttons">
+      <a href="#social" class="btn-primary">
+        <span>عضویت در کانال</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+      <a href="guide.html" class="btn-secondary">
+        <span>راهنمای کامل</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <div class="footer-brand-mark">ن</div>
+      <div>
+        <strong>نت‌کده</strong>
+        <small>اینترنت ارزان، فقط با یک عضویت</small>
+      </div>
+    </div>
+    <div class="footer-note">
+      © تمامی حقوق محفوظ است · شرایط استفاده و حریم خصوصی
+    </div>
+  </div>
+</footer>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav-wrap">
+  <nav class="bottom-nav" aria-label="ناوبری اصلی">
+    <a href="index.html" class="nav-btn active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 10 9-7 9 7"/>
+        <path d="M5 9v11h14V9M9 20v-7h6v7"/>
+      </svg>
+      <span>خانه</span>
+    </a>
+    <a href="guide.html" class="nav-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v17H7.5A2.5 2.5 0 0 0 5 21.5z"/>
+        <path d="M5 4.5v17M9 7h7M9 11h7"/>
+      </svg>
+      <span>راهنما</span>
+    </a>
+    <a href="#packages" class="nav-btn highlight">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 7 12 2 4 7v10l8 5 8-5z"/>
+        <path d="M12 22V12M4 7l8 5 8-5"/>
+      </svg>
+      <span>بسته‌ها</span>
+    </a>
+    <a href="#social" class="nav-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/>
+        <path d="m22 6-10 7L2 6"/>
+      </svg>
+      <span>عضویت</span>
+    </a>
+  </nav>
+</div>
+
+<script>
+(() => {
+  "use strict";
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ── ورود المان‌ها ── */
+  if (window.gsap && !reduced) {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    tl.from(".header-inner > *", { y: -18, opacity: 0, duration: .55, stagger: .08 })
+      .from(".hero-badge", { y: 15, opacity: 0, duration: .5 }, "-=.25")
+      .from(".hero-title .row span", { y: 55, opacity: 0, duration: .85, stagger: .12 }, "-=.1")
+      .from(".hero-desc", { y: 18, opacity: 0, duration: .6 }, "-=.4")
+      .from(".social-row .social-btn", { y: 20, opacity: 0, duration: .5, stagger: .08 }, "-=.35")
+      .from(".urgency", { y: 15, opacity: 0, duration: .5 }, "-=.25")
+      .from(".neon-card", { y: 30, opacity: 0, scale: .96, duration: .9 }, "-=.95")
+      .from(".float-chip", { x: 20, opacity: 0, duration: .6, stagger: .15 }, "-=.5");
+  }
+
+  /* ── Reveal on scroll ── */
+  const reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("visible");
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: .1, rootMargin: "0px 0px -40px 0px" });
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add("visible"));
+  }
+
+  /* ── تیلت کارت نئونی ── */
+  const card = document.getElementById("neonCard");
+  const canHover = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+  if (card && canHover && !reduced) {
+    card.addEventListener("pointermove", e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - .5;
+      const y = (e.clientY - r.top) / r.height - .5;
+      card.style.transform = `perspective(1000px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) scale(1.02)`;
+    });
+    card.addEventListener("pointerleave", () => {
+      card.style.transform = "perspective(1000px) rotateY(0) rotateX(0) scale(1)";
+    });
+  }
+
+  /* ── فیدبک لمسی ── */
+  document.querySelectorAll(".header-cta,.social-btn,.package-cta,.guide-btn,.btn-primary,.btn-secondary,.nav-btn").forEach(el => {
+    el.addEventListener("pointerdown", () => {
+      if (!reduced && window.gsap) gsap.to(el, { scale: .96, duration: .1, overwrite: true });
+    });
+    el.addEventListener("pointerup", () => {
+      if (!reduced && window.gsap) gsap.to(el, { scale: 1, duration: .3, ease: "back.out(2.5)", overwrite: true });
+    });
+    el.addEventListener("pointercancel", () => {
+      if (!reduced && window.gsap) gsap.to(el, { scale: 1, duration: .2 });
+    });
+  });
+
+  /* ── اسکرول نرم به بخش‌ها ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener("click", e => {
+      const id = a.getAttribute("href");
+      if (id.length > 1) {
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
