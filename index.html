@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f8f5ef">
-<meta name="description" content="بسته‌های اینترنت اقتصادی با عضویت در شبکه‌های اجتماعی ما">
-<title>نتینو | اینترنت به‌صرفه، هوشمندانه‌تر</title>
+<meta name="description" content="کلیه خدمات امور مشترکین؛ از ابلاغیه قضایی و خلافی خودرو تا کالابرگ و پرداخت قبوض، فقط با یک پیام در چت.">
+<title>راضی | خدمات امور مشترکین، آنلاین</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
@@ -41,70 +41,51 @@ svg{display:block}
 ::selection{background:var(--lemon);color:var(--ink)}
 .wrap{width:min(calc(100% - 42px),var(--max));margin:auto}
 
-/* BACKGROUND */
-.background{
-  position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden;
-}
+/* BACKGROUND — static, no motion */
+.background{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
 .background:before{
   content:"";position:absolute;inset:0;opacity:.22;
   background-image:radial-gradient(#8b7b9b 1px,transparent 1px);
   background-size:25px 25px;
   mask-image:linear-gradient(to bottom,#000,transparent 75%);
 }
-.bg-shape{
-  position:absolute;border-radius:50%;filter:blur(2px);
-  animation:floatShape 13s ease-in-out infinite alternate;
-}
-.bg-shape.one{
-  width:300px;height:300px;background:#ffb8d4;
-  top:8%;right:-230px;opacity:.42;
-}
-.bg-shape.two{
-  width:350px;height:350px;background:#d8c8ff;
-  top:55%;left:-270px;opacity:.48;animation-delay:-5s;
-}
-.bg-shape.three{
-  width:180px;height:180px;background:#fff0a2;
-  top:35%;right:65%;opacity:.32;animation-delay:-8s;
-}
-@keyframes floatShape{
-  from{transform:translate3d(0,0,0) rotate(0deg)}
-  to{transform:translate3d(30px,-35px,0) rotate(15deg)}
-}
+.bg-shape{position:absolute;border-radius:50%;filter:blur(2px)}
+.bg-shape.one{width:300px;height:300px;background:#ffb8d4;top:8%;right:-230px;opacity:.42}
+.bg-shape.two{width:350px;height:350px;background:#d8c8ff;top:55%;left:-270px;opacity:.48}
+.bg-shape.three{width:180px;height:180px;background:#fff0a2;top:35%;right:65%;opacity:.32}
 
 /* HEADER */
 .header{
   height:86px;display:flex;align-items:center;
-  justify-content:space-between;position:relative;z-index:10;
+  justify-content:space-between;position:relative;z-index:10;gap:14px;
 }
 .brand{display:flex;align-items:center;gap:11px}
 .brand-mark{
-  width:47px;height:47px;background:var(--ink);color:var(--lemon);
+  width:47px;height:47px;padding:4px;background:var(--ink);color:var(--lemon);
   border-radius:15px 15px 15px 4px;display:grid;place-items:center;
-  transform:rotate(-5deg);box-shadow:0 9px 20px #17151e25;
+  transform:rotate(-5deg);box-shadow:0 9px 20px #17151e25;flex-shrink:0;
 }
-.brand-mark svg{width:26px;height:26px}
+.brand-mark img{width:100%;height:100%;object-fit:cover;border-radius:11px;display:block}
+.brand-fallback{display:none;font-size:21px;font-weight:1000;line-height:1}
 .brand-name{font-size:23px;font-weight:1000;letter-spacing:-1px}
 .brand-caption{font-size:9px;color:var(--muted);font-weight:750;margin-top:2px}
 .header-menu{display:flex;align-items:center;gap:28px}
-.header-menu a{
-  font-size:12px;font-weight:850;color:#625d68;transition:.2s;
-}
+.header-menu a{font-size:12px;font-weight:850;color:#625d68;transition:.2s}
 .header-menu a:hover{color:var(--purple)}
+.header-menu a.current{color:var(--purple)}
 .header-cta{
   display:flex;align-items:center;gap:10px;
   padding:11px 17px;background:var(--lemon);
   border-radius:50px;font-size:11px;font-weight:950;
-  box-shadow:0 5px 0 #d2df65;transition:.2s;
+  box-shadow:0 5px 0 #d2df65;transition:.2s;white-space:nowrap;
 }
 .header-cta:hover{transform:translateY(-3px);box-shadow:0 8px 0 #d2df65}
 .header-cta svg{width:16px;height:16px}
 
-/* HERO */
+/* HERO — compact */
 .hero{
-  min-height:610px;display:grid;
-  grid-template-columns:1.03fr .97fr;
-  align-items:center;gap:45px;padding:54px 0 62px;
+  display:grid;grid-template-columns:1.04fr .96fr;
+  align-items:center;gap:40px;padding:34px 0 40px;
 }
 .hero-copy{position:relative;z-index:2}
 .hero-label{
@@ -117,34 +98,43 @@ svg{display:block}
 .live-dot{
   width:8px;height:8px;border-radius:50%;
   background:#6acb75;box-shadow:0 0 0 4px #6acb7525;
-  animation:pulse 1.8s infinite;
-}
-@keyframes pulse{
-  50%{box-shadow:0 0 0 8px #6acb7500}
 }
 .hero h1{
-  margin-top:27px;font-size:clamp(46px,6.2vw,78px);
-  line-height:1.42;font-weight:1000;letter-spacing:-3px;
+  margin-top:18px;font-size:clamp(34px,4.8vw,56px);
+  line-height:1.42;font-weight:1000;letter-spacing:-2.2px;
 }
 .hero h1 .dark-line{display:block}
-.hero h1 .color-line{
-  display:inline-block;color:var(--purple);
-  position:relative;z-index:1;
-}
+.hero h1 .color-line{display:inline-block;color:var(--purple);position:relative;z-index:1}
 .hero h1 .color-line:after{
   content:"";position:absolute;right:0;bottom:5px;
-  width:100%;height:14px;background:var(--lemon);
+  width:100%;height:13px;background:var(--lemon);
   z-index:-1;transform:rotate(-2deg);
 }
 .hero-description{
-  max-width:520px;margin-top:21px;
-  color:#716c77;font-size:14px;line-height:2.3;font-weight:650;
+  max-width:520px;margin-top:14px;
+  color:#716c77;font-size:13px;line-height:2.25;font-weight:650;
 }
 .hero-description strong{color:var(--ink);font-weight:950}
-.hero-actions{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-top:29px}
+
+/* 3-step strip */
+.steps{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:16px}
+.step{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 12px;background:#fff;border:1px solid var(--line);
+  border-radius:50px;font-size:10.5px;font-weight:850;color:#5d5766;
+  box-shadow:0 4px 14px #30204b08;white-space:nowrap;
+}
+.step b{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--ink);color:var(--lemon);
+  display:grid;place-items:center;font-size:9.5px;font-weight:900;flex-shrink:0;
+}
+.step-arrow{color:#b9b2c2;font-size:13px;font-weight:900}
+
+.hero-actions{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-top:20px}
 .btn-main{
-  min-height:58px;padding:0 23px;
-  display:inline-flex;align-items:center;justify-content:center;gap:16px;
+  min-height:56px;padding:0 22px;
+  display:inline-flex;align-items:center;justify-content:center;gap:14px;
   color:white;background:var(--purple);border-radius:14px 14px 14px 4px;
   font-size:12px;font-weight:950;box-shadow:0 9px 0 #4c2bb3;
   transition:.25s;position:relative;overflow:hidden;
@@ -153,7 +143,7 @@ svg{display:block}
 .btn-main:active{transform:translateY(2px);box-shadow:0 4px 0 #4c2bb3}
 .btn-main svg{width:18px;height:18px}
 .btn-guide{
-  min-height:54px;padding:0 17px;display:inline-flex;
+  min-height:52px;padding:0 17px;display:inline-flex;
   align-items:center;gap:10px;border:1px solid #dcd4e5;
   background:#fff;border-radius:14px;font-size:12px;font-weight:900;
   transition:.25s;
@@ -162,280 +152,142 @@ svg{display:block}
 .btn-guide svg{width:17px;height:17px}
 .hero-note{
   display:flex;align-items:center;gap:10px;
-  margin-top:27px;color:#89838d;font-size:10px;font-weight:750;
+  margin-top:16px;color:#89838d;font-size:10px;font-weight:750;
 }
-.hero-note svg{width:17px;height:17px;color:var(--orange)}
+.hero-note svg{width:17px;height:17px;color:var(--orange);flex-shrink:0}
 
-/* HERO ART */
-.hero-art{
-  min-height:485px;position:relative;display:grid;place-items:center;
-}
+/* HERO ART — static chat mockup */
+.hero-art{min-height:360px;position:relative;display:grid;place-items:center}
 .art-backdrop{
-  position:absolute;width:390px;height:390px;max-width:90%;
+  position:absolute;width:300px;height:300px;max-width:90%;
   border-radius:46% 54% 58% 42% / 43% 42% 58% 57%;
   background:var(--lemon);transform:rotate(-12deg);
-  animation:morph 9s ease-in-out infinite alternate;
-}
-@keyframes morph{
-  0%{border-radius:46% 54% 58% 42% / 43% 42% 58% 57%;transform:rotate(-12deg)}
-  100%{border-radius:60% 40% 40% 60% / 55% 60% 40% 45%;transform:rotate(8deg)}
 }
 .art-ring{
-  position:absolute;width:445px;height:445px;max-width:100%;
+  position:absolute;width:350px;height:350px;max-width:100%;
   border:1px dashed #9c83e9;border-radius:50%;
-  animation:spin 45s linear infinite;
 }
 .art-ring:before,.art-ring:after{
   content:"";position:absolute;width:14px;height:14px;
   background:var(--orange);border:4px solid var(--paper);border-radius:50%;
 }
-.art-ring:before{top:48px;right:55px}
-.art-ring:after{bottom:55px;left:45px;background:var(--purple)}
-@keyframes spin{to{transform:rotate(360deg)}}
-.phone-card{
-  position:relative;z-index:2;width:290px;min-height:370px;
-  padding:23px;background:var(--ink);color:white;
+.art-ring:before{top:42px;right:46px}
+.art-ring:after{bottom:46px;left:38px;background:var(--purple)}
+.chat-card{
+  position:relative;z-index:2;width:280px;
+  padding:20px;background:var(--ink);color:white;
   border-radius:30px 30px 30px 8px;
   box-shadow:0 30px 65px #24143835;
-  transform:rotate(-5deg);transition:transform .5s;
+  transform:rotate(-4deg);transition:transform .5s;
 }
-.hero-art:hover .phone-card{transform:rotate(0deg) translateY(-7px)}
-.phone-top{display:flex;align-items:center;justify-content:space-between}
-.phone-brand{font-size:13px;font-weight:950}
-.phone-status{
-  display:flex;align-items:center;gap:6px;
-  color:#b9f18b;font-size:9px;font-weight:800;
+.hero-art:hover .chat-card{transform:rotate(0deg) translateY(-6px)}
+.chat-top{display:flex;align-items:center;justify-content:space-between}
+.chat-brand{font-size:12px;font-weight:950;direction:ltr}
+.chat-status{display:flex;align-items:center;gap:6px;color:#b9f18b;font-size:9px;font-weight:800}
+.chat-status:before{content:"";width:6px;height:6px;border-radius:50%;background:#a6e76b}
+.chat-bubbles{display:flex;flex-direction:column;gap:9px;margin-top:16px}
+.bubble{max-width:88%;padding:10px 13px;font-size:10.5px;font-weight:750;line-height:1.9}
+.bubble.user{
+  align-self:flex-start;background:var(--lemon);color:var(--ink);
+  border-radius:14px 14px 4px 14px;
 }
-.phone-status:before{
-  content:"";width:6px;height:6px;border-radius:50%;background:#a6e76b;
+.bubble.raz{
+  align-self:flex-end;background:#ffffff14;border:1px solid #ffffff1f;
+  color:#f3effa;border-radius:14px 14px 14px 4px;
 }
-.phone-illustration{
-  height:155px;margin-top:22px;position:relative;
-  display:grid;place-items:center;overflow:hidden;
-  background:linear-gradient(135deg,#8059ed,#a37cf8);
-  border-radius:20px 20px 20px 5px;
+.file-chip{
+  display:flex;align-items:center;gap:9px;margin-top:9px;
+  padding:9px 11px;background:#ffffff10;border:1px dashed #ffffff2e;
+  border-radius:12px;
 }
-.phone-illustration:before,.phone-illustration:after{
-  content:"";position:absolute;border:1px solid #ffffff45;border-radius:50%;
-}
-.phone-illustration:before{width:180px;height:180px}
-.phone-illustration:after{width:125px;height:125px}
-.wifi-symbol{position:relative;z-index:1;width:85px;height:85px;color:var(--lemon)}
-.phone-copy{margin-top:20px}
-.phone-copy small{color:#bdb5c9;font-size:10px;font-weight:750}
-.phone-copy h2{font-size:22px;font-weight:950;margin-top:6px;line-height:1.7}
-.phone-copy p{font-size:10px;color:#bdb5c9;line-height:2;margin-top:5px}
-.phone-bottom{
+.file-chip svg{width:22px;height:22px;color:var(--lemon);flex-shrink:0}
+.file-chip strong{display:block;font-size:10px;font-weight:900;direction:ltr;text-align:right}
+.file-chip small{display:block;font-size:8.5px;color:#bdb5c9;font-weight:750;margin-top:1px}
+.chat-bottom{
   display:flex;align-items:center;justify-content:space-between;
-  margin-top:18px;padding-top:15px;border-top:1px solid #ffffff24;
+  margin-top:15px;padding-top:12px;border-top:1px solid #ffffff24;
 }
-.phone-bottom span{font-size:9px;color:#c8c0d2;font-weight:700}
-.phone-bottom b{font-size:11px;color:var(--lemon)}
-.float-sticker{
-  position:absolute;z-index:4;display:grid;place-items:center;
-  box-shadow:var(--shadow);
-}
-.sticker-price{
-  top:55px;right:-5px;width:105px;height:105px;
+.chat-bottom span{font-size:9px;color:#c8c0d2;font-weight:700}
+.chat-bottom b{font-size:10px;color:var(--lemon);direction:ltr}
+.float-sticker{position:absolute;z-index:4;display:grid;place-items:center;box-shadow:var(--shadow)}
+.sticker-msg{
+  top:26px;right:-4px;width:96px;height:96px;
   background:var(--orange);color:white;border-radius:50%;
   transform:rotate(10deg);text-align:center;
 }
-.sticker-price small{font-size:9px;font-weight:850}
-.sticker-price strong{display:block;font-size:22px;font-weight:1000}
-.sticker-price span{font-size:9px;font-weight:800}
+.sticker-msg small{font-size:9px;font-weight:850}
+.sticker-msg strong{display:block;font-size:17px;font-weight:1000}
+.sticker-msg span{font-size:9px;font-weight:800}
 .sticker-star{
-  left:0;bottom:55px;width:75px;height:75px;
+  left:0;bottom:42px;width:64px;height:64px;
   background:var(--pink);color:#4e2340;
   clip-path:polygon(50% 0%,62% 28%,91% 10%,80% 41%,100% 58%,67% 65%,75% 100%,48% 77%,22% 100%,30% 66%,0 53%,29% 38%,17% 10%,43% 28%);
-  animation:starWiggle 4s ease-in-out infinite;
 }
-.sticker-star svg{width:29px;height:29px}
-@keyframes starWiggle{50%{transform:rotate(18deg) scale(1.08)}}
+.sticker-star svg{width:26px;height:26px}
 .art-caption{
   position:absolute;bottom:0;right:50%;transform:translateX(50%);
   color:#8b8291;font-size:9px;letter-spacing:2px;font-weight:900;
   white-space:nowrap;direction:ltr;
 }
 
-/* TICKER */
-.ticker{
-  overflow:hidden;background:var(--purple);color:white;
-  transform:rotate(-1deg) scale(1.02);
-  padding:15px 0;margin:15px 0 85px;
-}
-.ticker-track{
-  display:flex;width:max-content;align-items:center;gap:34px;
-  animation:tickerMove 28s linear infinite;
-}
-.ticker-item{
-  display:flex;align-items:center;gap:14px;
-  font-size:12px;font-weight:950;white-space:nowrap;
-}
-.ticker-item i{
-  display:block;width:8px;height:8px;border-radius:50%;
-  background:var(--lemon);
-}
-@keyframes tickerMove{to{transform:translateX(50%)}}
-
-/* SECTION HEADINGS */
-.section-heading{margin-bottom:30px}
+/* SERVICES — 3 big cards */
+.services{padding:6px 0 46px}
+.services-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:20px}
 .section-label{
   display:inline-flex;align-items:center;gap:9px;
-  color:var(--orange);font-size:10px;font-weight:950;
-  letter-spacing:.5px;
+  color:var(--orange);font-size:10px;font-weight:950;letter-spacing:.5px;
 }
 .section-label:before{content:"";width:23px;height:3px;background:var(--orange);border-radius:4px}
-.section-heading h2{
-  font-size:clamp(27px,4.2vw,43px);
-  font-weight:1000;line-height:1.6;letter-spacing:-1.4px;margin-top:9px;
+.services-heading h2{
+  font-size:clamp(22px,3.2vw,32px);
+  font-weight:1000;line-height:1.6;letter-spacing:-1px;margin-top:7px;
 }
-.section-heading p{
-  color:var(--muted);font-size:12px;line-height:2.1;
-  font-weight:650;margin-top:5px;
-}
-
-/* MEMBERSHIP */
-.membership{padding:0 0 90px}
-.social-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:17px;
-}
-.social-card{
-  position:relative;min-height:255px;padding:23px;
+.services-count{font-size:10px;color:#938d96;font-weight:900;letter-spacing:2px;direction:ltr;white-space:nowrap}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.service-card{
+  position:relative;min-height:240px;padding:24px;
   overflow:hidden;border-radius:24px 24px 24px 6px;
-  transition:transform .35s,box-shadow .35s;
+  transition:transform .35s,box-shadow .35s;cursor:default;
 }
-.social-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-strong)}
-.social-card.instagram{background:#f8d4e6;color:#4b2341}
-.social-card.rubika{background:#d9d0ff;color:#34215f}
-.social-card.eitaa{background:#ffe0c6;color:#66351d}
-.social-card:after{
+.service-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-strong)}
+.service-card.online{background:#d9d0ff;color:#34215f}
+.service-card.internet{background:#ffe0c6;color:#66351d}
+.service-card.sim{background:#f8d4e6;color:#4b2341}
+.service-card:after{
   content:"";position:absolute;width:170px;height:170px;
   border:1px solid currentColor;opacity:.12;border-radius:50%;
   left:-70px;bottom:-100px;
   box-shadow:0 0 0 20px currentColor,0 0 0 40px currentColor;
 }
-.social-card-top{display:flex;align-items:center;justify-content:space-between}
-.social-icon{
+.service-card-top{display:flex;align-items:center;justify-content:space-between}
+.service-icon{
   width:52px;height:52px;display:grid;place-items:center;
   background:#ffffff9c;border-radius:17px;
 }
-.social-icon svg{width:28px;height:28px}
-.social-number{font-size:10px;font-weight:950;opacity:.5;direction:ltr}
-.social-card h3{font-size:23px;font-weight:1000;margin-top:23px}
-.social-card p{
+.service-icon svg{width:28px;height:28px}
+.service-number{font-size:10px;font-weight:950;opacity:.5;direction:ltr}
+.service-card h3{font-size:22px;font-weight:1000;margin-top:20px;line-height:1.6}
+.service-card p{
   font-size:11px;line-height:2.1;font-weight:700;
-  opacity:.78;margin-top:7px;max-width:230px;
+  opacity:.78;margin-top:6px;max-width:250px;
 }
-.social-link{
-  position:relative;z-index:2;display:inline-flex;align-items:center;gap:9px;
-  margin-top:18px;font-size:11px;font-weight:950;
-  border-bottom:1px solid currentColor;padding-bottom:5px;
+.soon{
+  position:relative;z-index:2;display:inline-flex;align-items:center;gap:7px;
+  margin-top:16px;padding:7px 13px;
+  border:1.5px dotted currentColor;border-radius:50px;
+  font-size:9.5px;font-weight:900;opacity:.75;
 }
-.social-link svg{width:15px;height:15px;transition:transform .2s}
-.social-link:hover svg{transform:translateX(-4px)}
+.soon:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
 
-/* MEMBERSHIP RULE */
-.rule-card{
-  margin-top:23px;display:grid;grid-template-columns:auto 1fr auto;
-  align-items:center;gap:20px;padding:23px 25px;
-  background:var(--ink);color:white;border-radius:20px 20px 20px 5px;
-  position:relative;overflow:hidden;
-}
-.rule-card:after{
-  content:"";position:absolute;width:190px;height:190px;
-  border:1px solid #ffffff20;border-radius:50%;
-  left:70px;top:-130px;box-shadow:0 0 0 25px #ffffff08,0 0 0 50px #ffffff05;
-}
-.rule-icon{
-  width:54px;height:54px;display:grid;place-items:center;
-  background:var(--lemon);color:var(--ink);border-radius:16px;
-}
-.rule-icon svg{width:26px;height:26px}
-.rule-copy{position:relative;z-index:1}
-.rule-copy strong{font-size:15px;font-weight:950;display:block}
-.rule-copy p{font-size:11px;color:#c8c1d0;line-height:2;margin-top:5px}
-.rule-tag{
-  position:relative;z-index:1;background:var(--orange);color:white;
-  padding:10px 14px;border-radius:50px;font-size:10px;font-weight:950;
-  white-space:nowrap;
-}
-
-/* GUIDE */
-.guide-section{padding:0 0 90px}
-.guide-card{
-  min-height:310px;display:grid;grid-template-columns:1fr .8fr;
-  align-items:center;gap:25px;padding:35px;
-  background:#e7e0fa;border-radius:30px 30px 30px 7px;
-  position:relative;overflow:hidden;
-}
-.guide-card:before{
-  content:"";position:absolute;width:330px;height:330px;
-  border:1px solid #8d70d855;border-radius:50%;
-  left:-100px;top:-170px;
-  box-shadow:0 0 0 25px #8d70d817,0 0 0 50px #8d70d810;
-}
-.guide-copy{position:relative;z-index:2}
-.guide-copy .section-label{color:var(--purple-dark)}
-.guide-copy h2{
-  font-size:clamp(27px,4vw,42px);font-weight:1000;
-  line-height:1.6;margin-top:13px;letter-spacing:-1px;
-}
-.guide-copy p{
-  max-width:490px;font-size:12px;color:#6f647e;
-  line-height:2.2;font-weight:700;margin-top:10px;
-}
-.guide-button{
-  display:inline-flex;align-items:center;gap:13px;
-  margin-top:23px;padding:15px 20px;background:var(--ink);
-  color:white;border-radius:13px 13px 13px 4px;
-  font-size:12px;font-weight:950;box-shadow:0 7px 0 #b5a5d9;
-  transition:.25s;
-}
-.guide-button:hover{transform:translateY(-4px);box-shadow:0 11px 0 #b5a5d9}
-.guide-button svg{width:18px;height:18px}
-.guide-art{
-  min-height:220px;position:relative;display:grid;place-items:center;
-}
-.guide-book{
-  width:190px;height:220px;position:relative;
-  background:var(--purple);border-radius:12px 20px 20px 12px;
-  box-shadow:15px 15px 0 #b7a3e8,0 25px 45px #4e2bb52b;
-  transform:rotate(7deg);padding:25px;color:white;
-}
-.guide-book:before{
-  content:"";position:absolute;right:17px;top:0;bottom:0;
-  width:2px;background:#ffffff35;
-}
-.guide-book small{font-size:9px;color:#ded4ff;font-weight:850}
-.guide-book strong{
-  display:block;font-size:25px;font-weight:1000;line-height:1.7;margin-top:25px;
-}
-.guide-book span{
-  display:block;width:60px;height:5px;border-radius:5px;
-  background:var(--lemon);margin-top:13px;
-}
-.guide-book i{
-  position:absolute;bottom:20px;left:20px;
-  font-style:normal;font-size:9px;font-weight:900;color:#e1d7ff;
-}
-.guide-spark{
-  position:absolute;top:10px;right:12%;font-size:38px;
-  color:var(--orange);animation:starWiggle 5s infinite;
-}
-
-/* FOOTER */
-.footer{
-  border-top:1px solid var(--line);padding:28px 0 15px;
-}
-.footer-inner{
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-}
+/* FOOTER — slim */
+.footer{border-top:1px solid var(--line);padding:22px 0 12px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .footer-brand{display:flex;align-items:center;gap:10px}
 .footer-mark{
-  width:34px;height:34px;background:var(--ink);color:var(--lemon);
+  width:34px;height:34px;padding:3px;background:var(--ink);color:var(--lemon);
   display:grid;place-items:center;border-radius:11px 11px 11px 3px;
 }
-.footer-mark svg{width:19px;height:19px}
+.footer-mark img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
 .footer-brand strong{font-size:13px;font-weight:1000}
 .footer-brand small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
 .footer-copy{font-size:9px;color:#938d96;font-weight:700}
@@ -448,8 +300,7 @@ svg{display:block}
   padding:8px;background:#191621;color:white;
   border-radius:22px 22px 22px 7px;
   box-shadow:0 14px 45px #17121e38;
-  grid-template-columns:1fr 1fr 1.3fr;
-  gap:7px;
+  grid-template-columns:1fr 1fr 1fr;gap:7px;
 }
 .dock-item{
   display:flex;flex-direction:column;align-items:center;
@@ -459,25 +310,7 @@ svg{display:block}
 }
 .dock-item svg{width:20px;height:20px}
 .dock-item.active{background:#ffffff16;color:var(--lemon)}
-.dock-guide{
-  background:var(--lemon);color:var(--ink);
-  border-radius:15px 15px 15px 5px;
-}
-.dock-guide svg{color:var(--purple)}
-.dock-guide:active{transform:scale(.96)}
-
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(25px);transition:.8s cubic-bezier(.2,.7,.2,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
-.toast{
-  position:fixed;z-index:100;bottom:100px;left:50%;
-  transform:translate(-50%,15px);opacity:0;pointer-events:none;
-  background:var(--ink);color:white;padding:12px 18px;
-  border-radius:12px;font-size:11px;font-weight:800;
-  box-shadow:var(--shadow);transition:.25s;
-  width:max-content;max-width:calc(100% - 30px);text-align:center;
-}
-.toast.show{opacity:1;transform:translate(-50%,0)}
+.dock-item:active{transform:scale(.96)}
 
 /* RESPONSIVE */
 @media(min-width:900px){
@@ -486,12 +319,11 @@ svg{display:block}
 @media(max-width:899px){
   .wrap{width:min(calc(100% - 38px),680px)}
   .header-menu{display:none}
-  .hero{grid-template-columns:1fr;gap:20px;padding:45px 0 50px}
+  .hero{grid-template-columns:1fr;gap:14px;padding:26px 0 34px}
   .hero-copy{max-width:650px}
-  .hero-art{min-height:450px}
-  .social-grid{gap:12px}
-  .social-card{padding:18px}
-  .guide-card{grid-template-columns:1fr .7fr;padding:27px}
+  .hero-art{min-height:340px}
+  .services-grid{gap:12px}
+  .service-card{padding:19px;min-height:220px}
 }
 @media(max-width:600px){
   body{padding-bottom:100px}
@@ -500,54 +332,39 @@ svg{display:block}
   .brand-mark{width:41px;height:41px}
   .brand-name{font-size:21px}
   .header-cta{font-size:10px;padding:10px 13px}
-  .hero{padding:39px 0 42px;gap:10px}
-  .hero h1{font-size:clamp(43px,11.5vw,60px);letter-spacing:-2px;line-height:1.48}
-  .hero-description{font-size:12px;line-height:2.3}
+  .hero{padding:20px 0 28px;gap:8px}
+  .hero h1{font-size:clamp(32px,9.4vw,44px);letter-spacing:-1.6px;line-height:1.45}
+  .hero-description{font-size:12px;line-height:2.2}
+  .steps{gap:6px}
+  .step{font-size:9.5px;padding:6px 10px}
   .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-  .btn-main,.btn-guide{padding:0 11px;gap:8px;font-size:10px;min-height:54px}
+  .btn-main,.btn-guide{padding:0 11px;gap:8px;font-size:10px;min-height:52px}
   .hero-note{font-size:9px}
-  .hero-art{min-height:390px;margin-top:5px}
-  .art-backdrop{width:310px;height:310px}
-  .art-ring{width:350px;height:350px}
-  .phone-card{width:255px;min-height:340px;padding:19px}
-  .phone-illustration{height:130px}
-  .phone-copy h2{font-size:20px}
-  .sticker-price{width:87px;height:87px;top:37px;right:0}
-  .sticker-price strong{font-size:19px}
-  .sticker-star{width:62px;height:62px;left:2px;bottom:45px}
-  .ticker{margin:10px 0 65px;padding:13px 0}
-  .ticker-item{font-size:10px;gap:10px}
-  .membership,.guide-section{padding-bottom:65px}
-  .section-heading h2{font-size:29px}
-  .social-grid{grid-template-columns:1fr;gap:12px}
-  .social-card{min-height:205px;padding:19px}
-  .social-card h3{font-size:21px;margin-top:15px}
-  .social-card p{max-width:270px}
-  .social-link{margin-top:12px}
-  .rule-card{grid-template-columns:auto 1fr;gap:13px;padding:18px}
-  .rule-icon{width:45px;height:45px}
-  .rule-copy strong{font-size:12px}
-  .rule-copy p{font-size:10px}
-  .rule-tag{grid-column:1/-1;justify-self:start;margin-right:58px}
-  .guide-card{grid-template-columns:1fr;padding:24px 20px;gap:5px}
-  .guide-copy h2{font-size:30px}
-  .guide-copy p{font-size:11px}
-  .guide-art{min-height:225px}
-  .guide-book{width:165px;height:195px}
-  .guide-book strong{font-size:22px;margin-top:19px}
-  .footer-inner{align-items:flex-start;flex-direction:column}
+  .hero-art{min-height:315px;margin-top:4px}
+  .art-backdrop{width:265px;height:265px}
+  .art-ring{width:305px;height:305px}
+  .chat-card{width:250px;padding:17px}
+  .sticker-msg{width:82px;height:82px;top:16px;right:0}
+  .sticker-msg strong{font-size:15px}
+  .sticker-star{width:56px;height:56px;left:2px;bottom:36px}
+  .services{padding-bottom:34px}
+  .services-heading h2{font-size:22px}
+  .services-grid{grid-template-columns:1fr;gap:12px}
+  .service-card{min-height:172px;padding:19px}
+  .service-card h3{font-size:20px;margin-top:14px}
+  .service-card p{max-width:280px}
+  .soon{margin-top:12px}
+  .footer-inner{align-items:flex-start;flex-direction:column;gap:10px}
   .mobile-dock{display:grid}
 }
 @media(max-width:360px){
-  .hero h1{font-size:40px}
+  .hero h1{font-size:30px}
   .hero-actions{grid-template-columns:1fr}
-  .phone-card{width:235px}
-  .rule-card{grid-template-columns:1fr}
-  .rule-tag{margin-right:0}
+  .chat-card{width:232px}
+  .step-arrow{display:none}
 }
 @media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
-  .reveal{opacity:1;transform:none}
+  *,*:before,*:after{transition:none!important;scroll-behavior:auto!important}
 }
 </style>
 </head>
@@ -561,27 +378,26 @@ svg{display:block}
 </div>
 
 <header class="header wrap">
-  <a href="index.html" class="brand" aria-label="نتینو">
+  <a href="index.html" class="brand" aria-label="راضی">
     <div class="brand-mark">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/>
-        <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/>
-      </svg>
+      <img src="icon.png" alt="نشان برند راضی"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="brand-fallback">ر</span>
     </div>
     <div>
-      <div class="brand-name">نتینو</div>
-      <div class="brand-caption">اینترنت اقتصادی، تجربه متفاوت</div>
+      <div class="brand-name">راضی</div>
+      <div class="brand-caption">خدمات امور مشترکین راضی · خدمات آنلاین</div>
     </div>
   </a>
 
   <nav class="header-menu">
-    <a href="#home">خانه</a>
-    <a href="#membership">عضویت در کانال‌ها</a>
-    <a href="#guide">راهنمای استفاده</a>
+    <a href="index.html" class="current">خانه</a>
+    <a href="guide.html">راهنما</a>
+    <a href="plans.html">طرح‌ها</a>
   </nav>
 
-  <a href="#membership" class="header-cta">
-    عضویت و دریافت بسته
+  <a href="guide.html" class="header-cta">
+    راهنمای استفاده
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M5 12h14M13 6l6 6-6 6"/>
     </svg>
@@ -595,35 +411,43 @@ svg{display:block}
   <div class="hero-copy">
     <div class="hero-label">
       <span class="live-dot"></span>
-      راه تازه‌ای برای خرید اینترنت
+      خدمات آنلاین امور مشترکین
     </div>
 
     <h1>
-      <span class="dark-line">اینترنت بیشتر،</span>
-      <span class="dark-line">هزینه کمتر؛</span>
-      <span class="color-line">انتخاب با تو!</span>
+      <span class="dark-line">کافینت را فراموش کن؛</span>
+      <span class="color-line">فقط چت کن!</span>
     </h1>
 
     <p class="hero-description">
-      به جمع کاربران <strong>نتینو</strong> بپیوند،
-      با خدمات و پیشنهادهای ویژه ما آشنا شو و از بسته‌های اینترنتی
-      با قیمت اقتصادی استفاده کن.
-      اینجا برای خرید به‌صرفه، اول با ما همراه می‌شوی!
+      کلیه خدمات امور مشترکین را آنلاین تجربه کن؛
+      از <strong>ابلاغیه قضایی</strong> و <strong>خلافی خودرو</strong>
+      تا <strong>ثبت‌نام کالابرگ</strong> و <strong>پرداخت قبوض</strong>.
     </p>
 
+    <div class="steps" aria-label="مراحل انجام خدمات">
+      <span class="step"><b>۱</b> در چت بگو</span>
+      <span class="step-arrow">←</span>
+      <span class="step"><b>۲</b> ما انجام می‌دهیم</span>
+      <span class="step-arrow">←</span>
+      <span class="step"><b>۳</b> رسید PDF یا تصویر</span>
+    </div>
+
     <div class="hero-actions">
-      <a href="#membership" class="btn-main">
-        <span>عضویت و مشاهده بسته‌ها</span>
+      <a href="guide.html" class="btn-main">
+        <span>شروع کن؛ راهنمای خدمات</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M5 12h14M13 6l6 6-6 6"/>
         </svg>
       </a>
-      <a href="guide.html" class="btn-guide">
+      <a href="#services" class="btn-guide">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22.5z"/>
-          <path d="M4 5.5v17M8 8h8M8 12h7"/>
+          <rect x="4" y="4" width="7" height="7" rx="2"/>
+          <rect x="13" y="4" width="7" height="7" rx="2"/>
+          <rect x="4" y="13" width="7" height="7" rx="2"/>
+          <rect x="13" y="13" width="7" height="7" rx="2"/>
         </svg>
-        راهنمای استفاده
+        مشاهده خدمات
       </a>
     </div>
 
@@ -632,190 +456,119 @@ svg{display:block}
         <path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/>
         <path d="m8.5 12 2.2 2.2 4.8-5"/>
       </svg>
-      <span>عضویت در کانال‌ها، شرط دسترسی به بسته‌های ویژه است.</span>
+      <span>اصلاً سخت نیست؛ بسیار آسان، بدون مراجعهٔ حضوری.</span>
     </div>
   </div>
 
-  <div class="hero-art" aria-label="تصویر گرافیکی خدمات اینترنت">
+  <div class="hero-art" aria-label="نمونه گفتگوی خدمات راضی">
     <div class="art-backdrop"></div>
     <div class="art-ring"></div>
 
-    <div class="phone-card">
-      <div class="phone-top">
-        <span class="phone-brand">NETINO / 01</span>
-        <span class="phone-status">پیشنهادهای ویژه</span>
+    <div class="chat-card">
+      <div class="chat-top">
+        <span class="chat-brand">RAZI / CHAT</span>
+        <span class="chat-status">آنلاین</span>
       </div>
 
-      <div class="phone-illustration">
-        <svg class="wifi-symbol" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round">
-          <path d="M12 35a58 58 0 0 1 76 0"/>
-          <path d="M25 51a39 39 0 0 1 50 0"/>
-          <path d="M38 67a20 20 0 0 1 24 0"/>
-          <circle cx="50" cy="81" r="4" fill="currentColor" stroke="none"/>
-        </svg>
+      <div class="chat-bubbles">
+        <div class="bubble user">سلام؛ خلافی خودرو می‌خواستم.</div>
+        <div class="bubble raz">
+          انجام شد ✓ رسیدت ارسال شد:
+          <div class="file-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+              <path d="M14 3v5h5"/>
+            </svg>
+            <div>
+              <strong>رسید-خلافی.pdf</strong>
+              <small>PDF · کیفیت بالا</small>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="phone-copy">
-        <small>تجربه خرید متفاوت</small>
-        <h2>بسته‌های اقتصادی<br>برای همراهی بیشتر</h2>
-        <p>اول عضو شو، بعد پیشنهادهای ویژه را ببین.</p>
-      </div>
-
-      <div class="phone-bottom">
-        <span>NETINO MEMBERSHIP</span>
-        <b>JOIN / SAVE</b>
+      <div class="chat-bottom">
+        <span>پاسخ سریع، نتیجهٔ رسمی</span>
+        <b>RAZI / ONLINE</b>
       </div>
     </div>
 
-    <div class="float-sticker sticker-price">
+    <div class="float-sticker sticker-msg">
       <div>
-        <small>بسته‌های</small>
-        <strong>ارزان‌تر</strong>
-        <span>ویژه اعضا</span>
+        <small>فقط</small>
+        <strong>یک پیام</strong>
+        <span>کافی است</span>
       </div>
     </div>
 
     <div class="float-sticker sticker-star">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m5 12 4.5 4.5L19 7"/>
       </svg>
     </div>
 
-    <div class="art-caption">SMART INTERNET / BETTER VALUE</div>
+    <div class="art-caption">RAZI / SUBSCRIBER SERVICES</div>
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="ticker" aria-label="مزایای عضویت">
-  <div class="ticker-track">
-    <div class="ticker-item"><i></i> عضویت در کانال‌های ما</div>
-    <div class="ticker-item"><i></i> آشنایی با خدمات و پیشنهادها</div>
-    <div class="ticker-item"><i></i> دسترسی به بسته‌های اقتصادی</div>
-    <div class="ticker-item"><i></i> خرید آگاهانه و به‌صرفه</div>
-    <div class="ticker-item"><i></i> همراهی با نتینو</div>
-    <div class="ticker-item"><i></i> عضویت در کانال‌های ما</div>
-    <div class="ticker-item"><i></i> آشنایی با خدمات و پیشنهادها</div>
-    <div class="ticker-item"><i></i> دسترسی به بسته‌های اقتصادی</div>
-    <div class="ticker-item"><i></i> خرید آگاهانه و به‌صرفه</div>
-  </div>
-</div>
-
-<!-- MEMBERSHIP -->
-<section class="membership wrap" id="membership">
-  <div class="section-heading reveal">
-    <div class="section-label">YOUR COMMUNITY / 01</div>
-    <h2>اول همراه ما شو؛<br>بعد هوشمندانه‌تر خرید کن.</h2>
-    <p>یکی از کانال‌های رسمی ما را دنبال کن تا با خدمات و پیشنهادهای ویژه آشنا شوی.</p>
+<!-- SERVICES -->
+<section class="services wrap" id="services">
+  <div class="services-heading">
+    <div>
+      <div class="section-label">RAZI / SERVICES</div>
+      <h2>سه مسیر، بدون یک قدم رفتن.</h2>
+    </div>
+    <span class="services-count">01 — 03</span>
   </div>
 
-  <div class="social-grid">
+  <div class="services-grid">
 
-    <article class="social-card instagram reveal">
-      <div class="social-card-top">
-        <div class="social-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/>
-          </svg>
-        </div>
-        <span class="social-number">SOCIAL / 01</span>
-      </div>
-      <h3>اینستاگرام</h3>
-      <p>ما را در اینستاگرام دنبال کن و از تازه‌ترین خبرها و پیشنهادها باخبر شو.</p>
-      <a href="#" class="social-link" data-social="instagram">
-        ورود به صفحه اینستاگرام
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </a>
-    </article>
-
-    <article class="social-card rubika reveal">
-      <div class="social-card-top">
-        <div class="social-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m4 7 8-4 8 4v10l-8 4-8-4z"/>
-            <path d="m4 7 8 4 8-4M12 11v10"/>
-          </svg>
-        </div>
-        <span class="social-number">SOCIAL / 02</span>
-      </div>
-      <h3>روبیکا</h3>
-      <p>در کانال روبیکای ما عضو شو و اطلاعیه‌ها و پیشنهادهای ویژه را دنبال کن.</p>
-      <a href="#" class="social-link" data-social="rubika">
-        عضویت در کانال روبیکا
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </a>
-    </article>
-
-    <article class="social-card eitaa reveal">
-      <div class="social-card-top">
-        <div class="social-icon">
+    <article class="service-card online">
+      <div class="service-card-top">
+        <div class="service-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 11.5a8 8 0 0 1-8 8H5l-1 2v-5.2A8 8 0 1 1 20 11.5z"/>
-            <path d="M8 12h8M12 8v8"/>
+            <path d="M8 10h8M8 13.5h5"/>
           </svg>
         </div>
-        <span class="social-number">SOCIAL / 03</span>
+        <span class="service-number">SERVICE / 01</span>
       </div>
-      <h3>ایتا</h3>
-      <p>کانال ایتای نتینو را هم می‌توانی برای دریافت خبرها و اطلاعیه‌ها دنبال کنی.</p>
-      <a href="#" class="social-link" data-social="eitaa">
-        عضویت در کانال ایتا
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </a>
+      <h3>استفاده از خدمات آنلاین</h3>
+      <p>از ابلاغیه و خلافی تا کالابرگ و قبوض؛ فقط در چت بگو.</p>
+      <span class="soon">به‌زودی</span>
     </article>
 
-  </div>
-
-  <div class="rule-card reveal">
-    <div class="rule-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/>
-        <path d="m8.5 12 2.2 2.2 4.8-5"/>
-      </svg>
-    </div>
-    <div class="rule-copy">
-      <strong>عضویت و آشنایی با خدمات، شرط استفاده از بسته‌های ارزان است.</strong>
-      <p>پس از عضویت در یکی از کانال‌های رسمی، مراحل راهنما را دنبال کن تا با شرایط دسترسی و خرید بسته‌ها آشنا شوی.</p>
-    </div>
-    <div class="rule-tag">ویژه اعضا</div>
-  </div>
-</section>
-
-<!-- GUIDE -->
-<section class="guide-section wrap" id="guide">
-  <div class="guide-card reveal">
-    <div class="guide-copy">
-      <div class="section-label">START HERE / 02</div>
-      <h2>قبل از خرید،<br>راهنما را ببین.</h2>
-      <p>
-        نمی‌دانی بعد از عضویت چه کاری باید انجام بدهی؟
-        در صفحه راهنما، مراحل آشنایی با خدمات، شرایط استفاده از بسته‌ها
-        و نحوه ادامه مسیر را قدم‌به‌قدم دنبال کن.
-      </p>
-      <a href="guide.html" class="guide-button">
-        مشاهده راهنمای کامل
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </a>
-    </div>
-
-    <div class="guide-art">
-      <span class="guide-spark">✳</span>
-      <div class="guide-book">
-        <small>NETINO / GUIDE</small>
-        <strong>راهنمای<br>شروع کار</strong>
-        <span></span>
-        <i>STEP BY STEP</i>
+    <article class="service-card internet">
+      <div class="service-card-top">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/>
+            <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <span class="service-number">SERVICE / 02</span>
       </div>
-    </div>
+      <h3>خرید بسته اینترنت ارزان</h3>
+      <p>بسته‌های اقتصادی ویژهٔ اعضا، با قیمت به‌صرفه.</p>
+      <span class="soon">به‌زودی</span>
+    </article>
+
+    <article class="service-card sim">
+      <div class="service-card-top">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+            <rect x="8.5" y="12" width="7" height="6" rx="1.5"/>
+            <path d="M12 12v6M8.5 15h7"/>
+          </svg>
+        </div>
+        <span class="service-number">SERVICE / 03</span>
+      </div>
+      <h3>درخواست سیم‌کارت رایگان</h3>
+      <p>سیم‌کارت رایگان را بدون مراجعهٔ حضوری درخواست بده.</p>
+      <span class="soon">به‌زودی</span>
+    </article>
+
   </div>
 </section>
 
@@ -825,134 +578,53 @@ svg{display:block}
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="footer-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-          <path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/>
-          <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/>
-        </svg>
+        <img src="icon.png" alt=""
+             onerror="this.style.display='none'">
       </div>
       <div>
-        <strong>نتینو</strong>
-        <small>اینترنت اقتصادی، تجربه متفاوت</small>
+        <strong>راضی</strong>
+        <small>خدمات امور مشترکین، آنلاین</small>
       </div>
     </div>
-    <div class="footer-copy">برای همراهی بهتر، کنار هم هستیم.</div>
+    <div class="footer-copy">همراه آنلاین امور مشترکین شما.</div>
   </div>
 </footer>
 
 <!-- MOBILE DOCK -->
 <nav class="mobile-dock" aria-label="ناوبری پایین">
-  <a href="#home" class="dock-item active">
+  <a href="index.html" class="dock-item active" aria-current="page">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <path d="m3 10 9-7 9 7M5 9v11h14V9M9 20v-7h6v7"/>
     </svg>
     خانه
   </a>
-  <a href="#membership" class="dock-item">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M16 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-      <circle cx="10" cy="7" r="4"/>
-      <path d="M20 8v6m-3-3h6"/>
-    </svg>
-    عضویت
-  </a>
-  <a href="guide.html" class="dock-item dock-guide">
+  <a href="guide.html" class="dock-item">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22.5z"/>
       <path d="M4 5.5v17M8 8h8M8 12h7"/>
     </svg>
-    راهنمای استفاده
+    راهنما
+  </a>
+  <a href="plans.html" class="dock-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/>
+      <path d="m3 8 9 5 9-5M12 13v8"/>
+    </svg>
+    طرح‌ها
   </a>
 </nav>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 (() => {
   "use strict";
-
-  /* آدرس کانال‌ها را اینجا وارد کن */
-  const SOCIAL_LINKS = {
-    instagram: "",
-    rubika: "",
-    eitaa: ""
-  };
-
-  const toast = document.getElementById("toast");
-  let toastTimer;
-
-  function notify(message){
-    toast.textContent = message;
-    toast.classList.add("show");
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove("show"),2600);
-  }
-
-  /* لینک شبکه‌های اجتماعی */
-  document.querySelectorAll("[data-social]").forEach(link => {
-    const key = link.dataset.social;
-    const url = SOCIAL_LINKS[key];
-
-    if(url && url.trim()){
-      link.href = url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-    }else{
-      link.href = "#";
-      link.addEventListener("click",event => {
-        event.preventDefault();
-        notify("آدرس این کانال هنوز در تنظیمات سایت ثبت نشده است.");
-      });
-    }
-  });
-
-  /* ورود تدریجی عناصر */
-  const revealItems = document.querySelectorAll(".reveal");
-
-  if("IntersectionObserver" in window){
-    const observer = new IntersectionObserver((entries,obs) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add("visible");
-          obs.unobserve(entry.target);
-        }
-      });
-    },{threshold:.12,rootMargin:"0px 0px -25px 0px"});
-
-    revealItems.forEach(item => observer.observe(item));
-  }else{
-    revealItems.forEach(item => item.classList.add("visible"));
-  }
-
-  /* وضعیت انتخاب‌شده در ناوبری موبایل */
   document.querySelectorAll(".dock-item").forEach(item => {
     item.addEventListener("click",() => {
       document.querySelectorAll(".dock-item").forEach(el => el.classList.remove("active"));
       item.classList.add("active");
     });
   });
-
-  /* حرکت ملایم کارت اصلی با ماوس، فقط در دسکتاپ */
-  const art = document.querySelector(".hero-art");
-  const phone = document.querySelector(".phone-card");
-  const finePointer = matchMedia("(hover:hover) and (pointer:fine)").matches;
-  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if(art && phone && finePointer && !reduceMotion){
-    art.addEventListener("pointermove",event => {
-      const rect = art.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - .5;
-      const y = (event.clientY - rect.top) / rect.height - .5;
-      phone.style.transform =
-        `rotate(-5deg) perspective(900px) rotateY(${x*7}deg) rotateX(${y*-6}deg)`;
-    });
-
-    art.addEventListener("pointerleave",() => {
-      phone.style.transform = "rotate(-5deg)";
-    });
-  }
-
 })();
 </script>
 
 </body>
-      </html>
+</html>
