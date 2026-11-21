@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f8f5ef">
+<meta name="description" content="دریافت سیم‌کارت رایگان ایرانسل از سراسر ایران به صورت آنلاین؛ فقط با پرداخت هزینه اندک خدمات و ارسال.">
+<title>راضی | دریافت سیم‌کارت رایگان ایرانسل</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#f8f5ef;--white:#fffefa;--ink:#17151e;--ink-2:#241f31;--muted:#6d6774;
+  --purple:#7046e8;--purple-dark:#4e2bb5;--orange:#ff7048;--lemon:#e9fa76;
+  --pink:#ffb8d4;--irancell:#ffd400;--line:#e6dfd4;--green:#2f8f43;--green-soft:#e6f5e4;
+  --red:#d13c3c;--red-soft:#fdecec;--shadow:0 18px 55px rgba(35,25,50,.09);
+  --shadow-strong:0 28px 70px rgba(35,25,50,.16);--max:1180px;--head-h:86px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#c4b4e6 var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif;font-size:17px;line-height:1.9;overflow-x:hidden;padding-bottom:40px}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}svg{display:block}
+::selection{background:var(--lemon);color:var(--ink)}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--purple);outline-offset:3px}
+.wrap{width:min(calc(100% - 42px),var(--max));margin:auto}
+
+/* BACKGROUND */
+.background{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
+.background:before{content:"";position:absolute;inset:0;opacity:.2;background-image:radial-gradient(#8b7b9b 1px,transparent 1px);background-size:25px 25px;mask-image:linear-gradient(to bottom,#000,transparent 75%)}
+.bg-shape{position:absolute;border-radius:50%;filter:blur(2px)}
+.bg-shape.one{width:300px;height:300px;background:#ffb8d4;top:8%;right:-230px;opacity:.42}
+.bg-shape.two{width:350px;height:350px;background:#d8c8ff;top:55%;left:-270px;opacity:.48}
+.bg-shape.three{width:180px;height:180px;background:#fff0a2;top:35%;right:65%;opacity:.32}
+
+/* HEADER */
+.header{height:var(--head-h);display:flex;align-items:center;justify-content:space-between;position:relative;z-index:10;gap:14px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand-mark{width:47px;height:47px;padding:4px;background:var(--ink);color:var(--lemon);border-radius:15px 15px 15px 4px;display:grid;place-items:center;transform:rotate(-5deg);box-shadow:0 9px 20px #17151e25;flex-shrink:0}
+.brand-mark img{width:100%;height:100%;object-fit:cover;border-radius:11px;display:block}
+.brand-fallback{display:none;font-size:21px;font-weight:1000;line-height:1}
+.brand-name{font-size:23px;font-weight:1000;letter-spacing:-1px}
+.brand-caption{font-size:9px;color:var(--muted);font-weight:750;margin-top:2px}
+.header-menu{display:flex;align-items:center;gap:28px}
+.header-menu a{font-size:12px;font-weight:850;color:#625d68;transition:.2s}
+.header-menu a:hover,.header-menu a.current{color:var(--purple)}
+.header-cta{display:flex;align-items:center;gap:10px;padding:11px 17px;background:var(--lemon);border-radius:50px;font-size:11px;font-weight:950;box-shadow:0 5px 0 #d2df65;transition:.2s;white-space:nowrap}
+.header-cta:hover{transform:translateY(-3px);box-shadow:0 8px 0 #d2df65}
+.header-cta svg{width:16px;height:16px}
+
+/* HERO */
+.service{padding:34px 0 46px;scroll-margin-top:calc(var(--head-h) + 18px)}
+.svc-hero{display:grid;grid-template-columns:1.04fr .96fr;align-items:center;gap:40px;padding:14px 0 36px}
+.svc-copy{position:relative;z-index:2}
+.svc-label{display:inline-flex;align-items:center;gap:9px;padding:8px 13px;background:#fff;border:1px solid var(--line);border-radius:50px;color:var(--purple);font-size:11px;font-weight:900;box-shadow:0 5px 18px #30204b09}
+.svc-label .dot{width:8px;height:8px;border-radius:50%;background:var(--irancell);box-shadow:0 0 0 4px #ffd40040}
+.svc-hero h1{margin-top:18px;font-size:clamp(34px,4.8vw,56px);line-height:1.42;font-weight:1000;letter-spacing:-2.2px}
+.svc-hero h1 .dark-line{display:block}
+.svc-hero h1 .color-line{display:inline-block;color:var(--purple);position:relative;z-index:1}
+.svc-hero h1 .color-line:after{content:"";position:absolute;right:0;bottom:5px;width:100%;height:13px;background:var(--lemon);z-index:-1;transform:rotate(-2deg)}
+.svc-desc{max-width:520px;margin-top:14px;color:#716c77;font-size:15px;line-height:2.25;font-weight:750}
+.svc-desc strong{color:var(--ink);font-weight:950}
+.svc-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.svc-chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:#fff;border:1px solid var(--line);border-radius:50px;font-size:14px;font-weight:900;color:#4f4957;box-shadow:0 4px 14px #30204b08}
+.svc-chip svg{width:17px;height:17px;color:var(--purple)}
+
+/* HERO ART */
+.svc-art{min-height:360px;position:relative;display:grid;place-items:center}
+.art-backdrop{position:absolute;width:300px;height:300px;max-width:90%;border-radius:46% 54% 58% 42%/43% 42% 58% 57%;background:var(--ink);transform:rotate(-12deg)}
+.art-ring{position:absolute;width:350px;height:350px;max-width:100%;border:1px dashed #d9ae00;border-radius:50%}
+.art-ring:before,.art-ring:after{content:"";position:absolute;width:14px;height:14px;border:4px solid var(--paper);border-radius:50%}
+.art-ring:before{top:42px;right:46px;background:var(--ink)}
+.art-ring:after{bottom:46px;left:38px;background:var(--irancell)}
+.hero-object{position:relative;z-index:2;width:280px;padding:20px;background:linear-gradient(135deg,#ffe873 0%,#ffd400 45%,#f2b705 100%);color:var(--ink);border:1px solid #d9a900;border-radius:30px 30px 30px 8px;box-shadow:0 30px 65px #6b560033;transform:rotate(-4deg);transition:transform .5s}
+.svc-art:hover .hero-object{transform:rotate(0deg) translateY(-6px)}
+.obj-top{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:950;color:#6b5600;direction:ltr}
+.obj-chip{width:38px;height:28px;border-radius:7px;background:linear-gradient(135deg,#2b2440,#17151e);position:relative;overflow:hidden}
+.obj-chip:before{content:"";position:absolute;inset:6px 5px;border:1px solid #ffd40066;border-radius:3px}
+.obj-name{margin-top:14px;font-size:28px;font-weight:1000;color:var(--ink);line-height:1.4}
+.obj-sub{font-size:13px;color:#4a3d00;font-weight:800;margin-top:5px;line-height:1.9}
+.obj-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:12px;border-top:1px solid #17151e26;font-size:12px;color:#4a3d00;font-weight:850}
+.obj-bottom b{color:var(--ink);font-size:12px;direction:ltr}
+.float-sticker{position:absolute;z-index:4;display:grid;place-items:center;box-shadow:var(--shadow)}
+.sticker-round{top:20px;right:-4px;width:96px;height:96px;background:var(--ink);color:var(--lemon);border-radius:50%;transform:rotate(10deg);text-align:center}
+.sticker-round small{font-size:10px;font-weight:850}
+.sticker-round strong{display:block;font-size:16px;font-weight:1000;line-height:1.4}
+.sticker-round span{font-size:9px;font-weight:800}
+.sticker-star{left:0;bottom:42px;width:64px;height:64px;background:var(--pink);color:#4e2340;clip-path:polygon(50% 0%,62% 28%,91% 10%,80% 41%,100% 58%,67% 65%,75% 100%,48% 77%,22% 100%,30% 66%,0 53%,29% 38%,17% 10%,43% 28%)}
+.sticker-star svg{width:26px;height:26px}
+.art-caption{position:absolute;bottom:0;right:50%;transform:translateX(50%);color:#8b8291;font-size:9px;letter-spacing:2px;font-weight:900;white-space:nowrap;direction:ltr}
+
+/* FORM CARD */
+.form-card{background:var(--white);border:2px solid var(--line);border-radius:32px 32px 32px 9px;box-shadow:var(--shadow-strong);padding:30px;position:relative;margin-top:20px}
+.form-head{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+.form-title{display:flex;align-items:center;gap:14px}
+.ft-icon{width:54px;height:54px;border-radius:17px 17px 17px 5px;display:grid;place-items:center;flex-shrink:0;background:var(--irancell);color:var(--ink)}
+.ft-icon svg{width:28px;height:28px}
+.form-title h2{font-size:24px;font-weight:1000;line-height:1.55}
+.form-title p{font-size:14px;color:var(--muted);font-weight:800;margin-top:2px}
+.progress{min-width:200px;flex:0 1 250px}
+.progress-top{display:flex;justify-content:space-between;font-size:13px;font-weight:900;color:var(--muted);margin-bottom:7px}
+.progress-top b{color:var(--purple-dark);font-size:14px}
+.progress-track{height:10px;border-radius:8px;background:#eee8dd;overflow:hidden}
+.progress-bar{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--lemon),var(--purple));transition:width .45s cubic-bezier(.2,.7,.2,1)}
+.draft-status{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:850;color:var(--muted);margin-bottom:22px;opacity:.75}
+.draft-status svg{width:15px;height:15px;color:var(--green)}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{display:flex;flex-direction:column;gap:9px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-size:15px;font-weight:950;color:#3f3947;display:flex;align-items:center;gap:8px;line-height:1.7}
+.field label .req{color:var(--orange);font-weight:1000;font-size:17px}
+.field label svg{width:18px;height:18px;color:var(--purple);flex-shrink:0}
+.input-wrap{position:relative}
+.field input,.field textarea{width:100%;min-height:56px;padding:0 16px;background:var(--paper);border:2px solid var(--line);border-radius:16px 16px 16px 5px;font:inherit;font-size:16px;font-weight:750;color:var(--ink);outline:none;transition:.2s}
+.field textarea{padding:14px 16px;min-height:100px;resize:vertical;line-height:2}
+.field input:focus,.field textarea:focus{border-color:var(--purple);background:#fff;box-shadow:0 0 0 5px #7046e814}
+.field input.num{direction:ltr;text-align:right;font-variant-numeric:tabular-nums;letter-spacing:1.5px}
+.field input::placeholder,.field textarea::placeholder{color:#a49b93;font-weight:650}
+.ok-mark{position:absolute;left:16px;top:50%;transform:translateY(-50%) scale(.5);width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;opacity:0;transition:.2s;pointer-events:none}
+.ok-mark svg{width:14px;height:14px}
+.field.valid .ok-mark{opacity:1;transform:translateY(-50%) scale(1)}
+.field.valid input{border-color:#bcd9b6;background:#fbfdf8;padding-left:46px}
+.field-error{display:none;font-size:13px;font-weight:900;color:var(--red);align-items:center;gap:7px}
+.field-error:before{content:"!";width:18px;height:18px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:1000;flex-shrink:0}
+.field.invalid input,.field.invalid textarea{border-color:var(--red);background:var(--red-soft)}
+.field.invalid .field-error{display:flex}
+.field.invalid .dd-btn{border-color:var(--red);background:var(--red-soft)}
+.field.invalid .choice{border-color:#eebcbc}
+.counter{font-size:12px;font-weight:850;color:var(--muted);direction:ltr;text-align:left}
+
+.block{margin-top:28px}
+.block-title{display:flex;align-items:center;gap:11px;font-size:18px;font-weight:1000;margin-bottom:14px;flex-wrap:wrap}
+.block-title:before{content:"";width:24px;height:4px;border-radius:4px;background:var(--orange)}
+.block-title .req{color:var(--orange)}
+.block-title small{font-size:12px;color:var(--muted);font-weight:900;letter-spacing:1.5px;direction:ltr}
+
+/* CHOICES */
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.choice{display:flex;align-items:center;gap:13px;padding:16px;background:#fff;border:2px solid var(--line);border-radius:18px 18px 18px 6px;text-align:right;transition:.2s;color:var(--ink)}
+.choice:hover:not(:disabled){border-color:#c4b4e6;transform:translateY(-2px)}
+.choice .c-icon{width:42px;height:42px;border-radius:14px;background:var(--paper);display:grid;place-items:center;flex-shrink:0;color:var(--purple)}
+.choice .c-icon svg{width:22px;height:22px}
+.choice strong{display:block;font-size:16px;font-weight:1000}
+.choice small{display:block;font-size:13px;color:var(--muted);font-weight:800;margin-top:2px}
+.choice .c-check{margin-inline-start:auto;width:24px;height:24px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;color:transparent;transition:.2s;flex-shrink:0}
+.choice .c-check svg{width:14px;height:14px}
+.choice[aria-checked="true"]{border-color:var(--purple);background:#f4f0ff;box-shadow:0 6px 0 rgba(112,70,232,.22)}
+.choice[aria-checked="true"] .c-check{background:var(--purple);border-color:var(--purple);color:#fff}
+
+/* BENEFITS */
+.benefits{background:#efe9fd;border:2px solid #ddd2f7;border-radius:20px 20px 20px 6px;padding:20px}
+.benefits h3{font-size:17px;font-weight:1000;color:var(--purple-dark);margin-bottom:12px}
+.benefit-row{display:flex;align-items:center;gap:12px;padding:10px 0;font-size:15px;font-weight:900;line-height:1.8}
+.benefit-row + .benefit-row{border-top:1px dashed #d5c8f2}
+.b-check{width:26px;height:26px;border-radius:8px;background:var(--lemon);color:var(--ink);display:grid;place-items:center;flex-shrink:0}
+.b-check svg{width:15px;height:15px}
+
+/* SHUTTER DROPDOWN */
+.dd{position:relative}
+.dd-btn{width:100%;min-height:56px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--paper);border:2px solid var(--line);border-radius:16px 16px 16px 5px;font-size:16px;font-weight:800;color:var(--ink);transition:.2s}
+.dd-btn:hover{border-color:#c4b4e6}
+.dd.open .dd-btn{border-color:var(--purple);background:#fff;box-shadow:0 0 0 5px #7046e814}
+.dd-value{color:#a49b93}
+.dd-value.filled{color:var(--ink);font-weight:1000}
+.dd-btn .chev{width:18px;height:18px;color:var(--purple);transition:transform .3s;flex-shrink:0}
+.dd.open .chev{transform:rotate(180deg)}
+.dd-panel{position:absolute;top:calc(100% + 8px);right:0;left:0;z-index:45;display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .38s cubic-bezier(.2,.7,.2,1),opacity .28s,visibility .38s}
+.dd.open .dd-panel{grid-template-rows:1fr;opacity:1;visibility:visible}
+.dd-inner{overflow:hidden}
+.dd-list{list-style:none;background:#fff;border:2px solid var(--purple);border-radius:16px 16px 16px 5px;box-shadow:0 20px 44px rgba(35,25,50,.18);max-height:260px;overflow-y:auto;padding:8px}
+.dd-list li{display:flex;align-items:center;gap:11px;padding:12px;border-radius:12px;font-size:15px;font-weight:900;cursor:pointer;transition:.15s;color:var(--ink)}
+.dd-list li:hover{background:#f4f0ff}
+.dd-list li small{margin-inline-start:auto;font-size:12px;color:var(--muted);font-weight:850}
+.dd-list li .o-check{width:16px;height:16px;color:transparent;margin-inline-start:8px}
+.dd-list li[aria-selected="true"]{background:var(--lemon)}
+.dd-list li[aria-selected="true"] .o-check{color:var(--ink)}
+.dd-num{direction:ltr;font-variant-numeric:tabular-nums;letter-spacing:1.5px}
+
+/* UPLOADS */
+.uploads{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.upload{display:flex;flex-direction:column;gap:10px;min-width:0}
+.upload.wide{grid-column:1/-1}
+.up-label{font-size:15px;font-weight:950;line-height:1.9;color:#3f3947}
+.up-label .req{color:var(--orange)}
+.up-drop{min-height:160px;border:2.5px dashed rgba(112,70,232,.38);border-radius:18px 18px 18px 6px;background:#fff;display:grid;place-items:center;cursor:pointer;transition:.2s;position:relative;overflow:hidden}
+.up-drop:hover,.up-drop.drag{border-color:var(--purple);background:#f7f4ff}
+.upload.invalid .up-drop{border-color:var(--red);background:var(--red-soft)}
+.up-idle{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px;text-align:center}
+.u-icon{width:48px;height:48px;border-radius:14px;background:var(--lemon);color:var(--ink);display:grid;place-items:center}
+.u-icon svg{width:24px;height:24px}
+.up-idle span{font-size:15px;font-weight:1000;color:var(--purple-dark)}
+.up-idle small{font-size:12px;color:var(--muted);font-weight:800}
+.up-loading{display:none;flex-direction:column;align-items:center;gap:12px;padding:20px;width:100%}
+.up-loading .l-row{display:flex;align-items:center;gap:11px;font-size:15px;font-weight:950;color:var(--purple-dark)}
+.up-bar{width:min(100%,240px);height:8px;border-radius:8px;background:#eee8dd;overflow:hidden}
+.up-bar i{display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--lemon),var(--purple))}
+.up-pct{font-size:13px;font-weight:950;color:var(--muted);direction:ltr}
+.up-done{display:none;align-items:center;gap:14px;padding:14px;width:100%}
+.up-img{width:80px;height:80px;object-fit:cover;border-radius:12px;border:1px solid var(--line);flex-shrink:0;background:var(--paper)}
+.up-meta{min-width:0;flex:1}
+.up-name{font-size:13.5px;font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr;text-align:right}
+.up-size{font-size:12px;color:var(--muted);font-weight:850;margin-top:3px}
+.up-ok{display:inline-flex;align-items:center;gap:7px;margin-top:8px;padding:5px 10px;background:var(--green-soft);color:var(--green);border-radius:50px;font-size:12px;font-weight:1000}
+.up-ok svg{width:13px;height:13px}
+.upload[data-state="loading"] .up-idle{display:none}
+.upload[data-state="loading"] .up-loading{display:flex}
+.upload[data-state="done"] .up-idle{display:none}
+.upload[data-state="done"] .up-done{display:flex}
+.upload[data-state="done"] .up-drop{border-style:solid;border-color:#bcd9b6;background:#fbfdf8;cursor:default}
+.up-actions{display:none;gap:10px}
+.upload[data-state="done"] .up-actions{display:flex}
+.up-actions button{flex:1;min-height:42px;border-radius:12px;border:2px solid var(--line);background:#fff;font-size:13px;font-weight:950;color:#4f4957;transition:.2s;display:flex;align-items:center;justify-content:center;gap:7px}
+.up-actions button:hover{border-color:var(--purple);color:var(--purple)}
+.up-actions button.del:hover{border-color:var(--red);color:var(--red)}
+.up-actions svg{width:15px;height:15px}
+.up-error{display:none;font-size:13px;font-weight:900;color:var(--red);align-items:center;gap:7px}
+.up-error:before{content:"!";width:18px;height:18px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:1000;flex-shrink:0}
+.upload.invalid .up-error{display:flex}
+.spin{width:24px;height:24px;border:3px solid #e4ddf5;border-top-color:var(--purple);border-radius:50%;animation:rot .8s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+
+/* PAYMENT */
+.pay-box{background:var(--paper);border:2px dashed rgba(112,70,232,.32);border-radius:22px 22px 22px 7px;padding:22px}
+.pay-title{font-size:17px;font-weight:1000;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.pay-title svg{width:20px;height:20px;color:var(--purple)}
+.cost-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 2px;font-size:15px;font-weight:850;color:#4f4957;border-bottom:1px dashed var(--line)}
+.cost-row b{font-weight:1000;color:var(--ink);white-space:nowrap}
+.cost-total{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:14px;padding:14px 18px;background:var(--lemon);border-radius:16px 16px 16px 5px;font-size:18px;font-weight:1000;box-shadow:0 6px 0 #d2df65}
+.pay-note{font-size:15px;font-weight:850;color:#4f4957;line-height:2;margin-top:14px}
+.bank-card{position:relative;overflow:hidden;margin-top:14px;padding:20px;color:#fff;background:linear-gradient(135deg,#2b2440 0%,#17151e 52%,#33192e 100%);border:1px solid #ffffff1f;border-radius:20px 20px 20px 7px}
+.bank-card:before{content:"";position:absolute;width:200px;height:200px;border-radius:50%;top:-110px;left:-60px;background:radial-gradient(circle,#7046e866,transparent 70%)}
+.bank-top{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between}
+.bank-name{font-size:15px;font-weight:1000;color:#efe9f7}
+.bank-chip{width:38px;height:28px;border-radius:7px;background:linear-gradient(135deg,#e9fa76,#c8d94f);position:relative}
+.bank-chip:before{content:"";position:absolute;inset:6px 5px;border:1px solid #17151e33;border-radius:3px}
+.bank-number{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:16px}
+.bank-digits{font-size:clamp(18px,3vw,24px);font-weight:1000;letter-spacing:2px;direction:ltr;font-variant-numeric:tabular-nums}
+.copy-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:none;background:var(--lemon);color:var(--ink);border-radius:50px;font-size:13px;font-weight:1000;box-shadow:0 4px 0 #d2df65;transition:.2s}
+.copy-btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 #d2df65}
+.copy-btn svg{width:15px;height:15px}
+.copy-btn.copied{background:var(--green-soft);color:var(--green);box-shadow:0 4px 0 #bcd9b6}
+.bank-holder{position:relative;z-index:1;margin-top:12px;font-size:14px;color:#c8c0d2;font-weight:850}
+.bank-holder b{color:#fff}
+.bold-note{margin-top:16px;padding:16px 18px;background:#fff;border:2px solid var(--line);border-inline-start:5px solid var(--orange);border-radius:14px 14px 14px 5px;font-size:15px;font-weight:900;line-height:2;color:var(--ink)}
+.bold-note strong{color:var(--purple-dark);font-weight:1000}
+
+/* LIVE SUMMARY */
+.receipt{margin-top:26px;padding:18px 20px;background:var(--ink);color:#fff;border-radius:22px 22px 22px 7px;position:relative;overflow:hidden}
+.receipt:after{content:"";position:absolute;width:180px;height:180px;border:1px solid #ffffff14;border-radius:50%;left:-60px;top:-110px;box-shadow:0 0 0 26px #ffffff06}
+.receipt-head{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.receipt-head strong{font-size:16px;font-weight:1000}
+.receipt-head span{font-size:12px;color:#a79fb5;font-weight:900;letter-spacing:1.5px;direction:ltr}
+.receipt-row{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0;font-size:14.5px;font-weight:850;color:#c8c1d0;border-bottom:1px dashed #ffffff1f}
+.receipt-row:last-child{border-bottom:none}
+.receipt-row b{color:#fff;font-weight:1000}
+.receipt-row.total b{color:var(--lemon);font-size:17px}
+
+/* ASSURANCE + SUBMIT */
+.assurance{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px;padding:18px 20px;background:var(--ink-2);color:#fff;border-radius:20px 20px 20px 6px;position:relative;overflow:hidden}
+.assurance:after{content:"";position:absolute;width:160px;height:160px;border:1px solid #ffffff1c;border-radius:50%;left:50px;top:-110px;box-shadow:0 0 0 24px #ffffff07}
+.a-icon{width:46px;height:46px;border-radius:14px;background:var(--lemon);color:var(--ink);display:grid;place-items:center;flex-shrink:0;position:relative;z-index:1}
+.a-icon svg{width:22px;height:22px}
+.a-copy{flex:1;min-width:200px;position:relative;z-index:1}
+.a-copy strong{display:block;font-size:16px;font-weight:1000}
+.a-copy p{font-size:13.5px;color:#c8c1d0;line-height:1.9;margin-top:3px;font-weight:800}
+.assurance .btn-lemon{position:relative;z-index:1}
+
+.btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:60px;padding:0 28px;border:none;color:#fff;background:var(--purple);border-radius:16px 16px 16px 5px;font-size:16px;font-weight:1000;box-shadow:0 9px 0 #4c2bb3;transition:.22s}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 13px 0 #4c2bb3}
+.btn-primary:active{transform:translateY(2px);box-shadow:0 4px 0 #4c2bb3}
+.btn-primary svg{width:20px;height:20px}
+.btn-lemon{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;background:var(--lemon);color:var(--ink);border-radius:14px 14px 14px 5px;font-size:14px;font-weight:1000;box-shadow:0 5px 0 #d2df65;transition:.2s;white-space:nowrap;border:none}
+.btn-lemon:hover{transform:translateY(-3px);box-shadow:0 8px 0 #d2df65}
+.btn-lemon svg{width:16px;height:16px}
+.btn-ghost{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 20px;background:#fff;border:2px solid #ddd4e8;border-radius:16px;font-size:14px;font-weight:950;color:var(--ink);transition:.22s}
+.btn-ghost:hover{border-color:var(--purple);color:var(--purple);transform:translateY(-3px)}
+.btn-ghost svg{width:17px;height:17px}
+
+.error-summary{display:none;margin-top:24px;padding:18px 20px;background:var(--red-soft);border:2px dashed #eebcbc;border-radius:20px 20px 20px 6px}
+.error-summary.show{display:block;animation:esIn .35s cubic-bezier(.2,.7,.2,1)}
+@keyframes esIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.es-head{display:flex;align-items:center;gap:11px;flex-wrap:wrap}
+.es-head .es-icon{width:36px;height:36px;border-radius:12px;background:var(--red);color:#fff;display:grid;place-items:center;flex-shrink:0}
+.es-head .es-icon svg{width:18px;height:18px}
+.es-head strong{font-size:17px;font-weight:1000;color:#a52f2f}
+.es-head span{margin-inline-start:auto;padding:5px 12px;background:#fff;border-radius:50px;font-size:12.5px;font-weight:1000;color:var(--red)}
+.error-summary > p{font-size:14px;font-weight:850;color:#8d3a3a;margin-top:8px}
+.es-list{list-style:none;margin-top:12px;display:grid;gap:8px}
+.es-list button{width:100%;display:flex;align-items:center;gap:11px;padding:12px 14px;background:#fff;border:2px solid #f2d3d3;border-radius:14px;text-align:right;transition:.18s}
+.es-list button:hover{border-color:var(--red);transform:translateX(-4px)}
+.es-dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0}
+.es-list .es-name{font-size:14.5px;font-weight:1000;color:var(--ink)}
+.es-list .es-msg{font-size:12.5px;font-weight:850;color:var(--muted);margin-inline-start:auto;text-align:left}
+.es-list svg{width:15px;height:15px;color:var(--red);flex-shrink:0}
+
+.submit-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:24px}
+.submit-row .btn-primary{flex:1;min-width:220px}
+.remain{display:inline-flex;align-items:center;gap:8px;padding:10px 15px;border-radius:50px;background:#fff;border:2px solid var(--line);font-size:13px;font-weight:950;color:var(--muted)}
+.remain.ok{background:var(--green-soft);border-color:#bcd9b6;color:var(--green)}
+.submit-hint{font-size:13.5px;color:var(--muted);font-weight:850;line-height:1.9;flex:1;min-width:200px}
+.btn-submit .spin{display:none}
+.btn-submit.loading .spin{display:block}
+.btn-submit.loading svg.b-icon{display:none}
+
+.success-banner{display:none;margin-top:24px;padding:20px;background:var(--green-soft);border:2px solid #bcd9b6;border-radius:20px 20px 20px 6px;align-items:center;gap:16px;flex-wrap:wrap}
+.success-banner.show{display:flex;animation:esIn .4s cubic-bezier(.2,.7,.2,1)}
+.s-seal{width:50px;height:50px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;flex-shrink:0}
+.s-seal svg{width:24px;height:24px}
+.s-copy{flex:1;min-width:200px}
+.s-copy strong{display:block;font-size:17px;font-weight:1000;color:#256b31}
+.s-copy p{font-size:14px;color:#3f7a49;font-weight:850;margin-top:4px;line-height:1.9}
+.s-copy p b{direction:ltr;display:inline-block;letter-spacing:1.5px}
+.s-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* FOOTER & DOCK */
+.footer{border-top:1px solid var(--line);padding:22px 0 12px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-mark{width:34px;height:34px;padding:3px;background:var(--ink);color:var(--lemon);display:grid;place-items:center;border-radius:11px 11px 11px 3px}
+.footer-mark img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
+.footer-brand strong{font-size:13px;font-weight:1000}
+.footer-brand small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+.footer-copy{font-size:9px;color:#938d96;font-weight:700}
+.mobile-dock{display:none;position:fixed;z-index:50;bottom:calc(12px + env(safe-area-inset-bottom));left:14px;right:14px;padding:8px;background:#191621;color:white;border-radius:22px 22px 22px 7px;box-shadow:0 14px 45px #17121e38;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px}
+.dock-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:53px;color:#c6c0d0;font-size:9px;font-weight:850;border-radius:14px;transition:.2s}
+.dock-item svg{width:20px;height:20px}
+.dock-item.active{background:#ffffff16;color:var(--lemon)}
+.dock-item:active{transform:scale(.96)}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:110;display:none;align-items:center;justify-content:center;padding:18px}
+.modal.show{display:flex}
+.modal-scrim{position:absolute;inset:0;background:rgba(23,21,30,.6);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)}
+.modal-card{position:relative;width:min(100%,560px);max-height:min(92dvh,800px);overflow-y:auto;background:var(--white);border:2px solid var(--line);border-radius:32px 32px 32px 9px;box-shadow:0 40px 90px rgba(23,18,30,.4);padding:30px 24px 24px;text-align:center;animation:modalIn .4s cubic-bezier(.2,.7,.2,1)}
+@keyframes modalIn{from{opacity:0;transform:translateY(26px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.confetti i{position:absolute;top:-14px;width:8px;height:12px;border-radius:2px;opacity:0;animation:fall 1.1s ease-out forwards}
+@keyframes fall{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--x),380px) rotate(var(--r))}}
+.seal-svg{width:88px;height:88px;margin:0 auto 12px}
+.seal-bg{fill:var(--ink)}
+.seal-ring{fill:none;stroke:var(--seal-accent,#e9fa76);stroke-width:6;stroke-dasharray:239;stroke-dashoffset:239;animation:draw .7s .1s cubic-bezier(.2,.7,.2,1) forwards}
+.seal-check{fill:none;stroke:var(--seal-accent,#e9fa76);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:draw .45s .6s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.modal-badge{display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border-radius:50px;font-size:12.5px;font-weight:1000;letter-spacing:1.5px;direction:ltr;margin-bottom:10px;background:var(--irancell);color:var(--ink)}
+.modal-card h3{font-size:24px;font-weight:1000;line-height:1.6}
+.modal-sub{font-size:14.5px;color:var(--muted);font-weight:850;margin-top:8px;line-height:2}
+.modal-summary{margin-top:18px;padding:18px;background:var(--paper);border:2px dashed rgba(112,70,232,.32);border-radius:18px 18px 18px 6px;font-size:15.5px;font-weight:800;line-height:2.2;color:#443e4c;text-align:right}
+.modal-summary b{color:var(--purple-dark);font-weight:1000}
+.modal-meta{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-top:16px}
+.modal-meta span{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:#fff;border:2px solid var(--line);border-radius:50px;font-size:13px;font-weight:950;color:#4f4957}
+.modal-meta b{direction:ltr;letter-spacing:1.5px;color:var(--purple-dark)}
+.modal-note{margin-top:14px;font-size:13.5px;font-weight:850;color:var(--muted);line-height:2}
+.modal-actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.modal-actions .btn-primary{flex:1;min-width:180px}
+.modal-actions .btn-ghost{flex:1;min-width:140px}
+
+/* TOAST */
+.toast{position:fixed;z-index:130;bottom:100px;left:50%;transform:translate(-50%,15px);opacity:0;pointer-events:none;background:var(--ink);color:#fff;padding:14px 20px;border-radius:14px;font-size:14px;font-weight:900;box-shadow:var(--shadow);transition:.25s;width:max-content;max-width:calc(100% - 30px);text-align:center;line-height:1.8}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast.ok{background:var(--green)}
+.toast.err{background:var(--red)}
+
+/* RESPONSIVE */
+@media(min-width:900px){.mobile-dock{display:none!important}}
+@media(max-width:899px){
+  .wrap{width:min(calc(100% - 38px),680px)}
+  .header-menu{display:none}
+  .svc-hero{grid-template-columns:1fr;gap:14px;padding:26px 0 34px}
+  .svc-art{min-height:340px}
+}
+@media(max-width:600px){
+  body{padding-bottom:100px;font-size:16px}
+  .wrap{width:calc(100% - 34px)}
+  .header{height:72px}
+  .brand-mark{width:41px;height:41px}
+  .brand-name{font-size:21px}
+  .header-cta{font-size:10px;padding:10px 13px}
+  .service{padding:22px 0 34px}
+  .svc-hero{padding:20px 0 28px;gap:8px}
+  .svc-hero h1{font-size:clamp(30px,8.4vw,42px);letter-spacing:-1.6px;line-height:1.45}
+  .svc-desc{font-size:14px;line-height:2.1}
+  .svc-art{min-height:315px;margin-top:4px}
+  .art-backdrop{width:265px;height:265px}
+  .art-ring{width:305px;height:305px}
+  .hero-object{width:250px;padding:17px}
+  .sticker-round{width:82px;height:82px;top:16px;right:0}
+  .sticker-round strong{font-size:15px}
+  .sticker-star{width:56px;height:56px;left:2px;bottom:36px}
+  .form-card{padding:20px 16px;border-radius:26px 26px 26px 8px}
+  .form-title h2{font-size:20px}
+  .form-grid,.choice-grid,.uploads{grid-template-columns:1fr}
+  .progress{flex:1 1 100%}
+  .block-title{font-size:16.5px}
+  .benefit-row{font-size:14.5px}
+  .bold-note{font-size:14.5px}
+  .cost-total{font-size:17px}
+  .submit-row .btn-primary{min-width:100%}
+  .footer-inner{align-items:flex-start;flex-direction:column;gap:10px}
+  .mobile-dock{display:grid}
+  .modal-card{padding:24px 16px 20px}
+  .modal-card h3{font-size:20px}
+  .modal-summary{font-size:14.5px}
+  .es-list .es-msg{display:none}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}.seal-ring,.seal-check{stroke-dashoffset:0}}
+</style>
+</head>
+
+<body>
+
+<div class="background" aria-hidden="true">
+  <div class="bg-shape one"></div><div class="bg-shape two"></div><div class="bg-shape three"></div>
+</div>
+
+<header class="header wrap">
+  <a href="index.html" class="brand" aria-label="راضی">
+    <div class="brand-mark">
+      <img src="icon.png" alt="نشان برند راضی" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="brand-fallback">ر</span>
+    </div>
+    <div><div class="brand-name">راضی</div><div class="brand-caption">خدمات امور مشترکین راضی · خدمات آنلاین</div></div>
+  </a>
+  <nav class="header-menu">
+    <a href="index.html">خانه</a>
+    <a href="sim.html" class="current">سیم کارت</a>
+    <a href="internet.html">اینترنت</a>
+    <a href="guide.html">خدمات</a>
+  </nav>
+  <a href="#simForm" class="header-cta">شروع درخواست<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</header>
+
+<main>
+<section class="service wrap" id="sim">
+  <div class="svc-hero">
+    <div class="svc-copy">
+      <div class="svc-label"><span class="dot"></span> SERVICE / 01 · سیم‌کارت رایگان ایرانسل</div>
+      <h1>
+        <span class="dark-line">سیم‌کارت رایگان ایرانسل؛</span>
+        <span class="color-line">دریافت آنلاین از سراسر ایران!</span>
+      </h1>
+      <p class="svc-desc">
+        بدون مراجعه به نمایندگی، <strong>سیم‌کارت ایرانسل</strong> را کاملاً رایگان دریافت کنید. 
+        تنها هزینه‌ای که پرداخت می‌کنید، <strong>۲۹ هزار تومان</strong> بابت پرینت مدارک، ثبت‌نام و ارسال پستی است. 
+        همین حالا فرم را پر کنید و سیم‌کارت را درب منزل تحویل بگیرید.
+      </p>
+      <div class="svc-chips">
+        <span class="svc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9 18l-5-5"/></svg> خود سیم‌کارت کاملاً رایگان</span>
+        <span class="svc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> ارسال به سراسر ایران</span>
+        <span class="svc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> تحویل نهایتاً ۱۴ روز کاری</span>
+      </div>
+    </div>
+
+    <div class="svc-art" aria-label="سیم‌کارت رایگان ایرانسل">
+      <div class="art-backdrop"></div><div class="art-ring"></div>
+      <div class="hero-object">
+        <div class="obj-top"><span>RAZI / SIM</span><span class="obj-chip"></span></div>
+        <div class="obj-name">ایرانسل</div>
+        <div class="obj-sub">سیم‌کارت رایگان · دائمی یا اعتباری<br>هدایای ویژهٔ فعال‌سازی</div>
+        <div class="obj-bottom"><span>ارسال به سراسر ایران</span><b>FREE / 01</b></div>
+      </div>
+      <div class="float-sticker sticker-round"><div><small>کاملاً</small><strong>رایگان</strong><span>بدون هزینه سیم‌کارت</span></div></div>
+      <div class="float-sticker sticker-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></div>
+      <div class="art-caption">RAZI / FREE SIM — NATIONWIDE</div>
+    </div>
+  </div>
+
+  <form class="form-card" id="simForm" novalidate>
+    <div class="form-head">
+      <div class="form-title">
+        <div class="ft-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><rect x="8.5" y="12" width="7" height="6" rx="1.5"/><path d="M12 12v6M8.5 15h7"/></svg></div>
+        <div><h2>فرم درخواست سیم‌کارت رایگان</h2><p>لطفاً با دقت پر کنید؛ موارد ستاره‌دار الزامی است.</p></div>
+      </div>
+      <div class="progress">
+        <div class="progress-top"><span>تکمیل درخواست</span><b id="simProgressLabel">۰٪</b></div>
+        <div class="progress-track"><div class="progress-bar" id="simProgressBar"></div></div>
+      </div>
+    </div>
+    <div class="draft-status" id="simDraft">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9 18l-5-5"/></svg>
+      <span>پیش‌نویس به‌صورت خودکار ذخیره می‌شود.</span>
+    </div>
+
+    <div class="form-grid">
+      <div class="field">
+        <label for="simName"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg> نام و نام خانوادگی <span class="req">*</span></label>
+        <div class="input-wrap">
+          <input id="simName" type="text" autocomplete="name" placeholder="مثلاً علی رضایی">
+          <span class="ok-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+        </div>
+        <span class="field-error">نام و نام خانوادگی را کامل بنویسید.</span>
+      </div>
+
+      <div class="field">
+        <label for="simNational"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M13 9h5M13 13h4M5.5 16c.6-1.4 1.7-2 3-2s2.4.6 3 2"/></svg> کد ملی <span class="req">*</span></label>
+        <div class="input-wrap">
+          <input id="simNational" class="num" type="text" inputmode="numeric" maxlength="10" placeholder="۱۰ رقم">
+          <span class="ok-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+        </div>
+        <span class="field-error">کد ملی باید ۱۰ رقم و معتبر باشد.</span>
+        <span class="counter" id="simNationalCount">۰ / ۱۰</span>
+      </div>
+
+      <div class="field">
+        <label for="simPhone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg> شماره تماس <span class="req">*</span></label>
+        <div class="input-wrap">
+          <input id="simPhone" class="num" type="tel" inputmode="numeric" maxlength="11" placeholder="۰۹xxxxxxxxx">
+          <span class="ok-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+        </div>
+        <span class="field-error">شماره تماس باید با ۰۹ شروع شود و ۱۱ رقم باشد.</span>
+        <span class="counter" id="simPhoneCount">۰ / ۱۱</span>
+      </div>
+
+      <div class="field">
+        <label for="simPostal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg> کد پستی <span class="req">*</span></label>
+        <div class="input-wrap">
+          <input id="simPostal" class="num" type="text" inputmode="numeric" maxlength="10" placeholder="۱۰ رقم">
+          <span class="ok-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+        </div>
+        <span class="field-error">کد پستی باید ۱۰ رقم باشد.</span>
+        <span class="counter" id="simPostalCount">۰ / ۱۰</span>
+      </div>
+
+      <div class="field full">
+        <label for="simAddress"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> آدرس دقیق <span class="req">*</span></label>
+        <textarea id="simAddress" rows="3" placeholder="استان، شهر، خیابان، کوچه، پلاک، واحد"></textarea>
+        <span class="field-error">آدرس دقیق را کامل بنویسید (حداقل ۱۰ نویسه).</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-title">نوع سیم‌کارت <span class="req">*</span> <small>SIM TYPE</small></div>
+      <div class="field" id="simTypeField">
+        <div class="choice-grid" id="simType" role="radiogroup" aria-label="نوع سیم‌کارت">
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="perm">
+            <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span>
+            <span><strong>ایرانسل دائمی</strong><small>هدایای ویژهٔ فعال‌سازی</small></span>
+            <span class="c-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+          </button>
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="prep">
+            <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <span><strong>ایرانسل اعتباری</strong><small>هدایای فعال‌سازی</small></span>
+            <span class="c-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+          </button>
+        </div>
+        <span class="field-error">نوع سیم‌کارت را انتخاب کنید.</span>
+      </div>
+
+      <div class="step" id="simBenefitsStep" style="display:none; margin-top:20px;">
+        <div class="benefits">
+          <h3 id="simBenefitsTitle"></h3>
+          <div id="simBenefitsList"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-title">پیش‌شماره <span class="req">*</span> <small>PREFIX</small></div>
+      <div class="field" id="simPrefixField">
+        <div class="dd" id="ddPrefix">
+          <button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false">
+            <span class="dd-value" data-placeholder="انتخاب پیش‌شماره">انتخاب پیش‌شماره</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="dd-panel"><div class="dd-inner">
+            <ul class="dd-list" role="listbox" aria-label="پیش‌شماره">
+              <li role="option" tabindex="-1" aria-selected="false" data-value="0900" data-label="۰۹۰۰"><span class="dd-num">۰۹۰۰</span><small>ایرانسل</small><svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+              <li role="option" tabindex="-1" aria-selected="false" data-value="0903" data-label="۰۹۰۳"><span class="dd-num">۰۹۰۳</span><small>ایرانسل</small><svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+              <li role="option" tabindex="-1" aria-selected="false" data-value="0930" data-label="۰۹۳۰"><span class="dd-num">۰۹۳۰</span><small>ایرانسل</small><svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+              <li role="option" tabindex="-1" aria-selected="false" data-value="0936" data-label="۰۹۳۶"><span class="dd-num">۰۹۳۶</span><small>ایرانسل</small><svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+              <li role="option" tabindex="-1" aria-selected="false" data-value="0901" data-label="۰۹۰۱"><span class="dd-num">۰۹۰۱</span><small>ایرانسل</small><svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+            </ul>
+          </div></div>
+        </div>
+        <span class="field-hint" style="font-size:13.5px;color:var(--muted);font-weight:800;margin-top:8px;display:block">امکان انتخاب شماره وجود ندارد و فقط می‌توانید پیش‌شماره را انتخاب نمایید.</span>
+        <span class="field-error">پیش‌شماره را انتخاب کنید.</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-title">بارگذاری مدارک شناسایی <span class="req">*</span> <small>DOCUMENTS</small></div>
+      <div class="uploads">
+        <div class="upload" id="upSimFront" data-state="idle">
+          <div class="up-label">عکس روی کارت ملی یا صفحهٔ اول شناسنامه <span class="req">*</span></div>
+          <div class="up-drop" tabindex="0" role="button" aria-label="بارگذاری روی کارت ملی">
+            <input type="file" accept="image/*" hidden>
+            <div class="up-idle"><span class="u-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m-5 5 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg></span><span>انتخاب تصویر</span><small>JPG / PNG · حداکثر ۸ مگابایت</small></div>
+            <div class="up-loading"><div class="l-row"><span class="spin"></span> در حال بارگذاری…</div><div class="up-bar"><i></i></div><span class="up-pct">۰٪</span></div>
+            <div class="up-done"><img class="up-img" alt="پیش‌نمایش مدرک"><div class="up-meta"><div class="up-name"></div><div class="up-size"></div><span class="up-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg> بارگذاری شد</span></div></div>
+          </div>
+          <div class="up-actions">
+            <button type="button" class="chg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg> تغییر</button>
+            <button type="button" class="del"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5h6v2m-8 0 1 13h8l1-13"/></svg> حذف</button>
+          </div>
+          <div class="up-error"></div>
+        </div>
+
+        <div class="upload" id="upSimBack" data-state="idle">
+          <div class="up-label">عکس پشت کارت ملی یا صفحهٔ دوم شناسنامه <span class="req">*</span></div>
+          <div class="up-drop" tabindex="0" role="button" aria-label="بارگذاری پشت کارت ملی">
+            <input type="file" accept="image/*" hidden>
+            <div class="up-idle"><span class="u-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m-5 5 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg></span><span>انتخاب تصویر</span><small>JPG / PNG · حداکثر ۸ مگابایت</small></div>
+            <div class="up-loading"><div class="l-row"><span class="spin"></span> در حال بارگذاری…</div><div class="up-bar"><i></i></div><span class="up-pct">۰٪</span></div>
+            <div class="up-done"><img class="up-img" alt="پیش‌نمایش مدرک"><div class="up-meta"><div class="up-name"></div><div class="up-size"></div><span class="up-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg> بارگذاری شد</span></div></div>
+          </div>
+          <div class="up-actions">
+            <button type="button" class="chg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg> تغییر</button>
+            <button type="button" class="del"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5h6v2m-8 0 1 13h8l1-13"/></svg> حذف</button>
+          </div>
+          <div class="up-error"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="pay-box">
+        <div class="pay-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg> جزئیات هزینه‌های خدمات و ارسال</div>
+        <div class="cost-row"><span>پرینت ۲ صفحه مدارک شناسایی، ثبت و ارسال پستی</span><b>۵٬۰۰۰ تومان</b></div>
+        <div class="cost-row"><span>تعرفه ارائه خدمات آنلاین و پشتیبانی</span><b>۲۴٬۰۰۰ تومان</b></div>
+        <div class="cost-total"><span>جمع کل پرداختی شما</span><span>۲۹٬۰۰۰ تومان</span></div>
+        <p class="pay-note">لطفاً این مبلغ را به شمارهٔ کارت زیر واریز نمایید:</p>
+        <div class="bank-card">
+          <div class="bank-top"><span class="bank-name">بانک پاسارگاد</span><span class="bank-chip"></span></div>
+          <div class="bank-number">
+            <span class="bank-digits">۵۰۲۲ ۲۹۱۰ ۹۸۹۵ ۳۲۰۹</span>
+            <button type="button" class="copy-btn" data-copy="5022291098953209">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              <span>کپی شماره کارت</span>
+            </button>
+          </div>
+          <div class="bank-holder">به نام <b>حمیدرضا سلیمی</b></div>
+        </div>
+        <div class="bold-note">
+          این مبلغ، <strong>جمع کل هزینه‌ها</strong> است و شما هرگز هیچ‌گونه هزینهٔ دیگری — از جمله هزینهٔ خود سیم‌کارت یا ارسال — نخواهید داشت.
+          ارسال نهایتاً طی <strong>۱۴ روز کاری</strong> به سراسر ایران انجام می‌شود.
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="uploads">
+        <div class="upload wide" id="upSimReceipt" data-state="idle">
+          <div class="up-label">بارگذاری رسید واریز وجه <span class="req">*</span></div>
+          <div class="up-drop" tabindex="0" role="button" aria-label="بارگذاری رسید واریز">
+            <input type="file" accept="image/*" hidden>
+            <div class="up-idle"><span class="u-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span>انتخاب تصویر رسید</span><small>JPG / PNG · حداکثر ۸ مگابایت</small></div>
+            <div class="up-loading"><div class="l-row"><span class="spin"></span> در حال بارگذاری…</div><div class="up-bar"><i></i></div><span class="up-pct">۰٪</span></div>
+            <div class="up-done"><img class="up-img" alt="پیش‌نمایش رسید"><div class="up-meta"><div class="up-name"></div><div class="up-size"></div><span class="up-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg> بارگذاری شد</span></div></div>
+          </div>
+          <div class="up-actions">
+            <button type="button" class="chg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg> تغییر</button>
+            <button type="button" class="del"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5h6v2m-8 0 1 13h8l1-13"/></svg> حذف</button>
+          </div>
+          <div class="up-error"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="receipt">
+      <div class="receipt-head"><strong>خلاصهٔ درخواست شما</strong><span>LIVE SUMMARY</span></div>
+      <div class="receipt-row"><span>نوع سیم‌کارت</span><b id="sumSimType">انتخاب نشده</b></div>
+      <div class="receipt-row"><span>پیش‌شماره</span><b id="sumSimPrefix">انتخاب نشده</b></div>
+      <div class="receipt-row"><span>مدارک و رسید بارگذاری‌شده</span><b id="sumSimDocs">۰ از ۳</b></div>
+      <div class="receipt-row total"><span>جمع کل هزینه</span><b>۲۹٬۰۰۰ تومان</b></div>
+    </div>
+
+    <div class="assurance">
+      <span class="a-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span>
+      <div class="a-copy">
+        <strong>ضمانت بی‌قید و شرط بازگشت وجه</strong>
+        <p>در صورت عدم انجام خدمت، کل مبلغ بدون هیچ شرطی بازمی‌گردد.</p>
+      </div>
+      <a href="guide.html" class="btn-lemon">پیگیری درخواست
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="error-summary" id="simErrors" role="alert" aria-live="assertive">
+      <div class="es-head">
+        <span class="es-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></span>
+        <strong>برای ثبت درخواست، این موارد را کامل کنید</strong>
+        <span id="simErrorsCount"></span>
+      </div>
+      <p>روی هر مورد بزنید تا مستقیم به همان بخش بروید.</p>
+      <ul class="es-list" id="simErrorsList"></ul>
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" class="btn-primary btn-submit" id="simSubmit">
+        <span class="spin" style="width:20px;height:20px;border-width:3px;border-color:#ffffff55;border-top-color:#fff"></span>
+        <span class="b-label">ثبت درخواست</span>
+        <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9 18l-5-5"/></svg>
+      </button>
+      <span class="remain" id="simRemain">۱۰ مورد باقی مانده</span>
+      <span class="submit-hint">پس از ثبت، خلاصهٔ درخواست برای تأیید نهایی نمایش داده می‌شود.</span>
+    </div>
+
+    <div class="success-banner" id="simBanner">
+      <span class="s-seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+      <div class="s-copy">
+        <strong>درخواست سیم‌کارت رایگان شما ثبت شد</strong>
+        <p>کد پیگیری: <b id="simCode"></b> · ارسال نهایتاً تا ۱۴ روز کاری انجام می‌شود.</p>
+      </div>
+      <div class="s-actions">
+        <a href="guide.html" class="btn-lemon">پیگیری در چت</a>
+        <button type="button" class="btn-ghost" id="simReset">ثبت درخواست جدید</button>
+      </div>
+    </div>
+  </form>
+</section>
+</main>
+
+<footer class="footer wrap">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-mark"><img src="icon.png" alt="" onerror="this.style.display='none'"></div>
+      <div><strong>راضی</strong><small>خدمات امور مشترکین، آنلاین</small></div>
+    </div>
+    <div class="footer-copy">همراه آنلاین امور مشترکین شما.</div>
+  </div>
+</footer>
+
+<nav class="mobile-dock" aria-label="ناوبری پایین">
+  <a href="index.html" class="dock-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7M5 9v11h14V9M9 20v-7h6v7"/></svg>خانه
+  </a>
+  <a href="sim.html" class="dock-item active" aria-current="page">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><rect x="8.5" y="12" width="7" height="6" rx="1.5"/><path d="M12 12v6M8.5 15h7"/></svg>سیم کارت
+  </a>
+  <a href="internet.html" class="dock-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg>اینترنت
+  </a>
+  <a href="guide.html" class="dock-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22.5z"/><path d="M4 5.5v17M8 8h8M8 12h7"/></svg>خدمات
+  </a>
+</nav>
+
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-scrim" id="modalScrim"></div>
+  <div class="modal-card" id="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="confetti" id="confetti"></div>
+    <svg class="seal-svg" viewBox="0 0 88 88">
+      <circle class="seal-bg" cx="44" cy="44" r="40"/>
+      <circle class="seal-ring" cx="44" cy="44" r="38"/>
+      <path class="seal-check" d="M28 45.5 39 56l21-24"/>
+    </svg>
+    <div class="modal-badge">RAZI / SIM CARD</div>
+    <h3 id="modalTitle">درخواست سیم‌کارت رایگان شما آمادهٔ ثبت است</h3>
+    <p class="modal-sub" id="modalSub">لطفاً اطلاعات زیر را بررسی و تأیید نهایی را بزنید.</p>
+    <div class="modal-summary" id="modalSummary"></div>
+    <div class="modal-meta" id="modalMeta">
+      <span>کارت بانکی: <b>۵۰۲۲ ۲۹۱۰ ۹۸۹۵ ۳۲۰۹</b> (پاسارگاد)</span>
+      <span>به نام: <b>حمیدرضا سلیمی</b></span>
+    </div>
+    <p class="modal-note">با زدن «تأیید نهایی»، درخواست شما نهایی شده و فرم برای درخواست بعدی آماده می‌شود.</p>
+    <div class="modal-actions">
+      <button type="button" class="btn-primary" id="modalConfirm">تأیید نهایی<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9 18l-5-5"/></svg></button>
+      <button type="button" class="btn-ghost" id="modalEdit">ویرایش اطلاعات</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  "use strict";
+  const FA = "۰۱۲۳۴۵۶۷۸۹", AR = "٠١٢٣٤٥٦٧٨٩";
+  const toEn = s => String(s).replace(/[۰-۹]/g, d => FA.indexOf(d)).replace(/[٠-٩]/g, d => AR.indexOf(d));
+  const toFa = s => String(s).replace(/\d/g, d => FA[d]);
+  const digits = s => toEn(s).replace(/\D/g, "");
+  const toman = n => toFa(Number(n).toLocaleString("en-US")).replace(/,/g, "٬") + " تومان";
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const $ = id => document.getElementById(id);
+
+  const validNational = c => {
+    c = digits(c);
+    if (!/^\d{10}$/.test(c) || /^(\d)\1{9}$/.test(c)) return false;
+    let s = 0;
+    for (let i = 0; i < 9; i++) s += +c[i] * (10 - i);
+    const r = s % 11;
+    return r < 2 ? +c[9] === r : +c[9] === 11 - r;
+  };
+  const validPhone = p => /^09\d{9}$/.test(digits(p));
+  const validPostal = p => /^\d{10}$/.test(digits(p));
+
+  const toastEl = $("toast");
+  let toastTimer;
+  function toast(msg, kind){
+    toastEl.textContent = msg;
+    toastEl.className = "toast show" + (kind ? " " + kind : "");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toastEl.classList.remove("show"), 3000);
+  }
+
+  function markField(field, ok){
+    if (!field) return;
+    field.classList.toggle("invalid", !ok);
+    if (ok) field.classList.remove("invalid");
+    const input = field.querySelector("input,textarea");
+    if (input) input.setAttribute("aria-invalid", String(!ok));
+  }
+  function markUpload(root, ok, msg){
+    root.classList.toggle("invalid", !ok);
+    root.querySelector(".up-error").textContent = ok ? "" : (msg || "بارگذاری این تصویر الزامی است.");
+  }
+
+  const shutters = [];
+  function makeShutter(root, onChange){
+    const btn = root.querySelector(".dd-btn"), val = root.querySelector(".dd-value"), list = root.querySelector(".dd-list");
+    const opts = [...list.querySelectorAll('[role="option"]')];
+    let value = null;
+    const close = () => { root.classList.remove("open"); btn.setAttribute("aria-expanded","false"); };
+    const open = () => {
+      shutters.forEach(s => s.close());
+      root.classList.add("open"); btn.setAttribute("aria-expanded","true");
+      const target = list.querySelector('[aria-selected="true"]') || opts[0];
+      setTimeout(() => target.focus({preventScroll:true}), 60);
+    };
+    const select = (o, silent) => {
+      value = o.dataset.value;
+      opts.forEach(x => x.setAttribute("aria-selected", String(x === o)));
+      val.textContent = o.dataset.label; val.classList.add("filled");
+      close();
+      if (!silent){ btn.focus({preventScroll:true}); onChange && onChange(value); }
+    };
+    btn.addEventListener("click", e => { e.stopPropagation(); root.classList.contains("open") ? close() : open(); });
+    btn.addEventListener("keydown", e => { if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " "){ e.preventDefault(); open(); } });
+    opts.forEach(o => o.addEventListener("click", e => { e.stopPropagation(); select(o); }));
+    list.addEventListener("keydown", e => {
+      const i = opts.indexOf(document.activeElement);
+      if (e.key === "ArrowDown"){ e.preventDefault(); (opts[i+1] || opts[0]).focus(); }
+      else if (e.key === "ArrowUp"){ e.preventDefault(); (opts[i-1] || opts[opts.length-1]).focus(); }
+      else if (e.key === "Enter" || e.key === " "){ e.preventDefault(); if (i > -1) select(opts[i]); }
+      else if (e.key === "Escape"){ close(); btn.focus(); }
+    });
+    const api = {
+      get value(){ return value; },
+      close,
+      set(v){ const o = opts.find(x => x.dataset.value === v); if (o) select(o); },
+      reset(){ value = null; opts.forEach(x => x.setAttribute("aria-selected","false")); val.textContent = val.dataset.placeholder; val.classList.remove("filled"); close(); }
+    };
+    shutters.push(api);
+    return api;
+  }
+  document.addEventListener("click", e => { if (!e.target.closest(".dd")) shutters.forEach(s => s.close()); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") shutters.forEach(s => s.close()); });
+
+  function makeChoices(container, onPick){
+    const tiles = [...container.querySelectorAll(".choice")];
+    const pick = (t, silent) => {
+      if (t.disabled) return;
+      tiles.forEach(x => x.setAttribute("aria-checked", String(x === t)));
+      if (!silent) onPick && onPick(t.dataset.value);
+    };
+    tiles.forEach(t => t.addEventListener("click", () => pick(t)));
+    return {
+      get value(){ const s = container.querySelector('[aria-checked="true"]'); return s ? s.dataset.value : null; },
+      set(v){ const t = tiles.find(x => x.dataset.value === v); if (t) pick(t); },
+      reset(){ tiles.forEach(x => x.setAttribute("aria-checked","false")); }
+    };
+  }
+
+  const fmtSize = b => b > 1048576 ? toFa((b / 1048576).toFixed(1)) + " مگابایت" : toFa(Math.max(1, Math.round(b / 1024))) + " کیلوبایت";
+  function makeUpload(root, onChange){
+    const input = root.querySelector('input[type="file"]'), drop = root.querySelector(".up-drop");
+    const img = root.querySelector(".up-img"), nameEl = root.querySelector(".up-name"), sizeEl = root.querySelector(".up-size");
+    const bar = root.querySelector(".up-bar i"), pct = root.querySelector(".up-pct");
+    let url = null, file = null, timer = null, tick = null;
+    function setState(s, notify){
+      root.dataset.state = s;
+      if (s !== "idle") markUpload(root, true);
+      if (notify !== false && onChange) onChange(s === "done" ? file : null);
+    }
+    function clearTimers(){ clearTimeout(timer); clearInterval(tick); timer = null; tick = null; }
+    function handle(f){
+      if (!f) return;
+      if (!/^image\//.test(f.type)){ markUpload(root, false, "لطفاً یک فایل تصویری انتخاب کنید."); return; }
+      if (f.size > 8 * 1024 * 1024){ markUpload(root, false, "حجم تصویر باید کمتر از ۸ مگابایت باشد."); return; }
+      clearTimers();
+      if (url){ URL.revokeObjectURL(url); url = null; }
+      file = null; markUpload(root, true); setState("loading");
+      const duration = 1000 + Math.random() * 2000, start = Date.now();
+      bar.style.transition = "none"; bar.style.width = "0%"; pct.textContent = "۰٪";
+      requestAnimationFrame(() => { bar.style.transition = "width " + duration + "ms linear"; bar.style.width = "100%"; });
+      tick = setInterval(() => {
+        const p = Math.min(99, Math.round((Date.now() - start) / duration * 100));
+        pct.textContent = toFa(p) + "٪";
+      }, 90);
+      timer = setTimeout(() => {
+        clearTimers(); pct.textContent = "۱۰۰٪"; bar.style.width = "100%";
+        url = URL.createObjectURL(f); file = f; img.src = url;
+        nameEl.textContent = f.name; sizeEl.textContent = fmtSize(f.size);
+        setState("done");
+      }, duration);
+    }
+    input.addEventListener("click", e => e.stopPropagation());
+    drop.addEventListener("click", e => { if (e.target === input || root.dataset.state === "loading") return; input.click(); });
+    drop.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && root.dataset.state !== "loading"){ e.preventDefault(); input.click(); } });
+    input.addEventListener("change", () => { handle(input.files && input.files[0]); input.value = ""; });
+    ["dragover","dragenter"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add("drag"); }));
+    ["dragleave","dragend"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove("drag"); }));
+    drop.addEventListener("drop", e => {
+      e.preventDefault(); drop.classList.remove("drag");
+      if (root.dataset.state === "loading") return;
+      handle(e.dataTransfer.files && e.dataTransfer.files[0]);
+    });
+    root.querySelector(".chg").addEventListener("click", e => { e.stopPropagation(); input.click(); });
+    root.querySelector(".del").addEventListener("click", e => {
+      e.stopPropagation(); clearTimers();
+      if (url){ URL.revokeObjectURL(url); url = null; }
+      file = null; img.removeAttribute("src");
+      bar.style.transition = "none"; bar.style.width = "0%"; pct.textContent = "۰٪";
+      setState("idle");
+    });
+    setState("idle", false);
+    return { get file(){ return file; }, get state(){ return root.dataset.state; }, reset(){ root.querySelector(".del").click(); } };
+  }
+
+  document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", async e => {
+      e.stopPropagation();
+      const text = btn.dataset.copy;
+      let ok = false;
+      try { await navigator.clipboard.writeText(text); ok = true; }
+      catch (_){
+        const ta = document.createElement("textarea"); ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        try { ok = document.execCommand("copy"); } catch (__) {}
+        ta.remove();
+      }
+      const label = btn.querySelector("span");
+      if (ok){
+        const old = label.textContent;
+        btn.classList.add("copied"); label.textContent = "کپی شد ✓";
+        toast("شماره کارت کپی شد.", "ok");
+        setTimeout(() => { btn.classList.remove("copied"); label.textContent = old; }, 2200);
+      } else {
+        toast("کپی انجام نشد؛ شماره را دستی یادداشت کنید.", "err");
+      }
+    });
+  });
+
+  const BENEFITS = {
+    perm: { title: "هدایای فعال‌سازی سیم‌کارت دائمی ایرانسل", rows: ["۱۸۰ دقیقه مکالمهٔ رایگان بدون محدودیت","۶ ماه پیامک رایگان تا سقف ۴۵۰ پیامک","۱۰ گیگ اینترنت هدیهٔ فعال‌سازی یک‌ماهه"] },
+    prep: { title: "هدایای فعال‌سازی سیم‌کارت اعتباری ایرانسل", rows: ["۳۰ دقیقه مکالمهٔ رایگان درون‌شبکه یک‌ماهه","۱۰۰ پیامک رایگان یک‌ماهه","۱.۵ گیگ اینترنت هفتگی هدیهٔ فعال‌سازی"] }
+  };
+
+  let simTypeCtrl, simPrefixCtrl, upSimFront, upSimBack, upSimReceipt;
+
+  function updateSimSummary() {
+    $("sumSimType").textContent = simTypeCtrl.value === "perm" ? "دائمی" : simTypeCtrl.value === "prep" ? "اعتباری" : "انتخاب نشده";
+    $("sumSimPrefix").textContent = simPrefixCtrl.value || "انتخاب نشده";
+    let docs = (upSimFront.state === "done" ? 1 : 0) + (upSimBack.state === "done" ? 1 : 0) + (upSimReceipt.state === "done" ? 1 : 0);
+    $("sumSimDocs").textContent = toFa(docs) + " از ۳";
+    
+    // Progress bar logic
+    let filled = 0, total = 10;
+    if ($("simName").value.trim().length >= 3) filled++;
+    if (validNational($("simNational").value)) filled++;
+    if (validPhone($("simPhone").value)) filled++;
+    if (validPostal($("simPostal").value)) filled++;
+    if ($("simAddress").value.trim().length >= 10) filled++;
+    if (simTypeCtrl.value) filled++;
+    if (simPrefixCtrl.value) filled++;
+    if (upSimFront.state === "done") filled++;
+    if (upSimBack.state === "done") filled++;
+    if (upSimReceipt.state === "done") filled++;
+    
+    const pct = Math.round((filled / total) * 100);
+    $("simProgressBar").style.width = pct + "%";
+    $("simProgressLabel").textContent = toFa(pct) + "٪";
+    
+    const remain = total - filled;
+    const remainEl = $("simRemain");
+    remainEl.textContent = toFa(remain) + " مورد باقی مانده";
+    remainEl.classList.toggle("ok", remain === 0);
+  }
+
+  upSimFront = makeUpload($("upSimFront"), updateSimSummary);
+  upSimBack = makeUpload($("upSimBack"), updateSimSummary);
+  upSimReceipt = makeUpload($("upSimReceipt"), updateSimSummary);
+
+  simTypeCtrl = makeChoices($("simType"), () => {
+    updateSimSummary();
+    const v = simTypeCtrl.value;
+    if (v) {
+      $("simBenefitsTitle").textContent = BENEFITS[v].title;
+      $("simBenefitsList").innerHTML = BENEFITS[v].rows.map(r => `<div class="benefit-row"><span class="b-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>${r}</div>`).join("");
+      $("simBenefitsStep").style.display = "block";
+    } else {
+      $("simBenefitsStep").style.display = "none";
+    }
+  });
+  simPrefixCtrl = makeShutter($("ddPrefix"), updateSimSummary);
+
+  // Input listeners for progress
+  ["simName", "simNational", "simPhone", "simPostal", "simAddress"].forEach(id => {
+    $(id).addEventListener("input", () => {
+      if (id === "simNational") $("simNationalCount").textContent = toFa(digits($(id).value).length) + " / ۱۰";
+      if (id === "simPhone") $("simPhoneCount").textContent = toFa(digits($(id).value).length) + " / ۱۱";
+      if (id === "simPostal") $("simPostalCount").textContent = toFa(digits($(id).value).length) + " / ۱۰";
+      updateSimSummary();
+    });
+  });
+
+  function showErrors(prefix, errors) {
+    const container = $(prefix + "Errors"), list = $(prefix + "ErrorsList"), count = $(prefix + "ErrorsCount");
+    list.innerHTML = "";
+    errors.forEach(err => {
+      const li = document.createElement("li"), btn = document.createElement("button");
+      btn.type = "button";
+      btn.innerHTML = `<span class="es-dot"></span><span class="es-name">${err.label}</span><span class="es-msg">${err.msg}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>`;
+      btn.addEventListener("click", () => { 
+        const el = $(err.id); 
+        if (el) { 
+          el.focus(); 
+          el.scrollIntoView({ behavior: "smooth", block: "center" }); 
+        } 
+      });
+      li.appendChild(btn); list.appendChild(li);
+      const field = $(err.id).closest(".field, .upload");
+      if (field) {
+        field.classList.add("invalid");
+        const input = field.querySelector("input, textarea");
+        if (input) input.setAttribute("aria-invalid", "true");
+      }
+    });
+    count.textContent = toFa(errors.length) + " مورد";
+    container.classList.add("show");
+    container.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  let currentPrefix = "";
+  function showModal(prefix, data) {
+    currentPrefix = prefix;
+    const modal = $("modal"), summary = $("modalSummary");
+    summary.innerHTML = `<div>نام: <b>${esc(data.name)}</b></div><div>کد ملی: <b>${esc(data.nat)}</b></div><div>شماره تماس: <b>${esc(data.phone)}</b></div><div>نوع سیم‌کارت: <b>${data.type === "perm" ? "دائمی" : "اعتباری"}</b></div><div>پیش‌شماره: <b>${data.prefix}</b></div><div>مبلغ پرداختی: <b>۲۹٬۰۰۰ تومان</b></div>`;
+    modal.classList.add("show"); modal.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden";
+    const confetti = $("confetti"); confetti.innerHTML = "";
+    for (let i = 0; i < 30; i++) {
+      const el = document.createElement("i");
+      el.style.left = Math.random() * 100 + "%";
+      el.style.setProperty("--x", (Math.random() * 100 - 50) + "px");
+      el.style.setProperty("--r", (Math.random() * 360) + "deg");
+      el.style.background = ["#ffd400", "#7046e8", "#ff7048", "#e9fa76"][Math.floor(Math.random() * 4)];
+      el.style.animationDelay = (Math.random() * 0.5) + "s";
+      confetti.appendChild(el);
+    }
+  }
+
+  function hideModal() { $("modal").classList.remove("show"); $("modal").setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; }
+  $("modalScrim").addEventListener("click", hideModal);
+  $("modalEdit").addEventListener("click", hideModal);
+  
+  $("modalConfirm").addEventListener("click", () => {
+    hideModal();
+    $("simCode").textContent = toFa("SIM-" + Math.floor(100000 + Math.random() * 900000));
+    $("simBanner").classList.add("show"); 
+    $("simForm").reset();
+    simTypeCtrl.reset(); simPrefixCtrl.reset(); 
+    upSimFront.reset(); upSimBack.reset(); upSimReceipt.reset();
+    $("simBenefitsStep").style.display = "none";
+    updateSimSummary(); 
+    $("simErrors").classList.remove("show");
+    $("simBanner").scrollIntoView({ behavior: "smooth", block: "center" });
+    toast("درخواست شما با موفقیت ثبت شد.", "ok");
+  });
+
+  $("simForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const errors = [];
+    const addErr = (id, label, msg) => errors.push({ id, label, msg });
+    
+    if ($("simName").value.trim().length < 3) addErr("simName", "نام و نام خانوادگی", "حداقل ۳ کاراکتر وارد کنید.");
+    if (!validNational($("simNational").value.trim())) addErr("simNational", "کد ملی", "۱۰ رقم معتبر وارد کنید.");
+    if (!validPhone($("simPhone").value.trim())) addErr("simPhone", "شماره تماس", "با ۰۹ شروع و ۱۱ رقم باشد.");
+    if (!validPostal($("simPostal").value.trim())) addErr("simPostal", "کد پستی", "۱۰ رقم وارد کنید.");
+    if ($("simAddress").value.trim().length < 10) addErr("simAddress", "آدرس دقیق", "حداقل ۱۰ کاراکتر وارد کنید.");
+    if (!simTypeCtrl.value) addErr("simTypeField", "نوع سیم‌کارت", "انتخاب کنید.");
+    if (!simPrefixCtrl.value) addErr("simPrefixField", "پیش‌شماره", "انتخاب کنید.");
+    if (upSimFront.state !== "done") addErr("upSimFront", "تصویر روی کارت ملی", "بارگذاری کنید.");
+    if (upSimBack.state !== "done") addErr("upSimBack", "تصویر پشت کارت ملی", "بارگذاری کنید.");
+    if (upSimReceipt.state !== "done") addErr("upSimReceipt", "رسید واریز وجه", "بارگذاری کنید.");
+    
+    if (errors.length > 0) { 
+      showErrors("sim", errors); 
+      return; 
+    }
+    
+    showModal("sim", { 
+      name: $("simName").value, 
+      nat: $("simNational").value, 
+      phone: $("simPhone").value, 
+      type: simTypeCtrl.value, 
+      prefix: simPrefixCtrl.value 
+    });
+  });
+
+  $("simReset").addEventListener("click", () => {
+    $("simBanner").classList.remove("show");
+    $("simForm").reset(); 
+    simTypeCtrl.reset(); simPrefixCtrl.reset(); 
+    upSimFront.reset(); upSimBack.reset(); upSimReceipt.reset();
+    $("simBenefitsStep").style.display = "none";
+    updateSimSummary();
+  });
+
+  updateSimSummary();
+})();
+</script>
+</body>
+        </html>
