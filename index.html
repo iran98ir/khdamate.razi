@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f8f5ef">
-<meta name="description" content="کلیه خدمات امور مشترکین؛ از ابلاغیه قضایی و خلافی خودرو تا کالابرگ و پرداخت قبوض، فقط با یک پیام در چت.">
+<meta name="description" content="کلیه خدمات امور مشترکین؛ از سیم‌کارت رایگان و اینترنت ارزان تا خدمات آنلاین، فقط با یک پیام در چت.">
 <title>راضی | خدمات امور مشترکین، آنلاین</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -292,7 +292,7 @@ svg{display:block}
 .footer-brand small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
 .footer-copy{font-size:9px;color:#938d96;font-weight:700}
 
-/* FLOATING MOBILE NAV */
+/* FLOATING MOBILE NAV — Updated for 4 items */
 .mobile-dock{
   display:none;position:fixed;z-index:50;
   bottom:calc(12px + env(safe-area-inset-bottom));
@@ -300,7 +300,8 @@ svg{display:block}
   padding:8px;background:#191621;color:white;
   border-radius:22px 22px 22px 7px;
   box-shadow:0 14px 45px #17121e38;
-  grid-template-columns:1fr 1fr 1fr;gap:7px;
+  grid-template-columns:1fr 1fr 1fr 1fr; /* Changed to 4 columns */
+  gap:6px; /* Slightly reduced gap for better fit */
 }
 .dock-item{
   display:flex;flex-direction:column;align-items:center;
@@ -392,8 +393,9 @@ svg{display:block}
 
   <nav class="header-menu">
     <a href="index.html" class="current">خانه</a>
-    <a href="guide.html">راهنما</a>
-    <a href="plans.html">طرح‌ها</a>
+    <a href="sim.html">سیم کارت</a>
+    <a href="internet.html">اینترنت</a>
+    <a href="guide.html">خدمات</a>
   </nav>
 
   <a href="guide.html" class="header-cta">
@@ -421,7 +423,7 @@ svg{display:block}
 
     <p class="hero-description">
       کلیه خدمات امور مشترکین را آنلاین تجربه کن؛
-      از <strong>ابلاغیه قضایی</strong> و <strong>خلافی خودرو</strong>
+      از <strong>سیم‌کارت رایگان</strong> و <strong>اینترنت ارزان</strong>
       تا <strong>ثبت‌نام کالابرگ</strong> و <strong>پرداخت قبوض</strong>.
     </p>
 
@@ -590,7 +592,7 @@ svg{display:block}
   </div>
 </footer>
 
-<!-- MOBILE DOCK -->
+<!-- MOBILE DOCK (4 Items) -->
 <nav class="mobile-dock" aria-label="ناوبری پایین">
   <a href="index.html" class="dock-item active" aria-current="page">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -598,19 +600,27 @@ svg{display:block}
     </svg>
     خانه
   </a>
+  <a href="sim.html" class="dock-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+      <rect x="8.5" y="12" width="7" height="6" rx="1.5"/>
+      <path d="M12 12v6M8.5 15h7"/>
+    </svg>
+    سیم کارت
+  </a>
+  <a href="internet.html" class="dock-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/>
+      <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/>
+    </svg>
+    اینترنت
+  </a>
   <a href="guide.html" class="dock-item">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22.5z"/>
       <path d="M4 5.5v17M8 8h8M8 12h7"/>
     </svg>
-    راهنما
-  </a>
-  <a href="plans.html" class="dock-item">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/>
-      <path d="m3 8 9 5 9-5M12 13v8"/>
-    </svg>
-    طرح‌ها
+    خدمات
   </a>
 </nav>
 
@@ -627,4 +637,4 @@ svg{display:block}
 </script>
 
 </body>
-</html>
+  </html>
