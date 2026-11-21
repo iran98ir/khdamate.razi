@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f8f5ef">
-<meta name="description" content="بسته‌های اینترنت اقتصادی با عضویت در شبکه‌های اجتماعی ما">
-<title>نتینو | اینترنت به‌صرفه، هوشمندانه‌تر</title>
+<meta name="description" content="دریافت سیم‌کارت رایگان ایرانسل از سراسر ایران و خرید مستقیم بستهٔ اینترنت ارزان؛ با ضمانت بی‌قید و شرط بازگشت وجه.">
+<title>راضی | راهنمای خدمات — سیم‌کارت رایگان و اینترنت ارزان</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
@@ -22,6 +22,13 @@
   --lemon:#e9fa76;
   --pink:#ffb8d4;
   --line:#e8e2d9;
+  --green:#3f9d4f;
+  --green-soft:#e4f4e2;
+  --red:#d64545;
+  --red-soft:#fdecec;
+  --amber:#e8a13c;
+  --blue:#2f6fed;
+  --lav:#e7e0fa;
   --shadow:0 18px 55px rgba(35,25,50,.09);
   --shadow-strong:0 28px 70px rgba(35,25,50,.16);
   --max:1180px;
@@ -29,469 +36,539 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  background:var(--paper);
-  color:var(--ink);
+  background:var(--paper);color:var(--ink);
   font-family:Vazirmatn,Tahoma,sans-serif;
-  overflow-x:hidden;
-  padding-bottom:35px;
+  overflow-x:hidden;padding-bottom:35px;
 }
 a{color:inherit;text-decoration:none}
 button{font:inherit;cursor:pointer}
 svg{display:block}
 ::selection{background:var(--lemon);color:var(--ink)}
+a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--purple);outline-offset:3px}
 .wrap{width:min(calc(100% - 42px),var(--max));margin:auto}
+html{scrollbar-width:thin;scrollbar-color:#c9bce8 var(--paper)}
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-track{background:var(--paper)}
+::-webkit-scrollbar-thumb{background:#c9bce8;border-radius:9px;border:2px solid var(--paper)}
+::-webkit-scrollbar-thumb:hover{background:var(--purple)}
 
-/* BACKGROUND */
-.background{
-  position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden;
-}
+/* BACKGROUND — static */
+.background{position:fixed;inset:0;z-index:-2;pointer-events:none;overflow:hidden}
 .background:before{
   content:"";position:absolute;inset:0;opacity:.22;
   background-image:radial-gradient(#8b7b9b 1px,transparent 1px);
   background-size:25px 25px;
-  mask-image:linear-gradient(to bottom,#000,transparent 75%);
+  mask-image:linear-gradient(to bottom,#000,transparent 78%);
 }
-.bg-shape{
-  position:absolute;border-radius:50%;filter:blur(2px);
-  animation:floatShape 13s ease-in-out infinite alternate;
-}
-.bg-shape.one{
-  width:300px;height:300px;background:#ffb8d4;
-  top:8%;right:-230px;opacity:.42;
-}
-.bg-shape.two{
-  width:350px;height:350px;background:#d8c8ff;
-  top:55%;left:-270px;opacity:.48;animation-delay:-5s;
-}
-.bg-shape.three{
-  width:180px;height:180px;background:#fff0a2;
-  top:35%;right:65%;opacity:.32;animation-delay:-8s;
-}
-@keyframes floatShape{
-  from{transform:translate3d(0,0,0) rotate(0deg)}
-  to{transform:translate3d(30px,-35px,0) rotate(15deg)}
-}
+.bg-shape{position:absolute;border-radius:50%;filter:blur(2px)}
+.bg-shape.one{width:300px;height:300px;background:#ffb8d4;top:6%;right:-230px;opacity:.4}
+.bg-shape.two{width:350px;height:350px;background:#d8c8ff;top:46%;left:-270px;opacity:.46}
+.bg-shape.three{width:190px;height:190px;background:#fff0a2;top:78%;right:62%;opacity:.3}
 
-/* HEADER */
-.header{
-  height:86px;display:flex;align-items:center;
-  justify-content:space-between;position:relative;z-index:10;
-}
+/* HEADER — identical to home */
+.header{height:86px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:40;gap:14px}
 .brand{display:flex;align-items:center;gap:11px}
 .brand-mark{
-  width:47px;height:47px;background:var(--ink);color:var(--lemon);
+  width:47px;height:47px;padding:4px;background:var(--ink);color:var(--lemon);
   border-radius:15px 15px 15px 4px;display:grid;place-items:center;
-  transform:rotate(-5deg);box-shadow:0 9px 20px #17151e25;
+  transform:rotate(-5deg);box-shadow:0 9px 20px #17151e25;flex-shrink:0;
 }
-.brand-mark svg{width:26px;height:26px}
+.brand-mark img{width:100%;height:100%;object-fit:cover;border-radius:11px;display:block}
+.brand-fallback{display:none;font-size:21px;font-weight:1000;line-height:1}
 .brand-name{font-size:23px;font-weight:1000;letter-spacing:-1px}
 .brand-caption{font-size:9px;color:var(--muted);font-weight:750;margin-top:2px}
 .header-menu{display:flex;align-items:center;gap:28px}
-.header-menu a{
-  font-size:12px;font-weight:850;color:#625d68;transition:.2s;
-}
-.header-menu a:hover{color:var(--purple)}
+.header-menu a{font-size:12px;font-weight:850;color:#625d68;transition:.2s}
+.header-menu a:hover,.header-menu a.current{color:var(--purple)}
 .header-cta{
-  display:flex;align-items:center;gap:10px;
-  padding:11px 17px;background:var(--lemon);
-  border-radius:50px;font-size:11px;font-weight:950;
-  box-shadow:0 5px 0 #d2df65;transition:.2s;
+  display:flex;align-items:center;gap:10px;padding:11px 17px;background:var(--lemon);
+  border-radius:50px;font-size:11px;font-weight:950;box-shadow:0 5px 0 #d2df65;
+  transition:.2s;white-space:nowrap;
 }
 .header-cta:hover{transform:translateY(-3px);box-shadow:0 8px 0 #d2df65}
 .header-cta svg{width:16px;height:16px}
 
-/* HERO */
-.hero{
-  min-height:610px;display:grid;
-  grid-template-columns:1.03fr .97fr;
-  align-items:center;gap:45px;padding:54px 0 62px;
+/* BUTTONS */
+.btn-primary{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  min-height:56px;padding:0 26px;border:none;color:#fff;background:var(--purple);
+  border-radius:14px 14px 14px 4px;font-size:13px;font-weight:950;
+  box-shadow:0 9px 0 #4c2bb3;transition:.22s;position:relative;
 }
-.hero-copy{position:relative;z-index:2}
-.hero-label{
-  display:inline-flex;align-items:center;gap:9px;
-  padding:8px 13px;background:#fff;
-  border:1px solid var(--line);border-radius:50px;
-  color:var(--purple);font-size:11px;font-weight:900;
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 13px 0 #4c2bb3}
+.btn-primary:active{transform:translateY(2px);box-shadow:0 4px 0 #4c2bb3}
+.btn-primary svg{width:18px;height:18px}
+.btn-primary.ready{background:linear-gradient(110deg,#7d55f0,#7046e8 55%,#5a38c5)}
+.btn-primary:disabled{opacity:.7;transform:none;cursor:default}
+.btn-ghost{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:50px;padding:0 18px;background:#fff;border:1.5px solid #dcd4e5;
+  border-radius:14px;font-size:12px;font-weight:900;color:var(--ink);transition:.22s;
+}
+.btn-ghost:hover{border-color:var(--purple);color:var(--purple);transform:translateY(-3px)}
+.btn-ghost svg{width:16px;height:16px}
+.btn-lemon{
+  display:inline-flex;align-items:center;gap:9px;padding:11px 16px;
+  background:var(--lemon);color:var(--ink);border-radius:13px 13px 13px 4px;
+  font-size:11px;font-weight:950;box-shadow:0 5px 0 #d2df65;transition:.2s;white-space:nowrap;
+}
+.btn-lemon:hover{transform:translateY(-3px);box-shadow:0 8px 0 #d2df65}
+.btn-lemon svg{width:15px;height:15px}
+
+/* SECTION + HERO */
+.service{padding:26px 0 40px;scroll-margin-top:20px}
+.svc-hero{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:38px;padding:18px 0 30px}
+.svc-copy{position:relative;z-index:2}
+.svc-label{
+  display:inline-flex;align-items:center;gap:9px;padding:8px 13px;background:#fff;
+  border:1px solid var(--line);border-radius:50px;font-size:11px;font-weight:900;
   box-shadow:0 5px 18px #30204b09;
 }
-.live-dot{
-  width:8px;height:8px;border-radius:50%;
-  background:#6acb75;box-shadow:0 0 0 4px #6acb7525;
-  animation:pulse 1.8s infinite;
+.svc-label .dot{width:8px;height:8px;border-radius:50%}
+.svc-label.sim{color:#4b2341}.svc-label.sim .dot{background:var(--pink);box-shadow:0 0 0 4px #ffb8d440}
+.svc-label.net{color:#66351d}.svc-label.net .dot{background:var(--orange);box-shadow:0 0 0 4px #ff704830}
+.svc-hero h1{margin-top:18px;font-size:clamp(30px,4.6vw,52px);line-height:1.45;font-weight:1000;letter-spacing:-1.8px}
+.svc-hero h1 .dark-line{display:block}
+.svc-hero h1 .color-line{display:inline-block;color:var(--purple);position:relative;z-index:1}
+.svc-hero h1 .color-line:after{
+  content:"";position:absolute;right:0;bottom:5px;width:100%;height:13px;
+  background:var(--lemon);z-index:-1;transform:rotate(-2deg);
 }
-@keyframes pulse{
-  50%{box-shadow:0 0 0 8px #6acb7500}
+.svc-desc{max-width:540px;margin-top:14px;color:#5f5a66;font-size:14.5px;line-height:2.25;font-weight:700}
+.svc-desc strong{color:var(--ink);font-weight:950}
+.svc-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.svc-chip{
+  display:inline-flex;align-items:center;gap:7px;padding:8px 13px;background:#fff;
+  border:1px solid var(--line);border-radius:50px;font-size:10.5px;font-weight:850;
+  color:#5d5766;box-shadow:0 4px 14px #30204b08;
 }
-.hero h1{
-  margin-top:27px;font-size:clamp(46px,6.2vw,78px);
-  line-height:1.42;font-weight:1000;letter-spacing:-3px;
-}
-.hero h1 .dark-line{display:block}
-.hero h1 .color-line{
-  display:inline-block;color:var(--purple);
-  position:relative;z-index:1;
-}
-.hero h1 .color-line:after{
-  content:"";position:absolute;right:0;bottom:5px;
-  width:100%;height:14px;background:var(--lemon);
-  z-index:-1;transform:rotate(-2deg);
-}
-.hero-description{
-  max-width:520px;margin-top:21px;
-  color:#716c77;font-size:14px;line-height:2.3;font-weight:650;
-}
-.hero-description strong{color:var(--ink);font-weight:950}
-.hero-actions{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-top:29px}
-.btn-main{
-  min-height:58px;padding:0 23px;
-  display:inline-flex;align-items:center;justify-content:center;gap:16px;
-  color:white;background:var(--purple);border-radius:14px 14px 14px 4px;
-  font-size:12px;font-weight:950;box-shadow:0 9px 0 #4c2bb3;
-  transition:.25s;position:relative;overflow:hidden;
-}
-.btn-main:hover{transform:translateY(-4px);box-shadow:0 13px 0 #4c2bb3}
-.btn-main:active{transform:translateY(2px);box-shadow:0 4px 0 #4c2bb3}
-.btn-main svg{width:18px;height:18px}
-.btn-guide{
-  min-height:54px;padding:0 17px;display:inline-flex;
-  align-items:center;gap:10px;border:1px solid #dcd4e5;
-  background:#fff;border-radius:14px;font-size:12px;font-weight:900;
-  transition:.25s;
-}
-.btn-guide:hover{border-color:var(--purple);color:var(--purple);transform:translateY(-3px)}
-.btn-guide svg{width:17px;height:17px}
-.hero-note{
-  display:flex;align-items:center;gap:10px;
-  margin-top:27px;color:#89838d;font-size:10px;font-weight:750;
-}
-.hero-note svg{width:17px;height:17px;color:var(--orange)}
+.svc-chip svg{width:15px;height:15px;color:var(--purple)}
 
-/* HERO ART */
-.hero-art{
-  min-height:485px;position:relative;display:grid;place-items:center;
+/* HERO ART — static */
+.svc-art{min-height:330px;position:relative;display:grid;place-items:center}
+.art-backdrop{position:absolute;width:290px;height:290px;max-width:92%;border-radius:46% 54% 58% 42%/43% 42% 58% 57%;background:var(--lemon);transform:rotate(-12deg)}
+.art-ring{position:absolute;width:340px;height:340px;max-width:100%;border:1px dashed #9c83e9;border-radius:50%}
+.art-ring:before,.art-ring:after{content:"";position:absolute;width:13px;height:13px;border:4px solid var(--paper);border-radius:50%}
+.art-ring:before{top:40px;right:44px;background:var(--orange)}
+.art-ring:after{bottom:44px;left:36px;background:var(--purple)}
+.hero-object{
+  position:relative;z-index:2;width:292px;padding:20px;background:var(--ink);color:#fff;
+  border-radius:26px 26px 26px 8px;box-shadow:0 30px 65px #24143835;
+  transform:rotate(-4deg);transition:transform .5s;
 }
-.art-backdrop{
-  position:absolute;width:390px;height:390px;max-width:90%;
-  border-radius:46% 54% 58% 42% / 43% 42% 58% 57%;
-  background:var(--lemon);transform:rotate(-12deg);
-  animation:morph 9s ease-in-out infinite alternate;
-}
-@keyframes morph{
-  0%{border-radius:46% 54% 58% 42% / 43% 42% 58% 57%;transform:rotate(-12deg)}
-  100%{border-radius:60% 40% 40% 60% / 55% 60% 40% 45%;transform:rotate(8deg)}
-}
-.art-ring{
-  position:absolute;width:445px;height:445px;max-width:100%;
-  border:1px dashed #9c83e9;border-radius:50%;
-  animation:spin 45s linear infinite;
-}
-.art-ring:before,.art-ring:after{
-  content:"";position:absolute;width:14px;height:14px;
-  background:var(--orange);border:4px solid var(--paper);border-radius:50%;
-}
-.art-ring:before{top:48px;right:55px}
-.art-ring:after{bottom:55px;left:45px;background:var(--purple)}
-@keyframes spin{to{transform:rotate(360deg)}}
-.phone-card{
-  position:relative;z-index:2;width:290px;min-height:370px;
-  padding:23px;background:var(--ink);color:white;
-  border-radius:30px 30px 30px 8px;
-  box-shadow:0 30px 65px #24143835;
-  transform:rotate(-5deg);transition:transform .5s;
-}
-.hero-art:hover .phone-card{transform:rotate(0deg) translateY(-7px)}
-.phone-top{display:flex;align-items:center;justify-content:space-between}
-.phone-brand{font-size:13px;font-weight:950}
-.phone-status{
-  display:flex;align-items:center;gap:6px;
-  color:#b9f18b;font-size:9px;font-weight:800;
-}
-.phone-status:before{
-  content:"";width:6px;height:6px;border-radius:50%;background:#a6e76b;
-}
-.phone-illustration{
-  height:155px;margin-top:22px;position:relative;
-  display:grid;place-items:center;overflow:hidden;
-  background:linear-gradient(135deg,#8059ed,#a37cf8);
-  border-radius:20px 20px 20px 5px;
-}
-.phone-illustration:before,.phone-illustration:after{
-  content:"";position:absolute;border:1px solid #ffffff45;border-radius:50%;
-}
-.phone-illustration:before{width:180px;height:180px}
-.phone-illustration:after{width:125px;height:125px}
-.wifi-symbol{position:relative;z-index:1;width:85px;height:85px;color:var(--lemon)}
-.phone-copy{margin-top:20px}
-.phone-copy small{color:#bdb5c9;font-size:10px;font-weight:750}
-.phone-copy h2{font-size:22px;font-weight:950;margin-top:6px;line-height:1.7}
-.phone-copy p{font-size:10px;color:#bdb5c9;line-height:2;margin-top:5px}
-.phone-bottom{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-top:18px;padding-top:15px;border-top:1px solid #ffffff24;
-}
-.phone-bottom span{font-size:9px;color:#c8c0d2;font-weight:700}
-.phone-bottom b{font-size:11px;color:var(--lemon)}
-.float-sticker{
-  position:absolute;z-index:4;display:grid;place-items:center;
-  box-shadow:var(--shadow);
-}
-.sticker-price{
-  top:55px;right:-5px;width:105px;height:105px;
-  background:var(--orange);color:white;border-radius:50%;
-  transform:rotate(10deg);text-align:center;
-}
-.sticker-price small{font-size:9px;font-weight:850}
-.sticker-price strong{display:block;font-size:22px;font-weight:1000}
-.sticker-price span{font-size:9px;font-weight:800}
+.svc-art:hover .hero-object{transform:rotate(0deg) translateY(-6px)}
+.obj-top{display:flex;align-items:center;justify-content:space-between;font-size:10px;font-weight:900;color:#c8c0d2;direction:ltr}
+.obj-chip{width:38px;height:28px;border-radius:7px;background:linear-gradient(135deg,#e9fa76,#c8d94f);position:relative;overflow:hidden}
+.obj-chip:before{content:"";position:absolute;inset:6px 4px;border:1px solid #17151e33;border-radius:4px}
+.obj-name{margin-top:16px;font-size:26px;font-weight:1000;color:var(--lemon);line-height:1.5}
+.obj-sub{font-size:10.5px;color:#bdb5c9;font-weight:750;margin-top:4px;line-height:2}
+.obj-bottom{display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:12px;border-top:1px solid #ffffff24;font-size:9px;color:#c8c0d2;font-weight:800}
+.obj-bottom b{color:var(--lemon);font-size:10px;direction:ltr}
+.obj-wifi{width:64px;height:64px;color:var(--lemon);margin:14px auto 6px}
+.float-sticker{position:absolute;z-index:4;display:grid;place-items:center;box-shadow:var(--shadow)}
+.sticker-round{top:22px;right:-2px;width:96px;height:96px;background:var(--orange);color:#fff;border-radius:50%;transform:rotate(10deg);text-align:center}
+.sticker-round small{font-size:9px;font-weight:850}
+.sticker-round strong{display:block;font-size:16px;font-weight:1000}
+.sticker-round span{font-size:9px;font-weight:800}
 .sticker-star{
-  left:0;bottom:55px;width:75px;height:75px;
-  background:var(--pink);color:#4e2340;
+  left:0;bottom:40px;width:62px;height:62px;background:var(--pink);color:#4e2340;
   clip-path:polygon(50% 0%,62% 28%,91% 10%,80% 41%,100% 58%,67% 65%,75% 100%,48% 77%,22% 100%,30% 66%,0 53%,29% 38%,17% 10%,43% 28%);
-  animation:starWiggle 4s ease-in-out infinite;
 }
-.sticker-star svg{width:29px;height:29px}
-@keyframes starWiggle{50%{transform:rotate(18deg) scale(1.08)}}
-.art-caption{
-  position:absolute;bottom:0;right:50%;transform:translateX(50%);
-  color:#8b8291;font-size:9px;letter-spacing:2px;font-weight:900;
-  white-space:nowrap;direction:ltr;
-}
+.sticker-star svg{width:25px;height:25px}
+.art-caption{position:absolute;bottom:0;right:50%;transform:translateX(50%);color:#8b8291;font-size:9px;letter-spacing:2px;font-weight:900;white-space:nowrap;direction:ltr}
 
-/* TICKER */
-.ticker{
-  overflow:hidden;background:var(--purple);color:white;
-  transform:rotate(-1deg) scale(1.02);
-  padding:15px 0;margin:15px 0 85px;
+/* FORM CARD */
+.form-card{
+  background:var(--white);border:1.5px solid var(--line);
+  border-radius:30px 30px 30px 8px;box-shadow:var(--shadow-strong);
+  padding:26px;position:relative;
 }
-.ticker-track{
-  display:flex;width:max-content;align-items:center;gap:34px;
-  animation:tickerMove 28s linear infinite;
-}
-.ticker-item{
-  display:flex;align-items:center;gap:14px;
-  font-size:12px;font-weight:950;white-space:nowrap;
-}
-.ticker-item i{
-  display:block;width:8px;height:8px;border-radius:50%;
-  background:var(--lemon);
-}
-@keyframes tickerMove{to{transform:translateX(50%)}}
+.form-head{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.form-title{display:flex;align-items:center;gap:12px}
+.form-title .ft-icon{width:46px;height:46px;border-radius:15px 15px 15px 4px;display:grid;place-items:center;flex-shrink:0}
+.ft-icon.sim{background:#f8d4e6;color:#4b2341}
+.ft-icon.net{background:#ffe0c6;color:#66351d}
+.ft-icon svg{width:24px;height:24px}
+.form-title h2{font-size:19px;font-weight:1000;line-height:1.6}
+.form-title p{font-size:10.5px;color:var(--muted);font-weight:750;margin-top:2px}
+.progress{min-width:170px;flex:0 1 210px}
+.progress-top{display:flex;justify-content:space-between;font-size:9.5px;font-weight:850;color:var(--muted);margin-bottom:6px}
+.progress-top b{color:var(--purple-dark)}
+.progress-track{height:8px;border-radius:8px;background:#eee8dd;overflow:hidden}
+.progress-bar{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--lemon),var(--purple));transition:width .45s cubic-bezier(.2,.7,.2,1)}
 
-/* SECTION HEADINGS */
-.section-heading{margin-bottom:30px}
-.section-label{
-  display:inline-flex;align-items:center;gap:9px;
-  color:var(--orange);font-size:10px;font-weight:950;
-  letter-spacing:.5px;
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-size:12px;font-weight:900;color:#4c4653;display:flex;align-items:center;gap:6px}
+.field label .req{color:var(--orange);font-weight:1000}
+.field label svg{width:15px;height:15px;color:var(--purple)}
+.field input,.field textarea{
+  width:100%;min-height:50px;padding:0 15px;background:var(--paper);
+  border:1.5px solid var(--line);border-radius:14px 14px 14px 4px;
+  font:inherit;font-size:13px;font-weight:650;color:var(--ink);outline:none;transition:.2s;
 }
+.field textarea{padding:12px 15px;min-height:92px;resize:vertical;line-height:2}
+.field input:focus,.field textarea:focus{border-color:var(--purple);background:#fff;box-shadow:0 0 0 4px #7046e814}
+.field input.num{direction:ltr;text-align:right;font-variant-numeric:tabular-nums;letter-spacing:1px}
+.field input::placeholder,.field textarea::placeholder{color:#a89f96;font-weight:600}
+.field-error{display:none;font-size:10px;font-weight:800;color:var(--red)}
+.field.invalid input,.field.invalid textarea{border-color:var(--red);background:var(--red-soft)}
+.field.invalid .field-error{display:block}
+.field.invalid .dd-btn{border-color:var(--red);background:var(--red-soft)}
+.field.invalid .choice{border-color:#f0b9b9}
+.field-hint{font-size:10.5px;color:var(--muted);font-weight:700;line-height:2}
+
+.block{margin-top:22px}
+.block-title{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:950;margin-bottom:12px}
+.block-title:before{content:"";width:22px;height:3px;border-radius:4px;background:var(--orange)}
+.block-title small{font-size:9px;color:var(--muted);font-weight:800;letter-spacing:1.5px;direction:ltr}
+
+/* CHOICE TILES */
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.choice{
+  display:flex;align-items:center;gap:11px;padding:14px 15px;background:#fff;
+  border:1.5px solid var(--line);border-radius:16px 16px 16px 5px;text-align:right;
+  transition:.2s;position:relative;color:var(--ink);
+}
+.choice:hover:not(:disabled){border-color:#c9bce8;transform:translateY(-2px)}
+.choice .c-icon{width:38px;height:38px;border-radius:12px;background:var(--paper);display:grid;place-items:center;flex-shrink:0;color:var(--purple)}
+.choice .c-icon svg{width:20px;height:20px}
+.choice strong{display:block;font-size:13px;font-weight:950}
+.choice small{display:block;font-size:9.5px;color:var(--muted);font-weight:750;margin-top:2px}
+.choice .c-check{
+  margin-inline-start:auto;width:22px;height:22px;border-radius:50%;
+  border:1.5px solid var(--line);display:grid;place-items:center;color:transparent;transition:.2s;flex-shrink:0;
+}
+.choice .c-check svg{width:13px;height:13px}
+.choice[aria-checked="true"]{border-color:var(--purple);background:#f3efff;box-shadow:0 5px 0 rgba(112,70,232,.22)}
+.choice[aria-checked="true"] .c-check{background:var(--purple);border-color:var(--purple);color:#fff}
+.choice:disabled{opacity:.45;cursor:not-allowed}
+.choice .c-lock{margin-inline-start:auto;color:var(--muted)}
+.choice .c-lock svg{width:15px;height:15px}
+
+/* BENEFITS */
+.benefits{background:#efe9fd;border:1px solid #ddd2f7;border-radius:18px 18px 18px 5px;padding:16px 18px}
+.benefits h3{font-size:13.5px;font-weight:950;color:var(--purple-dark);margin-bottom:10px}
+.benefit-row{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:14px;font-weight:900;line-height:1.9}
+.benefit-row + .benefit-row{border-top:1px dashed #d5c8f2}
+.benefit-row .b-check{width:24px;height:24px;border-radius:8px;background:var(--lemon);color:var(--ink);display:grid;place-items:center;flex-shrink:0}
+.benefit-row .b-check svg{width:14px;height:14px}
+
+/* SHUTTER DROPDOWN */
+.dd{position:relative}
+.dd-btn{
+  width:100%;min-height:50px;padding:0 15px;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:var(--paper);border:1.5px solid var(--line);border-radius:14px 14px 14px 4px;
+  font-size:13px;font-weight:750;color:var(--ink);transition:.2s;
+}
+.dd-btn:hover{border-color:#c9bce8}
+.dd.open .dd-btn{border-color:var(--purple);background:#fff;box-shadow:0 0 0 4px #7046e814}
+.dd-value{color:#a89f96}
+.dd-value.filled{color:var(--ink);font-weight:900}
+.dd-btn .chev{width:17px;height:17px;color:var(--purple);transition:transform .3s;flex-shrink:0}
+.dd.open .chev{transform:rotate(180deg)}
+.dd-panel{
+  position:absolute;top:calc(100% + 7px);right:0;left:0;z-index:30;
+  display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;
+  transition:grid-template-rows .38s cubic-bezier(.2,.7,.2,1),opacity .28s,visibility .38s;
+}
+.dd.open .dd-panel{grid-template-rows:1fr;opacity:1;visibility:visible}
+.dd-inner{overflow:hidden}
+.dd-list{
+  list-style:none;background:#fff;border:1.5px solid var(--purple);
+  border-radius:14px 14px 14px 4px;box-shadow:0 18px 40px rgba(35,25,50,.16);
+  max-height:250px;overflow-y:auto;padding:6px;
+  scrollbar-width:thin;scrollbar-color:#c9bce8 #fff;
+}
+.dd-list::-webkit-scrollbar{width:7px}
+.dd-list::-webkit-scrollbar-track{background:#fff}
+.dd-list::-webkit-scrollbar-thumb{background:#c9bce8;border-radius:7px}
+.dd-list li{
+  display:flex;align-items:center;gap:9px;padding:11px 12px;border-radius:10px;
+  font-size:12.5px;font-weight:850;cursor:pointer;transition:.15s;color:var(--ink);
+}
+.dd-list li:hover,.dd-list li:focus{background:#f3efff;outline:none}
+.dd-list li .op-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.dd-list li small{margin-inline-start:auto;font-size:9px;color:var(--muted);font-weight:800}
+.dd-list li .o-check{width:15px;height:15px;color:transparent;margin-inline-start:6px}
+.dd-list li[aria-selected="true"]{background:var(--lemon)}
+.dd-list li[aria-selected="true"] .o-check{color:var(--ink)}
+.dd-num{direction:ltr;font-variant-numeric:tabular-nums;letter-spacing:1px}
+
+/* CONDITIONAL STEPS */
+.step{display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1),opacity .35s,visibility .45s}
+.step > .step-inner{overflow:hidden}
+.step.show{grid-template-rows:1fr;opacity:1;visibility:visible}
+.step .step-pad{padding-top:22px}
+
+/* UPLOADS */
+.uploads{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.upload{display:flex;flex-direction:column;gap:8px;min-width:0}
+.upload.wide{grid-column:1/-1}
+.up-label{font-size:12.5px;font-weight:900;line-height:2;color:#4c4653}
+.up-label .req{color:var(--orange)}
+.up-drop{
+  min-height:158px;border:2px dashed rgba(112,70,232,.35);border-radius:16px 16px 16px 5px;
+  background:#fff;display:grid;place-items:center;cursor:pointer;transition:.2s;position:relative;overflow:hidden;
+}
+.up-drop:hover,.up-drop.drag{border-color:var(--purple);background:#f7f4ff}
+.upload.invalid .up-drop{border-color:var(--red);background:var(--red-soft)}
+.up-idle{display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px;text-align:center}
+.up-idle .u-icon{width:44px;height:44px;border-radius:13px;background:var(--lemon);color:var(--ink);display:grid;place-items:center}
+.up-idle .u-icon svg{width:22px;height:22px}
+.up-idle span{font-size:12px;font-weight:950;color:var(--purple-dark)}
+.up-idle small{font-size:9px;color:var(--muted);font-weight:750}
+.up-loading{display:none;flex-direction:column;align-items:center;gap:10px;padding:18px;font-size:11.5px;font-weight:900;color:var(--purple-dark)}
+.up-done{display:none;align-items:center;gap:12px;padding:14px;width:100%}
+.up-img{width:76px;height:76px;object-fit:cover;border-radius:12px;border:1px solid var(--line);flex-shrink:0;background:var(--paper)}
+.up-meta{min-width:0;flex:1}
+.up-name{font-size:11px;font-weight:900;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr;text-align:right}
+.up-size{font-size:9.5px;color:var(--muted);font-weight:750;margin-top:3px}
+.up-ok{display:inline-flex;align-items:center;gap:6px;margin-top:7px;padding:5px 10px;background:var(--green-soft);color:var(--green);border-radius:50px;font-size:9px;font-weight:950}
+.up-ok svg{width:12px;height:12px}
+.upload[data-state="loading"] .up-idle{display:none}
+.upload[data-state="loading"] .up-loading{display:flex}
+.upload[data-state="done"] .up-idle{display:none}
+.upload[data-state="done"] .up-done{display:flex}
+.upload[data-state="done"] .up-drop{border-style:solid;border-color:#bcd9b6;background:#fbfdf8;cursor:default}
+.up-actions{display:none;gap:8px}
+.upload[data-state="done"] .up-actions{display:flex}
+.up-actions button{
+  flex:1;min-height:38px;border-radius:11px;border:1.5px solid var(--line);background:#fff;
+  font-size:10.5px;font-weight:900;color:#5d5766;transition:.2s;display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.up-actions button:hover{border-color:var(--purple);color:var(--purple)}
+.up-actions button.del:hover{border-color:var(--red);color:var(--red)}
+.up-actions svg{width:14px;height:14px}
+.up-error{font-size:10px;font-weight:800;color:var(--red);min-height:0}
+.spin{width:24px;height:24px;border:3px solid #e4ddf5;border-top-color:var(--purple);border-radius:50%;animation:rot .8s linear infinite}
+.spin.small{width:18px;height:18px;border-width:2.5px;border-color:#ffffff55;border-top-color:#fff}
+@keyframes rot{to{transform:rotate(360deg)}}
+
+/* PAYMENT */
+.pay-box{background:var(--paper);border:1.5px dashed rgba(112,70,232,.3);border-radius:20px 20px 20px 6px;padding:18px}
+.pay-title{font-size:13.5px;font-weight:950;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.pay-title svg{width:18px;height:18px;color:var(--purple)}
+.cost-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 2px;font-size:12px;font-weight:750;color:#5d5766;border-bottom:1px dashed var(--line)}
+.cost-row b{font-weight:950;color:var(--ink);white-space:nowrap}
+.cost-total{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;
+  padding:13px 16px;background:var(--lemon);border-radius:14px 14px 14px 4px;
+  font-size:14.5px;font-weight:1000;box-shadow:0 5px 0 #d2df65;
+}
+.pay-note{font-size:12px;font-weight:800;color:#5d5766;line-height:2.1;margin-top:12px}
+.bank-card{
+  position:relative;overflow:hidden;margin-top:12px;padding:18px;color:#fff;
+  background:linear-gradient(135deg,#2b2440 0%,#17151e 52%,#33192e 100%);
+  border:1px solid #ffffff1f;border-radius:20px 20px 20px 6px;
+}
+.bank-card:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;top:-120px;left:-60px;background:radial-gradient(circle,#7046e866,transparent 70%)}
+.bank-card:after{content:"";position:absolute;width:200px;height:200px;border-radius:50%;bottom:-120px;right:-40px;background:radial-gradient(circle,#ff704855,transparent 70%)}
+.bank-top{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between}
+.bank-name{font-size:11.5px;font-weight:950;color:#efe9f7}
+.bank-chip{width:36px;height:27px;border-radius:7px;background:linear-gradient(135deg,#e9fa76,#c8d94f);position:relative}
+.bank-chip:before{content:"";position:absolute;inset:6px 5px;border:1px solid #17151e33;border-radius:4px}
+.bank-number{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:16px}
+.bank-digits{font-size:clamp(17px,3.2vw,22px);font-weight:950;letter-spacing:2.5px;direction:ltr;font-variant-numeric:tabular-nums}
+.copy-btn{
+  display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border:none;
+  background:var(--lemon);color:var(--ink);border-radius:50px;font-size:10px;font-weight:950;
+  box-shadow:0 4px 0 #d2df65;transition:.2s;
+}
+.copy-btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 #d2df65}
+.copy-btn svg{width:14px;height:14px}
+.copy-btn.copied{background:var(--green-soft);color:var(--green);box-shadow:0 4px 0 #bcd9b6}
+.bank-holder{position:relative;z-index:1;margin-top:12px;font-size:10.5px;color:#c8c0d2;font-weight:800}
+.bank-holder b{color:#fff}
+.bold-note{
+  margin-top:14px;padding:14px 16px;background:#fff;border:1px solid var(--line);
+  border-inline-start:4px solid var(--orange);border-radius:14px 14px 14px 4px;
+  font-size:13.5px;font-weight:850;line-height:2.2;color:var(--ink);
+}
+.bold-note strong{color:var(--purple-dark)}
+
+/* DURATION + PACKAGES */
+.dur-grid{display:flex;flex-wrap:wrap;gap:9px}
+.dur{
+  display:inline-flex;align-items:center;gap:7px;padding:11px 16px;background:#fff;
+  border:1.5px solid var(--line);border-radius:50px;font-size:11.5px;font-weight:900;color:var(--ink);transition:.2s;
+}
+.dur svg{width:13px;height:13px}
+.dur:disabled{opacity:.42;cursor:not-allowed;color:var(--muted)}
+.dur[aria-checked="true"]{background:var(--purple);border-color:var(--purple);color:#fff;box-shadow:0 5px 0 #4c2bb3}
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pkg-grid.two{grid-template-columns:repeat(2,1fr)}
+.pkg{
+  position:relative;background:#fff;border:1.5px solid var(--line);
+  border-radius:18px 18px 18px 6px;padding:18px 14px;text-align:center;transition:.22s;color:var(--ink);
+}
+.pkg:hover{border-color:#c9bce8;transform:translateY(-3px)}
+.pkg[aria-checked="true"]{border-color:var(--purple);background:#f7f4ff;box-shadow:0 8px 0 rgba(112,70,232,.2);transform:translateY(-3px)}
+.pkg-gig{font-size:32px;font-weight:1000;color:var(--purple-dark);line-height:1.2}
+.pkg-gig small{font-size:12px;font-weight:900;color:var(--muted)}
+.pkg-dur{font-size:9.5px;color:var(--muted);font-weight:850;margin-top:4px}
+.pkg-price{display:inline-block;margin-top:10px;padding:7px 13px;background:var(--lemon);border-radius:50px;font-size:12px;font-weight:950;box-shadow:0 3px 0 #d2df65}
+.pkg-check{
+  position:absolute;top:10px;left:10px;width:22px;height:22px;border-radius:50%;
+  background:var(--purple);color:#fff;display:grid;place-items:center;opacity:0;transform:scale(.5);transition:.2s;
+}
+.pkg-check svg{width:13px;height:13px}
+.pkg[aria-checked="true"] .pkg-check{opacity:1;transform:scale(1)}
+
+/* ASSURANCE + SUBMIT */
+.assurance{
+  display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin-top:22px;padding:15px 17px;
+  background:var(--ink);color:#fff;border-radius:18px 18px 18px 5px;position:relative;overflow:hidden;
+}
+.assurance:after{content:"";position:absolute;width:170px;height:170px;border:1px solid #ffffff1c;border-radius:50%;left:60px;top:-120px;box-shadow:0 0 0 22px #ffffff07}
+.assurance .a-icon{width:44px;height:44px;border-radius:13px;background:var(--lemon);color:var(--ink);display:grid;place-items:center;flex-shrink:0;position:relative;z-index:1}
+.assurance .a-icon svg{width:22px;height:22px}
+.assurance .a-copy{flex:1;min-width:200px;position:relative;z-index:1}
+.assurance strong{display:block;font-size:12.5px;font-weight:950}
+.assurance p{font-size:10px;color:#c8c1d0;line-height:2;margin-top:3px;font-weight:700}
+.assurance .btn-lemon{position:relative;z-index:1}
+.submit-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px}
+.submit-row .btn-primary{flex:1;min-width:220px}
+.submit-hint{font-size:10px;color:var(--muted);font-weight:750;line-height:2}
+.btn-submit .spin{display:none}
+.btn-submit.loading .spin{display:block}
+.btn-submit.loading .b-label{opacity:.85}
+.btn-submit.loading svg.b-icon{display:none}
+
+/* SUCCESS BANNER */
+.success-banner{
+  display:none;margin-top:22px;padding:18px;background:var(--green-soft);
+  border:1.5px solid #bcd9b6;border-radius:18px 18px 18px 5px;
+  align-items:center;gap:14px;flex-wrap:wrap;
+}
+.success-banner.show{display:flex}
+.success-banner .s-seal{width:46px;height:46px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;flex-shrink:0}
+.success-banner .s-seal svg{width:22px;height:22px}
+.success-banner .s-copy{flex:1;min-width:200px}
+.success-banner strong{display:block;font-size:13.5px;font-weight:950;color:#2c6b38}
+.success-banner p{font-size:10.5px;color:#4c7a54;font-weight:800;margin-top:3px}
+.success-banner p b{direction:ltr;display:inline-block;letter-spacing:1px}
+.success-banner .s-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+/* PROMISE BLOCK */
+.promise{padding:10px 0 40px}
+.promise-card{
+  position:relative;overflow:hidden;background:var(--lav);
+  border-radius:30px 30px 30px 7px;padding:34px;
+  display:grid;grid-template-columns:1fr .72fr;align-items:center;gap:26px;
+}
+.promise-card:before{content:"";position:absolute;width:330px;height:330px;border:1px solid #8d70d855;border-radius:50%;left:-100px;top:-170px;box-shadow:0 0 0 25px #8d70d817,0 0 0 50px #8d70d810}
+.promise-copy{position:relative;z-index:2}
+.section-label{display:inline-flex;align-items:center;gap:9px;color:var(--purple-dark);font-size:10px;font-weight:950;letter-spacing:.5px}
 .section-label:before{content:"";width:23px;height:3px;background:var(--orange);border-radius:4px}
-.section-heading h2{
-  font-size:clamp(27px,4.2vw,43px);
-  font-weight:1000;line-height:1.6;letter-spacing:-1.4px;margin-top:9px;
+.promise-copy h2{font-size:clamp(24px,3.6vw,38px);font-weight:1000;line-height:1.65;margin-top:12px;letter-spacing:-1px}
+.promise-copy h2 span{color:var(--purple)}
+.promise-copy p{max-width:520px;font-size:13px;color:#6f647e;line-height:2.25;font-weight:700;margin-top:10px}
+.promise-copy p strong{color:var(--ink)}
+.promise-art{min-height:230px;position:relative;display:grid;place-items:center}
+.seal{
+  width:196px;height:196px;border-radius:50%;background:var(--ink);color:var(--lemon);
+  display:grid;place-items:center;text-align:center;position:relative;
+  box-shadow:15px 15px 0 #b7a3e8,0 25px 45px #4e2bb52b;transform:rotate(6deg);
 }
-.section-heading p{
-  color:var(--muted);font-size:12px;line-height:2.1;
-  font-weight:650;margin-top:5px;
+.seal:before{content:"";position:absolute;inset:11px;border:1.5px dashed #e9fa7666;border-radius:50%}
+.seal svg{width:44px;height:44px;margin:0 auto 6px}
+.seal strong{display:block;font-size:15px;font-weight:1000;line-height:1.7}
+.seal small{display:block;font-size:9px;color:#c8c0d2;font-weight:850;margin-top:4px;letter-spacing:1.5px;direction:ltr}
+.promise-spark{position:absolute;top:6px;right:14%;font-size:36px;color:var(--orange)}
+.commit-strip{
+  grid-column:1/-1;position:relative;z-index:2;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  margin-top:6px;padding:17px 19px;background:var(--ink);color:#fff;border-radius:18px 18px 18px 5px;
 }
+.commit-strip .a-icon{width:46px;height:46px;border-radius:13px;background:var(--lemon);color:var(--ink);display:grid;place-items:center;flex-shrink:0}
+.commit-strip .a-icon svg{width:23px;height:23px}
+.commit-strip .a-copy{flex:1;min-width:220px}
+.commit-strip strong{display:block;font-size:13.5px;font-weight:950}
+.commit-strip p{font-size:11px;color:#c8c1d0;line-height:2.1;margin-top:3px;font-weight:700}
+.commit-strip p b{color:var(--lemon)}
 
-/* MEMBERSHIP */
-.membership{padding:0 0 90px}
-.social-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:17px;
-}
-.social-card{
-  position:relative;min-height:255px;padding:23px;
-  overflow:hidden;border-radius:24px 24px 24px 6px;
-  transition:transform .35s,box-shadow .35s;
-}
-.social-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-strong)}
-.social-card.instagram{background:#f8d4e6;color:#4b2341}
-.social-card.rubika{background:#d9d0ff;color:#34215f}
-.social-card.eitaa{background:#ffe0c6;color:#66351d}
-.social-card:after{
-  content:"";position:absolute;width:170px;height:170px;
-  border:1px solid currentColor;opacity:.12;border-radius:50%;
-  left:-70px;bottom:-100px;
-  box-shadow:0 0 0 20px currentColor,0 0 0 40px currentColor;
-}
-.social-card-top{display:flex;align-items:center;justify-content:space-between}
-.social-icon{
-  width:52px;height:52px;display:grid;place-items:center;
-  background:#ffffff9c;border-radius:17px;
-}
-.social-icon svg{width:28px;height:28px}
-.social-number{font-size:10px;font-weight:950;opacity:.5;direction:ltr}
-.social-card h3{font-size:23px;font-weight:1000;margin-top:23px}
-.social-card p{
-  font-size:11px;line-height:2.1;font-weight:700;
-  opacity:.78;margin-top:7px;max-width:230px;
-}
-.social-link{
-  position:relative;z-index:2;display:inline-flex;align-items:center;gap:9px;
-  margin-top:18px;font-size:11px;font-weight:950;
-  border-bottom:1px solid currentColor;padding-bottom:5px;
-}
-.social-link svg{width:15px;height:15px;transition:transform .2s}
-.social-link:hover svg{transform:translateX(-4px)}
-
-/* MEMBERSHIP RULE */
-.rule-card{
-  margin-top:23px;display:grid;grid-template-columns:auto 1fr auto;
-  align-items:center;gap:20px;padding:23px 25px;
-  background:var(--ink);color:white;border-radius:20px 20px 20px 5px;
-  position:relative;overflow:hidden;
-}
-.rule-card:after{
-  content:"";position:absolute;width:190px;height:190px;
-  border:1px solid #ffffff20;border-radius:50%;
-  left:70px;top:-130px;box-shadow:0 0 0 25px #ffffff08,0 0 0 50px #ffffff05;
-}
-.rule-icon{
-  width:54px;height:54px;display:grid;place-items:center;
-  background:var(--lemon);color:var(--ink);border-radius:16px;
-}
-.rule-icon svg{width:26px;height:26px}
-.rule-copy{position:relative;z-index:1}
-.rule-copy strong{font-size:15px;font-weight:950;display:block}
-.rule-copy p{font-size:11px;color:#c8c1d0;line-height:2;margin-top:5px}
-.rule-tag{
-  position:relative;z-index:1;background:var(--orange);color:white;
-  padding:10px 14px;border-radius:50px;font-size:10px;font-weight:950;
-  white-space:nowrap;
-}
-
-/* GUIDE */
-.guide-section{padding:0 0 90px}
-.guide-card{
-  min-height:310px;display:grid;grid-template-columns:1fr .8fr;
-  align-items:center;gap:25px;padding:35px;
-  background:#e7e0fa;border-radius:30px 30px 30px 7px;
-  position:relative;overflow:hidden;
-}
-.guide-card:before{
-  content:"";position:absolute;width:330px;height:330px;
-  border:1px solid #8d70d855;border-radius:50%;
-  left:-100px;top:-170px;
-  box-shadow:0 0 0 25px #8d70d817,0 0 0 50px #8d70d810;
-}
-.guide-copy{position:relative;z-index:2}
-.guide-copy .section-label{color:var(--purple-dark)}
-.guide-copy h2{
-  font-size:clamp(27px,4vw,42px);font-weight:1000;
-  line-height:1.6;margin-top:13px;letter-spacing:-1px;
-}
-.guide-copy p{
-  max-width:490px;font-size:12px;color:#6f647e;
-  line-height:2.2;font-weight:700;margin-top:10px;
-}
-.guide-button{
-  display:inline-flex;align-items:center;gap:13px;
-  margin-top:23px;padding:15px 20px;background:var(--ink);
-  color:white;border-radius:13px 13px 13px 4px;
-  font-size:12px;font-weight:950;box-shadow:0 7px 0 #b5a5d9;
-  transition:.25s;
-}
-.guide-button:hover{transform:translateY(-4px);box-shadow:0 11px 0 #b5a5d9}
-.guide-button svg{width:18px;height:18px}
-.guide-art{
-  min-height:220px;position:relative;display:grid;place-items:center;
-}
-.guide-book{
-  width:190px;height:220px;position:relative;
-  background:var(--purple);border-radius:12px 20px 20px 12px;
-  box-shadow:15px 15px 0 #b7a3e8,0 25px 45px #4e2bb52b;
-  transform:rotate(7deg);padding:25px;color:white;
-}
-.guide-book:before{
-  content:"";position:absolute;right:17px;top:0;bottom:0;
-  width:2px;background:#ffffff35;
-}
-.guide-book small{font-size:9px;color:#ded4ff;font-weight:850}
-.guide-book strong{
-  display:block;font-size:25px;font-weight:1000;line-height:1.7;margin-top:25px;
-}
-.guide-book span{
-  display:block;width:60px;height:5px;border-radius:5px;
-  background:var(--lemon);margin-top:13px;
-}
-.guide-book i{
-  position:absolute;bottom:20px;left:20px;
-  font-style:normal;font-size:9px;font-weight:900;color:#e1d7ff;
-}
-.guide-spark{
-  position:absolute;top:10px;right:12%;font-size:38px;
-  color:var(--orange);animation:starWiggle 5s infinite;
-}
-
-/* FOOTER */
-.footer{
-  border-top:1px solid var(--line);padding:28px 0 15px;
-}
-.footer-inner{
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-}
+/* FOOTER + DOCK */
+.footer{border-top:1px solid var(--line);padding:22px 0 12px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .footer-brand{display:flex;align-items:center;gap:10px}
-.footer-mark{
-  width:34px;height:34px;background:var(--ink);color:var(--lemon);
-  display:grid;place-items:center;border-radius:11px 11px 11px 3px;
-}
-.footer-mark svg{width:19px;height:19px}
+.footer-mark{width:34px;height:34px;padding:3px;background:var(--ink);color:var(--lemon);display:grid;place-items:center;border-radius:11px 11px 11px 3px}
+.footer-mark img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
 .footer-brand strong{font-size:13px;font-weight:1000}
 .footer-brand small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
 .footer-copy{font-size:9px;color:#938d96;font-weight:700}
-
-/* FLOATING MOBILE NAV */
 .mobile-dock{
-  display:none;position:fixed;z-index:50;
-  bottom:calc(12px + env(safe-area-inset-bottom));
-  left:14px;right:14px;
-  padding:8px;background:#191621;color:white;
-  border-radius:22px 22px 22px 7px;
-  box-shadow:0 14px 45px #17121e38;
-  grid-template-columns:1fr 1fr 1fr;
-  gap:7px;
+  display:none;position:fixed;z-index:50;bottom:calc(12px + env(safe-area-inset-bottom));
+  left:14px;right:14px;padding:8px;background:#191621;color:#fff;
+  border-radius:22px 22px 22px 7px;box-shadow:0 14px 45px #17121e38;
+  grid-template-columns:1fr 1fr 1fr;gap:7px;
 }
-.dock-item{
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;gap:5px;min-height:53px;
-  color:#c6c0d0;font-size:9px;font-weight:850;
-  border-radius:14px;transition:.2s;
-}
+.dock-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:53px;color:#c6c0d0;font-size:9px;font-weight:850;border-radius:14px;transition:.2s}
 .dock-item svg{width:20px;height:20px}
 .dock-item.active{background:#ffffff16;color:var(--lemon)}
-.dock-guide{
-  background:var(--lemon);color:var(--ink);
-  border-radius:15px 15px 15px 5px;
-}
-.dock-guide svg{color:var(--purple)}
-.dock-guide:active{transform:scale(.96)}
+.dock-item:active{transform:scale(.96)}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(25px);transition:.8s cubic-bezier(.2,.7,.2,1)}
-.reveal.visible{opacity:1;transform:translateY(0)}
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:18px}
+.modal.show{display:flex}
+.modal-scrim{position:absolute;inset:0;background:rgba(23,21,30,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.modal-card{
+  position:relative;width:min(100%,560px);max-height:min(92dvh,760px);overflow-y:auto;
+  background:var(--white);border:1.5px solid var(--line);border-radius:30px 30px 30px 8px;
+  box-shadow:0 40px 90px rgba(23,18,30,.35);padding:30px 26px 26px;text-align:center;
+  animation:modalIn .4s cubic-bezier(.2,.7,.2,1);
+  scrollbar-width:thin;scrollbar-color:#c9bce8 var(--white);
+}
+.modal-card::-webkit-scrollbar{width:7px}
+.modal-card::-webkit-scrollbar-thumb{background:#c9bce8;border-radius:7px}
+@keyframes modalIn{from{opacity:0;transform:translateY(26px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.confetti i{position:absolute;top:-12px;width:8px;height:12px;border-radius:2px;opacity:0;animation:fall 1s ease-out forwards}
+@keyframes fall{
+  0%{opacity:1;transform:translate(0,0) rotate(0)}
+  100%{opacity:0;transform:translate(var(--x),340px) rotate(var(--r))}
+}
+.seal-svg{width:88px;height:88px;margin:0 auto 12px}
+.seal-ring{fill:none;stroke:var(--lemon);stroke-width:6;stroke-dasharray:239;stroke-dashoffset:239;animation:draw .7s .1s cubic-bezier(.2,.7,.2,1) forwards}
+.seal-bg{fill:var(--ink)}
+.seal-check{fill:none;stroke:var(--lemon);stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:draw .45s .6s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.modal-kicker{font-size:9px;letter-spacing:2.5px;font-weight:950;color:var(--orange);direction:ltr}
+.modal-card h3{font-size:21px;font-weight:1000;margin-top:8px;line-height:1.7}
+.modal-sub{font-size:11px;color:var(--muted);font-weight:750;margin-top:5px;line-height:2}
+.modal-summary{
+  margin-top:16px;padding:16px 17px;background:var(--paper);
+  border:1.5px dashed rgba(112,70,232,.32);border-radius:16px 16px 16px 5px;
+  font-size:12.5px;font-weight:700;line-height:2.3;color:#4c4653;text-align:right;
+}
+.modal-summary b{color:var(--purple-dark);font-weight:950}
+.modal-meta{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.modal-meta span{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;background:#fff;border:1px solid var(--line);border-radius:50px;font-size:9.5px;font-weight:900;color:#5d5766}
+.modal-meta b{direction:ltr;letter-spacing:1px;color:var(--purple-dark)}
+.modal-actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.modal-actions .btn-primary{flex:1;min-width:180px}
+.modal-actions .btn-ghost{flex:1;min-width:140px}
+
+/* TOAST */
 .toast{
-  position:fixed;z-index:100;bottom:100px;left:50%;
-  transform:translate(-50%,15px);opacity:0;pointer-events:none;
-  background:var(--ink);color:white;padding:12px 18px;
-  border-radius:12px;font-size:11px;font-weight:800;
-  box-shadow:var(--shadow);transition:.25s;
-  width:max-content;max-width:calc(100% - 30px);text-align:center;
+  position:fixed;z-index:120;bottom:100px;left:50%;transform:translate(-50%,15px);
+  opacity:0;pointer-events:none;background:var(--ink);color:#fff;padding:12px 18px;
+  border-radius:12px;font-size:11px;font-weight:850;box-shadow:var(--shadow);transition:.25s;
+  width:max-content;max-width:calc(100% - 30px);text-align:center;line-height:1.9;
 }
 .toast.show{opacity:1;transform:translate(-50%,0)}
+.toast.ok{background:var(--green)}
+.toast.err{background:var(--red)}
 
 /* RESPONSIVE */
-@media(min-width:900px){
-  .mobile-dock{display:none!important}
-}
+@media(min-width:900px){.mobile-dock{display:none!important}}
 @media(max-width:899px){
   .wrap{width:min(calc(100% - 38px),680px)}
   .header-menu{display:none}
-  .hero{grid-template-columns:1fr;gap:20px;padding:45px 0 50px}
-  .hero-copy{max-width:650px}
-  .hero-art{min-height:450px}
-  .social-grid{gap:12px}
-  .social-card{padding:18px}
-  .guide-card{grid-template-columns:1fr .7fr;padding:27px}
+  .svc-hero{grid-template-columns:1fr;gap:16px}
+  .svc-art{min-height:310px}
+  .promise-card{grid-template-columns:1fr;padding:26px}
+  .promise-art{min-height:210px}
 }
 @media(max-width:600px){
   body{padding-bottom:100px}
@@ -500,54 +577,41 @@ svg{display:block}
   .brand-mark{width:41px;height:41px}
   .brand-name{font-size:21px}
   .header-cta{font-size:10px;padding:10px 13px}
-  .hero{padding:39px 0 42px;gap:10px}
-  .hero h1{font-size:clamp(43px,11.5vw,60px);letter-spacing:-2px;line-height:1.48}
-  .hero-description{font-size:12px;line-height:2.3}
-  .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-  .btn-main,.btn-guide{padding:0 11px;gap:8px;font-size:10px;min-height:54px}
-  .hero-note{font-size:9px}
-  .hero-art{min-height:390px;margin-top:5px}
-  .art-backdrop{width:310px;height:310px}
-  .art-ring{width:350px;height:350px}
-  .phone-card{width:255px;min-height:340px;padding:19px}
-  .phone-illustration{height:130px}
-  .phone-copy h2{font-size:20px}
-  .sticker-price{width:87px;height:87px;top:37px;right:0}
-  .sticker-price strong{font-size:19px}
-  .sticker-star{width:62px;height:62px;left:2px;bottom:45px}
-  .ticker{margin:10px 0 65px;padding:13px 0}
-  .ticker-item{font-size:10px;gap:10px}
-  .membership,.guide-section{padding-bottom:65px}
-  .section-heading h2{font-size:29px}
-  .social-grid{grid-template-columns:1fr;gap:12px}
-  .social-card{min-height:205px;padding:19px}
-  .social-card h3{font-size:21px;margin-top:15px}
-  .social-card p{max-width:270px}
-  .social-link{margin-top:12px}
-  .rule-card{grid-template-columns:auto 1fr;gap:13px;padding:18px}
-  .rule-icon{width:45px;height:45px}
-  .rule-copy strong{font-size:12px}
-  .rule-copy p{font-size:10px}
-  .rule-tag{grid-column:1/-1;justify-self:start;margin-right:58px}
-  .guide-card{grid-template-columns:1fr;padding:24px 20px;gap:5px}
-  .guide-copy h2{font-size:30px}
-  .guide-copy p{font-size:11px}
-  .guide-art{min-height:225px}
-  .guide-book{width:165px;height:195px}
-  .guide-book strong{font-size:22px;margin-top:19px}
-  .footer-inner{align-items:flex-start;flex-direction:column}
+  .service{padding:16px 0 30px}
+  .svc-hero{padding:10px 0 24px}
+  .svc-hero h1{font-size:clamp(27px,8vw,38px);letter-spacing:-1.2px}
+  .svc-desc{font-size:13px;line-height:2.2}
+  .svc-art{min-height:290px}
+  .art-backdrop{width:250px;height:250px}
+  .art-ring{width:295px;height:295px}
+  .hero-object{width:252px;padding:17px}
+  .obj-name{font-size:22px}
+  .sticker-round{width:82px;height:82px;top:12px}
+  .sticker-round strong{font-size:14px}
+  .sticker-star{width:54px;height:54px;bottom:32px}
+  .form-card{padding:19px 16px;border-radius:24px 24px 24px 7px}
+  .form-grid{grid-template-columns:1fr}
+  .choice-grid{grid-template-columns:1fr}
+  .uploads{grid-template-columns:1fr}
+  .pkg-grid,.pkg-grid.two{grid-template-columns:1fr 1fr}
+  .progress{flex:1 1 100%}
+  .benefit-row{font-size:13px}
+  .bold-note{font-size:12.5px}
+  .submit-row .btn-primary{min-width:100%}
+  .footer-inner{align-items:flex-start;flex-direction:column;gap:10px}
   .mobile-dock{display:grid}
+  .modal-card{padding:24px 18px 20px}
+  .modal-card h3{font-size:18px}
+  .modal-summary{font-size:11.5px}
 }
-@media(max-width:360px){
-  .hero h1{font-size:40px}
-  .hero-actions{grid-template-columns:1fr}
-  .phone-card{width:235px}
-  .rule-card{grid-template-columns:1fr}
-  .rule-tag{margin-right:0}
+@media(max-width:380px){
+  .pkg-grid,.pkg-grid.two{grid-template-columns:1fr}
+  .bank-digits{letter-spacing:1.5px}
+  .svc-hero h1{font-size:26px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
-  .reveal{opacity:1;transform:none}
+  .seal-ring,.seal-check{stroke-dashoffset:0}
 }
 </style>
 </head>
@@ -561,262 +625,552 @@ svg{display:block}
 </div>
 
 <header class="header wrap">
-  <a href="index.html" class="brand" aria-label="نتینو">
+  <a href="index.html" class="brand" aria-label="راضی">
     <div class="brand-mark">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/>
-        <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/>
-      </svg>
+      <img src="icon.png" alt="نشان برند راضی"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="brand-fallback">ر</span>
     </div>
     <div>
-      <div class="brand-name">نتینو</div>
-      <div class="brand-caption">اینترنت اقتصادی، تجربه متفاوت</div>
+      <div class="brand-name">راضی</div>
+      <div class="brand-caption">خدمات امور مشترکین راضی · خدمات آنلاین</div>
     </div>
   </a>
-
   <nav class="header-menu">
-    <a href="#home">خانه</a>
-    <a href="#membership">عضویت در کانال‌ها</a>
-    <a href="#guide">راهنمای استفاده</a>
+    <a href="index.html">خانه</a>
+    <a href="guide.html" class="current">راهنما</a>
+    <a href="plans.html">چت</a>
   </nav>
-
-  <a href="#membership" class="header-cta">
-    عضویت و دریافت بسته
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M5 12h14M13 6l6 6-6 6"/>
-    </svg>
+  <a href="#sim" class="header-cta">
+    شروع درخواست
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </a>
 </header>
 
-<main id="home">
+<main>
 
-<!-- HERO -->
-<section class="hero wrap">
-  <div class="hero-copy">
-    <div class="hero-label">
-      <span class="live-dot"></span>
-      راه تازه‌ای برای خرید اینترنت
-    </div>
+<!-- ============ SECTION 1 : FREE SIM ============ -->
+<section class="service wrap" id="sim">
 
-    <h1>
-      <span class="dark-line">اینترنت بیشتر،</span>
-      <span class="dark-line">هزینه کمتر؛</span>
-      <span class="color-line">انتخاب با تو!</span>
-    </h1>
-
-    <p class="hero-description">
-      به جمع کاربران <strong>نتینو</strong> بپیوند،
-      با خدمات و پیشنهادهای ویژه ما آشنا شو و از بسته‌های اینترنتی
-      با قیمت اقتصادی استفاده کن.
-      اینجا برای خرید به‌صرفه، اول با ما همراه می‌شوی!
-    </p>
-
-    <div class="hero-actions">
-      <a href="#membership" class="btn-main">
-        <span>عضویت و مشاهده بسته‌ها</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </a>
-      <a href="guide.html" class="btn-guide">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22.5z"/>
-          <path d="M4 5.5v17M8 8h8M8 12h7"/>
-        </svg>
-        راهنمای استفاده
-      </a>
-    </div>
-
-    <div class="hero-note">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/>
-        <path d="m8.5 12 2.2 2.2 4.8-5"/>
-      </svg>
-      <span>عضویت در کانال‌ها، شرط دسترسی به بسته‌های ویژه است.</span>
-    </div>
-  </div>
-
-  <div class="hero-art" aria-label="تصویر گرافیکی خدمات اینترنت">
-    <div class="art-backdrop"></div>
-    <div class="art-ring"></div>
-
-    <div class="phone-card">
-      <div class="phone-top">
-        <span class="phone-brand">NETINO / 01</span>
-        <span class="phone-status">پیشنهادهای ویژه</span>
-      </div>
-
-      <div class="phone-illustration">
-        <svg class="wifi-symbol" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round">
-          <path d="M12 35a58 58 0 0 1 76 0"/>
-          <path d="M25 51a39 39 0 0 1 50 0"/>
-          <path d="M38 67a20 20 0 0 1 24 0"/>
-          <circle cx="50" cy="81" r="4" fill="currentColor" stroke="none"/>
-        </svg>
-      </div>
-
-      <div class="phone-copy">
-        <small>تجربه خرید متفاوت</small>
-        <h2>بسته‌های اقتصادی<br>برای همراهی بیشتر</h2>
-        <p>اول عضو شو، بعد پیشنهادهای ویژه را ببین.</p>
-      </div>
-
-      <div class="phone-bottom">
-        <span>NETINO MEMBERSHIP</span>
-        <b>JOIN / SAVE</b>
-      </div>
-    </div>
-
-    <div class="float-sticker sticker-price">
-      <div>
-        <small>بسته‌های</small>
-        <strong>ارزان‌تر</strong>
-        <span>ویژه اعضا</span>
-      </div>
-    </div>
-
-    <div class="float-sticker sticker-star">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/>
-      </svg>
-    </div>
-
-    <div class="art-caption">SMART INTERNET / BETTER VALUE</div>
-  </div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker" aria-label="مزایای عضویت">
-  <div class="ticker-track">
-    <div class="ticker-item"><i></i> عضویت در کانال‌های ما</div>
-    <div class="ticker-item"><i></i> آشنایی با خدمات و پیشنهادها</div>
-    <div class="ticker-item"><i></i> دسترسی به بسته‌های اقتصادی</div>
-    <div class="ticker-item"><i></i> خرید آگاهانه و به‌صرفه</div>
-    <div class="ticker-item"><i></i> همراهی با نتینو</div>
-    <div class="ticker-item"><i></i> عضویت در کانال‌های ما</div>
-    <div class="ticker-item"><i></i> آشنایی با خدمات و پیشنهادها</div>
-    <div class="ticker-item"><i></i> دسترسی به بسته‌های اقتصادی</div>
-    <div class="ticker-item"><i></i> خرید آگاهانه و به‌صرفه</div>
-  </div>
-</div>
-
-<!-- MEMBERSHIP -->
-<section class="membership wrap" id="membership">
-  <div class="section-heading reveal">
-    <div class="section-label">YOUR COMMUNITY / 01</div>
-    <h2>اول همراه ما شو؛<br>بعد هوشمندانه‌تر خرید کن.</h2>
-    <p>یکی از کانال‌های رسمی ما را دنبال کن تا با خدمات و پیشنهادهای ویژه آشنا شوی.</p>
-  </div>
-
-  <div class="social-grid">
-
-    <article class="social-card instagram reveal">
-      <div class="social-card-top">
-        <div class="social-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/>
-          </svg>
-        </div>
-        <span class="social-number">SOCIAL / 01</span>
-      </div>
-      <h3>اینستاگرام</h3>
-      <p>ما را در اینستاگرام دنبال کن و از تازه‌ترین خبرها و پیشنهادها باخبر شو.</p>
-      <a href="#" class="social-link" data-social="instagram">
-        ورود به صفحه اینستاگرام
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </a>
-    </article>
-
-    <article class="social-card rubika reveal">
-      <div class="social-card-top">
-        <div class="social-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="m4 7 8-4 8 4v10l-8 4-8-4z"/>
-            <path d="m4 7 8 4 8-4M12 11v10"/>
-          </svg>
-        </div>
-        <span class="social-number">SOCIAL / 02</span>
-      </div>
-      <h3>روبیکا</h3>
-      <p>در کانال روبیکای ما عضو شو و اطلاعیه‌ها و پیشنهادهای ویژه را دنبال کن.</p>
-      <a href="#" class="social-link" data-social="rubika">
-        عضویت در کانال روبیکا
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </a>
-    </article>
-
-    <article class="social-card eitaa reveal">
-      <div class="social-card-top">
-        <div class="social-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 11.5a8 8 0 0 1-8 8H5l-1 2v-5.2A8 8 0 1 1 20 11.5z"/>
-            <path d="M8 12h8M12 8v8"/>
-          </svg>
-        </div>
-        <span class="social-number">SOCIAL / 03</span>
-      </div>
-      <h3>ایتا</h3>
-      <p>کانال ایتای نتینو را هم می‌توانی برای دریافت خبرها و اطلاعیه‌ها دنبال کنی.</p>
-      <a href="#" class="social-link" data-social="eitaa">
-        عضویت در کانال ایتا
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </a>
-    </article>
-
-  </div>
-
-  <div class="rule-card reveal">
-    <div class="rule-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/>
-        <path d="m8.5 12 2.2 2.2 4.8-5"/>
-      </svg>
-    </div>
-    <div class="rule-copy">
-      <strong>عضویت و آشنایی با خدمات، شرط استفاده از بسته‌های ارزان است.</strong>
-      <p>پس از عضویت در یکی از کانال‌های رسمی، مراحل راهنما را دنبال کن تا با شرایط دسترسی و خرید بسته‌ها آشنا شوی.</p>
-    </div>
-    <div class="rule-tag">ویژه اعضا</div>
-  </div>
-</section>
-
-<!-- GUIDE -->
-<section class="guide-section wrap" id="guide">
-  <div class="guide-card reveal">
-    <div class="guide-copy">
-      <div class="section-label">START HERE / 02</div>
-      <h2>قبل از خرید،<br>راهنما را ببین.</h2>
-      <p>
-        نمی‌دانی بعد از عضویت چه کاری باید انجام بدهی؟
-        در صفحه راهنما، مراحل آشنایی با خدمات، شرایط استفاده از بسته‌ها
-        و نحوه ادامه مسیر را قدم‌به‌قدم دنبال کن.
+  <div class="svc-hero">
+    <div class="svc-copy">
+      <div class="svc-label sim"><span class="dot"></span> SERVICE / 01 · سیم‌کارت رایگان ایرانسل</div>
+      <h1>
+        <span class="dark-line">سیم‌کارت رایگان ایرانسل؛</span>
+        <span class="color-line">از هر جای ایران!</span>
+      </h1>
+      <p class="svc-desc">
+        از <strong>سراسر ایران</strong> می‌توانید سیم‌کارت رایگان ایرانسل دریافت کنید؛
+        <strong>دائمی یا اعتباری</strong> فرقی نمی‌کند — فقط کافی است درخواست بدهید،
+        <strong>بدون هیچ هزینهٔ ارسال</strong>.
       </p>
-      <a href="guide.html" class="guide-button">
-        مشاهده راهنمای کامل
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
+      <div class="svc-chips">
+        <span class="svc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9 18l-5-5"/></svg> بدون هزینهٔ ارسال</span>
+        <span class="svc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> ارسال به سراسر ایران</span>
+        <span class="svc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> نهایتاً ۲۰ روز کاری</span>
+      </div>
+    </div>
+
+    <div class="svc-art" aria-label="سیم‌کارت رایگان ایرانسل">
+      <div class="art-backdrop"></div>
+      <div class="art-ring"></div>
+      <div class="hero-object">
+        <div class="obj-top"><span>RAZI / SIM</span><span class="obj-chip"></span></div>
+        <div class="obj-name">ایرانسل</div>
+        <div class="obj-sub">سیم‌کارت رایگان · دائمی یا اعتباری<br>هدایای فعال‌سازی ویژه</div>
+        <div class="obj-bottom"><span>ارسال به سراسر ایران</span><b>FREE / 01</b></div>
+      </div>
+      <div class="float-sticker sticker-round"><div><small>کاملاً</small><strong>رایگان</strong><span>بدون ارسال‌هزینه</span></div></div>
+      <div class="float-sticker sticker-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></div>
+      <div class="art-caption">RAZI / FREE SIM — NATIONWIDE</div>
+    </div>
+  </div>
+
+  <form class="form-card" id="simForm" novalidate>
+    <div class="form-head">
+      <div class="form-title">
+        <div class="ft-icon sim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><rect x="8.5" y="12" width="7" height="6" rx="1.5"/><path d="M12 12v6M8.5 15h7"/></svg></div>
+        <div>
+          <h2>فرم درخواست سیم‌کارت رایگان</h2>
+          <p>لطفاً با دقت پر کنید؛ موارد ستاره‌دار الزامی است.</p>
+        </div>
+      </div>
+      <div class="progress">
+        <div class="progress-top"><span>تکمیل درخواست</span><b id="simProgressLabel">۰٪</b></div>
+        <div class="progress-track"><div class="progress-bar" id="simProgressBar"></div></div>
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div class="field">
+        <label for="simName"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg> نام و نام خانوادگی <span class="req">*</span></label>
+        <input id="simName" type="text" autocomplete="name" placeholder="مثلاً علی رضایی">
+        <span class="field-error">لطفاً نام و نام خانوادگی را کامل بنویسید.</span>
+      </div>
+      <div class="field">
+        <label for="simNational"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M13 9h5M13 13h4M5.5 16c.6-1.4 1.7-2 3-2s2.4.6 3 2"/></svg> کد ملی <span class="req">*</span></label>
+        <input id="simNational" class="num" type="text" inputmode="numeric" maxlength="10" placeholder="۱۰ رقم">
+        <span class="field-error">کد ملی باید ۱۰ رقم و معتبر باشد.</span>
+      </div>
+      <div class="field">
+        <label for="simPhone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg> شماره تماس <span class="req">*</span></label>
+        <input id="simPhone" class="num" type="tel" inputmode="numeric" maxlength="11" placeholder="۰۹xxxxxxxxx">
+        <span class="field-error">شماره تماس باید با ۰۹ شروع شود و ۱۱ رقم باشد.</span>
+      </div>
+      <div class="field">
+        <label for="simPostal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg> کد پستی <span class="req">*</span></label>
+        <input id="simPostal" class="num" type="text" inputmode="numeric" maxlength="10" placeholder="۱۰ رقم">
+        <span class="field-error">کد پستی باید ۱۰ رقم باشد.</span>
+      </div>
+      <div class="field full">
+        <label for="simAddress"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> آدرس دقیق <span class="req">*</span></label>
+        <textarea id="simAddress" rows="3" placeholder="استان، شهر، خیابان، کوچه، پلاک، واحد"></textarea>
+        <span class="field-error">آدرس دقیق را کامل بنویسید (حداقل ۱۰ نویسه).</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-title">نوع سیم‌کارت <span class="req">*</span> <small>SIM TYPE</small></div>
+      <div class="field" id="simTypeField">
+        <div class="choice-grid" id="simType" role="radiogroup" aria-label="نوع سیم‌کارت">
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="perm">
+            <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span>
+            <span><strong>ایرانسل دائمی</strong><small>هدایای ویژهٔ فعال‌سازی</small></span>
+            <span class="c-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+          </button>
+          <button type="button" class="choice" role="radio" aria-checked="false" data-value="prep">
+            <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <span><strong>ایرانسل اعتباری</strong><small>هدایای فعال‌سازی</small></span>
+            <span class="c-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+          </button>
+        </div>
+        <span class="field-error">نوع سیم‌کارت را انتخاب کنید.</span>
+      </div>
+
+      <div class="step" id="simBenefitsStep" aria-hidden="true">
+        <div class="step-inner"><div class="step-pad">
+          <div class="benefits">
+            <h3 id="simBenefitsTitle"></h3>
+            <div id="simBenefitsList"></div>
+          </div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-title">پیش‌شماره <span class="req">*</span> <small>PREFIX</small></div>
+      <div class="field" id="simPrefixField">
+        <div class="dd" id="ddPrefix">
+          <button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false">
+            <span class="dd-value" data-placeholder="انتخاب پیش‌شماره">انتخاب پیش‌شماره</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="dd-panel"><div class="dd-inner">
+            <ul class="dd-list" role="listbox" aria-label="پیش‌شماره">
+              <li role="option" tabindex="-1" aria-selected="false" data-value="0900" data-label="۰۹۰۰"><span class="dd-num">۰۹۰۰</span><small>ایرانسل</small><svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+              <li role="option" tabindex="-1" aria-selected="false" data-value="0903" data-label="۰۹۰۳"><span class="dd-num">۰۹۰۳</span><small>ایرانسل</small><svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+              <li role="option" tabindex="-1" aria-selected="false" data-value="0930" data-label="۰۹۳۰"><span class="dd-num">۰۹۳۰</span><small>ایرانسل</small><svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+              <li role="option" tabindex="-1" aria-selected="false" data-value="0936" data-label="۰۹۳۶"><span class="dd-num">۰۹۳۶</span><small>ایرانسل</small><svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+              <li role="option" tabindex="-1" aria-selected="false" data-value="0901" data-label="۰۹۰۱"><span class="dd-num">۰۹۰۱</span><small>ایرانسل</small><svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+            </ul>
+          </div></div>
+        </div>
+        <span class="field-hint">امکان انتخاب شماره وجود ندارد و فقط می‌توانید پیش‌شماره را انتخاب نمایید.</span>
+        <span class="field-error">پیش‌شماره را انتخاب کنید.</span>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-title">بارگذاری مدارک شناسایی <span class="req">*</span> <small>DOCUMENTS</small></div>
+      <div class="uploads">
+        <div class="upload" id="upSimFront" data-state="idle">
+          <div class="up-label">لطفاً عکس روی کارت ملی یا صفحهٔ اول شناسنامه را بارگذاری کنید <span class="req">*</span></div>
+          <div class="up-drop" tabindex="0" role="button" aria-label="بارگذاری روی کارت ملی">
+            <input type="file" accept="image/*" hidden>
+            <div class="up-idle">
+              <span class="u-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m-5 5 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg></span>
+              <span>انتخاب تصویر</span><small>JPG / PNG · حداکثر ۸ مگابایت</small>
+            </div>
+            <div class="up-loading"><span class="spin"></span> در حال بارگذاری…</div>
+            <div class="up-done">
+              <img class="up-img" alt="پیش‌نمایش مدرک">
+              <div class="up-meta">
+                <div class="up-name"></div><div class="up-size"></div>
+                <span class="up-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg> بارگذاری شد</span>
+              </div>
+            </div>
+          </div>
+          <div class="up-actions">
+            <button type="button" class="chg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg> تغییر تصویر</button>
+            <button type="button" class="del"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5h6v2m-8 0 1 13h8l1-13"/></svg> حذف</button>
+          </div>
+          <div class="up-error"></div>
+        </div>
+
+        <div class="upload" id="upSimBack" data-state="idle">
+          <div class="up-label">لطفاً عکس پشت کارت ملی یا صفحهٔ دوم شناسنامه را بارگذاری کنید <span class="req">*</span></div>
+          <div class="up-drop" tabindex="0" role="button" aria-label="بارگذاری پشت کارت ملی">
+            <input type="file" accept="image/*" hidden>
+            <div class="up-idle">
+              <span class="u-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4m-5 5 5-5 5 5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg></span>
+              <span>انتخاب تصویر</span><small>JPG / PNG · حداکثر ۸ مگابایت</small>
+            </div>
+            <div class="up-loading"><span class="spin"></span> در حال بارگذاری…</div>
+            <div class="up-done">
+              <img class="up-img" alt="پیش‌نمایش مدرک">
+              <div class="up-meta">
+                <div class="up-name"></div><div class="up-size"></div>
+                <span class="up-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg> بارگذاری شد</span>
+              </div>
+            </div>
+          </div>
+          <div class="up-actions">
+            <button type="button" class="chg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg> تغییر تصویر</button>
+            <button type="button" class="del"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5h6v2m-8 0 1 13h8l1-13"/></svg> حذف</button>
+          </div>
+          <div class="up-error"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="pay-box">
+        <div class="pay-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg> مجموع هزینهٔ شما جهت ارائهٔ خدمات آنلاین</div>
+        <div class="cost-row"><span>پرینت ۲ صفحه مدارک شناسایی، ثبت و ارسال آن</span><b>۵٬۰۰۰ تومان</b></div>
+        <div class="cost-row"><span>هزینهٔ ارائهٔ خدمات آنلاین</span><b>۲۰٬۰۰۰ تومان</b></div>
+        <div class="cost-total"><span>جمع کل</span><span>۲۵٬۰۰۰ تومان</span></div>
+        <p class="pay-note">اگر مورد تأیید است، لطفاً این مبلغ را به شمارهٔ کارت زیر واریز نمایید:</p>
+        <div class="bank-card">
+          <div class="bank-top"><span class="bank-name">بانک پاسارگاد</span><span class="bank-chip"></span></div>
+          <div class="bank-number">
+            <span class="bank-digits">۵۰۲۲ ۲۹۱۰ ۹۸۹۵ ۳۲۰۹</span>
+            <button type="button" class="copy-btn" data-copy="5022291098953209">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              <span>کپی شماره کارت</span>
+            </button>
+          </div>
+          <div class="bank-holder">به نام <b>حمیدرضا سلیمی</b></div>
+        </div>
+        <div class="bold-note">
+          این مبلغ، <strong>جمع کل هزینه‌ها</strong> است و شما هرگز هیچ‌گونه هزینهٔ دیگری — از جمله هزینهٔ ارسال — نخواهید داشت.
+          ارسال نهایتاً طی <strong>۲۰ روز کاری</strong> به سراسر ایران انجام می‌شود.
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="uploads">
+        <div class="upload wide" id="upSimReceipt" data-state="idle">
+          <div class="up-label">لطفاً رسید واریز وجه را بارگذاری کنید <span class="req">*</span></div>
+          <div class="up-drop" tabindex="0" role="button" aria-label="بارگذاری رسید واریز">
+            <input type="file" accept="image/*" hidden>
+            <div class="up-idle">
+              <span class="u-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
+              <span>انتخاب تصویر رسید</span><small>JPG / PNG · حداکثر ۸ مگابایت</small>
+            </div>
+            <div class="up-loading"><span class="spin"></span> در حال بارگذاری…</div>
+            <div class="up-done">
+              <img class="up-img" alt="پیش‌نمایش رسید">
+              <div class="up-meta">
+                <div class="up-name"></div><div class="up-size"></div>
+                <span class="up-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg> بارگذاری شد</span>
+              </div>
+            </div>
+          </div>
+          <div class="up-actions">
+            <button type="button" class="chg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg> تغییر تصویر</button>
+            <button type="button" class="del"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5h6v2m-8 0 1 13h8l1-13"/></svg> حذف</button>
+          </div>
+          <div class="up-error"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="assurance">
+      <span class="a-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span>
+      <div class="a-copy">
+        <strong>ضمانت بی‌قید و شرط بازگشت وجه</strong>
+        <p>در صورت عدم انجام خدمت، کل مبلغ بدون هیچ شرطی بازمی‌گردد.</p>
+      </div>
+      <a href="plans.html" class="btn-lemon">پیگیری درخواست
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
       </a>
     </div>
 
-    <div class="guide-art">
-      <span class="guide-spark">✳</span>
-      <div class="guide-book">
-        <small>NETINO / GUIDE</small>
-        <strong>راهنمای<br>شروع کار</strong>
-        <span></span>
-        <i>STEP BY STEP</i>
+    <div class="submit-row">
+      <button type="submit" class="btn-primary btn-submit" id="simSubmit">
+        <span class="spin small"></span>
+        <span class="b-label">ثبت درخواست</span>
+        <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9 18l-5-5"/></svg>
+      </button>
+      <span class="submit-hint">پس از ثبت، خلاصهٔ درخواست برای تأیید نهایی نمایش داده می‌شود.</span>
+    </div>
+
+    <div class="success-banner" id="simBanner">
+      <span class="s-seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+      <div class="s-copy">
+        <strong>درخواست شما ثبت شد</strong>
+        <p>کد پیگیری: <b id="simCode"></b> · وضعیت از طریق چت راضی قابل پیگیری است.</p>
+      </div>
+      <div class="s-actions">
+        <a href="plans.html" class="btn-lemon">پیگیری در چت</a>
+        <button type="button" class="btn-ghost" id="simReset">ثبت درخواست جدید</button>
       </div>
     </div>
+  </form>
+</section>
+
+<!-- ============ PROMISE ============ -->
+<section class="promise wrap">
+  <div class="promise-card">
+    <div class="promise-copy">
+      <div class="section-label">RAZI / PROMISE</div>
+      <h2>اپراتورها گران‌تر می‌فروشند؛<br><span>ما با تخفیف می‌دهیم!</span></h2>
+      <p>
+        می‌دانی این بسته‌ها توسط اپراتورها <strong>گران‌تر</strong> عرضه می‌شود؟
+        ما آن‌ها را با <strong>تخفیفی جزئی</strong> به تو می‌دهیم تا اپلیکیشن را نصب‌شده نگه داری
+        و هر وقت کار خدماتی داشتی، با خیال راحت <strong>به ما بسپاری</strong>.
+      </p>
+    </div>
+    <div class="promise-art">
+      <span class="promise-spark">✳</span>
+      <div class="seal">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>
+          <strong>ضمانت بازگشت<br>وجه</strong>
+          <small>RAZI / GUARANTEE</small>
+        </div>
+      </div>
+    </div>
+    <div class="commit-strip">
+      <span class="a-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span>
+      <div class="a-copy">
+        <strong>تعهد ما به شما</strong>
+        <p>مطالب مندرج در این اپلیکیشن، تعهد ما به شماست؛ <b>ضمانت بی‌قید و شرط بازگشت وجه با ماست.</b></p>
+      </div>
+      <a href="plans.html" class="btn-lemon">پیگیری در چت
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+      </a>
+    </div>
   </div>
+</section>
+
+<!-- ============ SECTION 2 : INTERNET ============ -->
+<section class="service wrap" id="net">
+
+  <div class="svc-hero">
+    <div class="svc-copy">
+      <div class="svc-label net"><span class="dot"></span> SERVICE / 02 · خرید مستقیم بستهٔ اینترنت</div>
+      <h1>
+        <span class="dark-line">اینترنت ارزان،</span>
+        <span class="color-line">مستقیم روی شمارهٔ تو!</span>
+      </h1>
+      <p class="svc-desc">
+        بدون مراجعه، بدون معطلی؛ بستهٔ <strong>یک‌ماههٔ</strong> اپراتورت را با
+        <strong>قیمتی کمتر از نرخ رسمی</strong> بگیر و روی همان شماره فعال کن.
+        فقط کافی است درخواست بدهی و رسید واریز را بفرستی.
+      </p>
+      <div class="svc-chips">
+        <span class="svc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg> همراه اول · ایرانسل · رایتل</span>
+        <span class="svc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg> فعال‌سازی مستقیم</span>
+        <span class="svc-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg> ضمانت بازگشت وجه</span>
+      </div>
+    </div>
+
+    <div class="svc-art" aria-label="بستهٔ اینترنت یک‌ماهه">
+      <div class="art-backdrop"></div>
+      <div class="art-ring"></div>
+      <div class="hero-object">
+        <div class="obj-top"><span>RAZI / DATA</span><span>MONTHLY</span></div>
+        <svg class="obj-wifi" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"><path d="M12 35a58 58 0 0 1 76 0"/><path d="M25 51a39 39 0 0 1 50 0"/><path d="M38 67a20 20 0 0 1 24 0"/><circle cx="50" cy="81" r="4" fill="currentColor" stroke="none"/></svg>
+        <div class="obj-name" style="text-align:center">بستهٔ یک‌ماهه</div>
+        <div class="obj-sub" style="text-align:center">فعال‌سازی مستقیم روی شمارهٔ شما</div>
+        <div class="obj-bottom"><span>زیر نرخ رسمی اپراتور</span><b>DATA / 02</b></div>
+      </div>
+      <div class="float-sticker sticker-round"><div><small>ارزان‌تر از</small><strong>نرخ اپراتور</strong><span>ویژهٔ راضی</span></div></div>
+      <div class="float-sticker sticker-star"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></div>
+      <div class="art-caption">RAZI / DIRECT DATA</div>
+    </div>
+  </div>
+
+  <form class="form-card" id="netForm" novalidate>
+    <div class="form-head">
+      <div class="form-title">
+        <div class="ft-icon net"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <div>
+          <h2>فرم خرید بستهٔ اینترنت ارزان</h2>
+          <p>لطفاً با دقت پر کنید؛ موارد ستاره‌دار الزامی است.</p>
+        </div>
+      </div>
+      <div class="progress">
+        <div class="progress-top"><span>تکمیل درخواست</span><b id="netProgressLabel">۰٪</b></div>
+        <div class="progress-track"><div class="progress-bar" id="netProgressBar"></div></div>
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div class="field">
+        <label for="netName"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg> نام و نام خانوادگی یا نام مستعار <span class="req">*</span></label>
+        <input id="netName" type="text" autocomplete="name" placeholder="مثلاً علی رضایی یا «علی»">
+        <span class="field-error">لطفاً نام یا نام مستعار خود را بنویسید.</span>
+      </div>
+      <div class="field" id="netOperatorField">
+        <label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10m6 10V4m6 16v-7m4 7H2"/></svg> انتخاب اپراتور <span class="req">*</span></label>
+        <div class="dd" id="ddOperator">
+          <button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false">
+            <span class="dd-value" data-placeholder="انتخاب اپراتور">انتخاب اپراتور</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="dd-panel"><div class="dd-inner">
+            <ul class="dd-list" role="listbox" aria-label="اپراتور">
+              <li role="option" tabindex="-1" aria-selected="false" data-value="mci" data-label="همراه اول"><span class="op-dot" style="background:#2f6fed"></span> همراه اول <svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+              <li role="option" tabindex="-1" aria-selected="false" data-value="irancell" data-label="ایرانسل"><span class="op-dot" style="background:#f5c400"></span> ایرانسل <svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+              <li role="option" tabindex="-1" aria-selected="false" data-value="rightel" data-label="رایتل"><span class="op-dot" style="background:#8e44ad"></span> رایتل <svg class="o-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></li>
+            </ul>
+          </div></div>
+        </div>
+        <span class="field-error">اپراتور را انتخاب کنید.</span>
+      </div>
+    </div>
+
+    <div class="step" id="netKindStep" aria-hidden="true">
+      <div class="step-inner"><div class="step-pad">
+        <div class="block-title">سیم‌کارت شما دائمی است یا اعتباری؟ <span class="req">*</span> <small>SIM KIND</small></div>
+        <div class="field" id="netKindField">
+          <div class="choice-grid" id="netKind" role="radiogroup" aria-label="نوع سیم‌کارت">
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="perm">
+              <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span>
+              <span><strong>دائمی</strong><small>بسته‌های ویژهٔ دائمی</small></span>
+              <span class="c-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+            </button>
+            <button type="button" class="choice" role="radio" aria-checked="false" data-value="prep" id="netPrepTile">
+              <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+              <span><strong>اعتباری</strong><small>بسته‌های ویژهٔ اعتباری</small></span>
+              <span class="c-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+            </button>
+          </div>
+          <span class="field-hint" id="rightelHint" style="display:none">بسته‌های رایتل در حال حاضر ویژهٔ سیم‌کارت دائمی است.</span>
+          <span class="field-error">نوع سیم‌کارت را انتخاب کنید.</span>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="step" id="netDetailStep" aria-hidden="true">
+      <div class="step-inner"><div class="step-pad">
+        <div class="form-grid">
+          <div class="field full">
+            <label for="netNumber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg> شماره‌ای که می‌خواهید بسته روی آن فعال شود <span class="req">*</span></label>
+            <input id="netNumber" class="num" type="tel" inputmode="numeric" maxlength="11" placeholder="۰۹xxxxxxxxx">
+            <span class="field-error">شماره باید با ۰۹ شروع شود و ۱۱ رقم باشد.</span>
+          </div>
+        </div>
+        <div class="block">
+          <div class="block-title">مدت بستهٔ اینترنت <small>DURATION</small></div>
+          <div class="dur-grid" id="netDuration" role="radiogroup" aria-label="مدت بسته">
+            <button type="button" class="dur" role="radio" aria-checked="false" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> یک‌روزه</button>
+            <button type="button" class="dur" role="radio" aria-checked="false" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> سه‌روزه</button>
+            <button type="button" class="dur" role="radio" aria-checked="false" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> هفت‌روزه</button>
+            <button type="button" class="dur" role="radio" aria-checked="true" data-value="monthly">یک‌ماهه</button>
+            <button type="button" class="dur" role="radio" aria-checked="false" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> بلندمدت</button>
+          </div>
+          <span class="field-hint" style="margin-top:9px;display:block">در حال حاضر فقط بستهٔ یک‌ماهه موجود است.</span>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="step" id="netPkgStep" aria-hidden="true">
+      <div class="step-inner"><div class="step-pad">
+        <div class="block-title">انتخاب بسته <span class="req">*</span> <small>PACKAGES</small></div>
+        <div class="field" id="netPkgField">
+          <div class="pkg-grid" id="netPkgList" role="radiogroup" aria-label="بسته‌ها"></div>
+          <span class="field-error">یکی از بسته‌ها را انتخاب کنید.</span>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="step" id="netPayStep" aria-hidden="true">
+      <div class="step-inner"><div class="step-pad">
+        <div class="pay-box">
+          <div class="pay-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg> مبلغ قابل پرداخت بابت بستهٔ انتخابی</div>
+          <div class="cost-total"><span>جمع کل</span><span id="netAmount">—</span></div>
+          <p class="pay-note">لطفاً این مبلغ را به شمارهٔ کارت زیر واریز نمایید و سپس تصویر رسید را بارگذاری کنید:</p>
+          <div class="bank-card">
+            <div class="bank-top"><span class="bank-name">بانک پاسارگاد</span><span class="bank-chip"></span></div>
+            <div class="bank-number">
+              <span class="bank-digits">۵۰۲۲ ۲۹۱۰ ۹۸۹۵ ۳۲۰۹</span>
+              <button type="button" class="copy-btn" data-copy="5022291098953209">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                <span>کپی شماره کارت</span>
+              </button>
+            </div>
+            <div class="bank-holder">به نام <b>حمیدرضا سلیمی</b></div>
+          </div>
+        </div>
+
+        <div class="block">
+          <div class="uploads">
+            <div class="upload wide" id="upNetReceipt" data-state="idle">
+              <div class="up-label">لطفاً رسید واریز وجه را بارگذاری کنید <span class="req">*</span></div>
+              <div class="up-drop" tabindex="0" role="button" aria-label="بارگذاری رسید واریز">
+                <input type="file" accept="image/*" hidden>
+                <div class="up-idle">
+                  <span class="u-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
+                  <span>انتخاب تصویر رسید</span><small>JPG / PNG · حداکثر ۸ مگابایت</small>
+                </div>
+                <div class="up-loading"><span class="spin"></span> در حال بارگذاری…</div>
+                <div class="up-done">
+                  <img class="up-img" alt="پیش‌نمایش رسید">
+                  <div class="up-meta">
+                    <div class="up-name"></div><div class="up-size"></div>
+                    <span class="up-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg> بارگذاری شد</span>
+                  </div>
+                </div>
+              </div>
+              <div class="up-actions">
+                <button type="button" class="chg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg> تغییر تصویر</button>
+                <button type="button" class="del"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5h6v2m-8 0 1 13h8l1-13"/></svg> حذف</button>
+              </div>
+              <div class="up-error"></div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="assurance">
+      <span class="a-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span>
+      <div class="a-copy">
+        <strong>ضمانت بی‌قید و شرط بازگشت وجه</strong>
+        <p>در صورت عدم انجام خدمت، کل مبلغ بدون هیچ شرطی بازمی‌گردد.</p>
+      </div>
+      <a href="plans.html" class="btn-lemon">پیگیری خرید
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" class="btn-primary btn-submit" id="netSubmit">
+        <span class="spin small"></span>
+        <span class="b-label">ثبت درخواست</span>
+        <svg class="b-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9 18l-5-5"/></svg>
+      </button>
+      <a href="plans.html" class="btn-ghost">پیگیری خرید
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="success-banner" id="netBanner">
+      <span class="s-seal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>
+      <div class="s-copy">
+        <strong>درخواست شما ثبت شد</strong>
+        <p>کد پیگیری: <b id="netCode"></b> · وضعیت از طریق چت راضی قابل پیگیری است.</p>
+      </div>
+      <div class="s-actions">
+        <a href="plans.html" class="btn-lemon">پیگیری در چت</a>
+        <button type="button" class="btn-ghost" id="netReset">ثبت درخواست جدید</button>
+      </div>
+    </div>
+  </form>
 </section>
 
 </main>
@@ -824,44 +1178,51 @@ svg{display:block}
 <footer class="footer wrap">
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="footer-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-          <path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/>
-          <circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/>
-        </svg>
-      </div>
-      <div>
-        <strong>نتینو</strong>
-        <small>اینترنت اقتصادی، تجربه متفاوت</small>
-      </div>
+      <div class="footer-mark"><img src="icon.png" alt="" onerror="this.style.display='none'"></div>
+      <div><strong>راضی</strong><small>خدمات امور مشترکین، آنلاین</small></div>
     </div>
-    <div class="footer-copy">برای همراهی بهتر، کنار هم هستیم.</div>
+    <div class="footer-copy">همراه آنلاین امور مشترکین شما.</div>
   </div>
 </footer>
 
-<!-- MOBILE DOCK -->
 <nav class="mobile-dock" aria-label="ناوبری پایین">
   <a href="index.html" class="dock-item">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="m3 10 9-7 9 7M5 9v11h14V9M9 20v-7h6v7"/>
-    </svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7M5 9v11h14V9M9 20v-7h6v7"/></svg>
     خانه
   </a>
   <a href="guide.html" class="dock-item active" aria-current="page">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22.5z"/>
-      <path d="M4 5.5v17M8 8h8M8 12h7"/>
-    </svg>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22.5z"/><path d="M4 5.5v17M8 8h8M8 12h7"/></svg>
     راهنما
   </a>
   <a href="plans.html" class="dock-item">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/>
-      <path d="m3 8 9 5 9-5M12 13v8"/>
-    </svg>
-    طرح‌ها
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a8 8 0 0 1-8 8H5l-1 2v-5.2A8 8 0 1 1 20 11.5z"/><path d="M8 10h8M8 13.5h5"/></svg>
+    چت
   </a>
 </nav>
+
+<!-- SUCCESS MODAL -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-scrim" id="modalScrim"></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="confetti" id="confetti"></div>
+    <svg class="seal-svg" viewBox="0 0 88 88">
+      <circle class="seal-bg" cx="44" cy="44" r="40"/>
+      <circle class="seal-ring" cx="44" cy="44" r="38"/>
+      <path class="seal-check" d="M28 45.5 39 56l21-24"/>
+    </svg>
+    <div class="modal-kicker">RAZI / REQUEST</div>
+    <h3 id="modalTitle">درخواست شما با موفقیت ثبت شد</h3>
+    <p class="modal-sub">خلاصهٔ درخواست خود را بررسی و تأیید نهایی کنید.</p>
+    <div class="modal-summary" id="modalSummary"></div>
+    <div class="modal-meta" id="modalMeta"></div>
+    <div class="modal-actions">
+      <button type="button" class="btn-primary" id="modalConfirm">تأیید نهایی
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 9 18l-5-5"/></svg>
+      </button>
+      <button type="button" class="btn-ghost" id="modalEdit">ویرایش اطلاعات</button>
+    </div>
+  </div>
+</div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -869,89 +1230,562 @@ svg{display:block}
 (() => {
   "use strict";
 
-  /* آدرس کانال‌ها را اینجا وارد کن */
-  const SOCIAL_LINKS = {
-    instagram: "",
-    rubika: "",
-    eitaa: ""
+  /* ---------- utilities ---------- */
+  const FA = "۰۱۲۳۴۵۶۷۸۹";
+  const toEn = s => String(s)
+    .replace(/[۰-۹]/g, d => FA.indexOf(d))
+    .replace(/[٠-٩]/g, d => "٠١٢٣٤٥٦٧٨٩".indexOf(d));
+  const toFa = s => String(s).replace(/\d/g, d => FA[d]);
+  const digits = s => toEn(s).replace(/\D/g, "");
+  const toman = n => toFa(Number(n).toLocaleString("en-US")).replace(/,/g, "٬") + " تومان";
+  const $ = id => document.getElementById(id);
+
+  const validNational = c => {
+    c = digits(c);
+    if (!/^\d{10}$/.test(c) || /^(\d)\1{9}$/.test(c)) return false;
+    let s = 0;
+    for (let i = 0; i < 9; i++) s += +c[i] * (10 - i);
+    const r = s % 11;
+    return r < 2 ? +c[9] === r : +c[9] === 11 - r;
   };
+  const validPhone = p => /^09\d{9}$/.test(digits(p));
+  const validPostal = p => /^\d{10}$/.test(digits(p));
 
-  const toast = document.getElementById("toast");
+  const toastEl = $("toast");
   let toastTimer;
-
-  function notify(message){
-    toast.textContent = message;
-    toast.classList.add("show");
+  function toast(msg, kind){
+    toastEl.textContent = msg;
+    toastEl.className = "toast show" + (kind ? " " + kind : "");
     clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.classList.remove("show"),2600);
+    toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2600);
   }
 
-  /* لینک شبکه‌های اجتماعی */
-  document.querySelectorAll("[data-social]").forEach(link => {
-    const key = link.dataset.social;
-    const url = SOCIAL_LINKS[key];
+  function setErr(field, on){
+    if (field) field.classList.toggle("invalid", !!on);
+  }
+  function setUpErr(up, msg){
+    up.classList.toggle("invalid", !!msg);
+    up.querySelector(".up-error").textContent = msg || "";
+  }
+  function showStep(el, on){
+    el.classList.toggle("show", on);
+    el.setAttribute("aria-hidden", String(!on));
+    el.inert = !on;
+  }
 
-    if(url && url.trim()){
-      link.href = url;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-    }else{
-      link.href = "#";
-      link.addEventListener("click",event => {
-        event.preventDefault();
-        notify("آدرس این کانال هنوز در تنظیمات سایت ثبت نشده است.");
-      });
-    }
+  /* ---------- shutter dropdown ---------- */
+  const shutters = [];
+  function makeShutter(root, onChange){
+    const btn = root.querySelector(".dd-btn");
+    const val = root.querySelector(".dd-value");
+    const list = root.querySelector(".dd-list");
+    const opts = [...list.querySelectorAll('[role="option"]')];
+    let value = null;
+
+    const close = () => { root.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); };
+    const open = () => {
+      shutters.forEach(s => s.close());
+      root.classList.add("open");
+      btn.setAttribute("aria-expanded", "true");
+      (list.querySelector('[aria-selected="true"]') || opts[0]).focus();
+    };
+    const select = o => {
+      value = o.dataset.value;
+      opts.forEach(x => x.setAttribute("aria-selected", String(x === o)));
+      val.textContent = o.dataset.label;
+      val.classList.add("filled");
+      close(); btn.focus();
+      onChange && onChange(value);
+    };
+
+    btn.addEventListener("click", () => root.classList.contains("open") ? close() : open());
+    btn.addEventListener("keydown", e => { if (e.key === "ArrowDown"){ e.preventDefault(); open(); } });
+    opts.forEach(o => o.addEventListener("click", () => select(o)));
+    list.addEventListener("keydown", e => {
+      const i = opts.indexOf(document.activeElement);
+      if (e.key === "ArrowDown"){ e.preventDefault(); (opts[i + 1] || opts[0]).focus(); }
+      else if (e.key === "ArrowUp"){ e.preventDefault(); (opts[i - 1] || opts[opts.length - 1]).focus(); }
+      else if (e.key === "Enter" || e.key === " "){ e.preventDefault(); if (i > -1) select(opts[i]); }
+      else if (e.key === "Escape"){ close(); btn.focus(); }
+    });
+
+    const api = {
+      get value(){ return value; },
+      close,
+      reset(){
+        value = null;
+        opts.forEach(x => x.setAttribute("aria-selected", "false"));
+        val.textContent = val.dataset.placeholder;
+        val.classList.remove("filled");
+      }
+    };
+    shutters.push(api);
+    return api;
+  }
+  document.addEventListener("click", e => {
+    if (!e.target.closest(".dd")) shutters.forEach(s => s.close());
   });
 
-  /* ورود تدریجی عناصر */
-  const revealItems = document.querySelectorAll(".reveal");
-
-  if("IntersectionObserver" in window){
-    const observer = new IntersectionObserver((entries,obs) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add("visible");
-          obs.unobserve(entry.target);
-        }
-      });
-    },{threshold:.12,rootMargin:"0px 0px -25px 0px"});
-
-    revealItems.forEach(item => observer.observe(item));
-  }else{
-    revealItems.forEach(item => item.classList.add("visible"));
+  /* ---------- choice groups ---------- */
+  function makeChoices(container, onPick){
+    const tiles = [...container.querySelectorAll(".choice")];
+    tiles.forEach(t => t.addEventListener("click", () => {
+      if (t.disabled) return;
+      tiles.forEach(x => x.setAttribute("aria-checked", String(x === t)));
+      onPick && onPick(t.dataset.value);
+    }));
+    return {
+      get value(){
+        const s = container.querySelector('[aria-checked="true"]');
+        return s ? s.dataset.value : null;
+      },
+      reset(){ tiles.forEach(x => x.setAttribute("aria-checked", "false")); }
+    };
   }
 
-  /* وضعیت انتخاب‌شده در ناوبری موبایل */
+  /* ---------- uploads ---------- */
+  function makeUpload(root, onChange){
+    const input = root.querySelector('input[type="file"]');
+    const drop = root.querySelector(".up-drop");
+    const img = root.querySelector(".up-img");
+    const nameEl = root.querySelector(".up-name");
+    const sizeEl = root.querySelector(".up-size");
+    let url = null, file = null, timer = null;
+
+    const setState = s => {
+      root.dataset.state = s;
+      if (s !== "idle") setUpErr(root, "");
+      onChange && onChange(s === "done" ? file : null);
+    };
+
+    function handle(f){
+      if (!f) return;
+      if (!/^image\//.test(f.type)){ setUpErr(root, "لطفاً یک فایل تصویری انتخاب کنید."); return; }
+      if (f.size > 8 * 1024 * 1024){ setUpErr(root, "حجم تصویر باید کمتر از ۸ مگابایت باشد."); return; }
+      setUpErr(root, "");
+      setState("loading");
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        if (url) URL.revokeObjectURL(url);
+        url = URL.createObjectURL(f);
+        file = f;
+        img.src = url;
+        nameEl.textContent = f.name;
+        sizeEl.textContent = f.size > 1048576
+          ? toFa((f.size / 1048576).toFixed(1)) + " مگابایت"
+          : toFa(Math.round(f.size / 1024)) + " کیلوبایت";
+        setState("done");
+      }, 900 + Math.random() * 400);
+    }
+
+    drop.addEventListener("click", () => { if (root.dataset.state !== "loading") input.click(); });
+    drop.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); input.click(); }
+    });
+    input.addEventListener("change", () => { handle(input.files[0]); input.value = ""; });
+    ["dragover", "dragenter"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add("drag"); }));
+    ["dragleave", "drop"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove("drag"); }));
+    drop.addEventListener("drop", e => handle(e.dataTransfer.files[0]));
+    root.querySelector(".chg").addEventListener("click", e => { e.stopPropagation(); input.click(); });
+    root.querySelector(".del").addEventListener("click", e => {
+      e.stopPropagation();
+      clearTimeout(timer);
+      if (url) URL.revokeObjectURL(url);
+      url = null; file = null;
+      img.removeAttribute("src");
+      setState("idle");
+    });
+
+    setState("idle");
+    return {
+      get file(){ return file; },
+      reset(){ root.querySelector(".del").click(); }
+    };
+  }
+
+  /* ---------- copy ---------- */
+  document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      const text = btn.dataset.copy;
+      let ok = false;
+      try { await navigator.clipboard.writeText(text); ok = true; }
+      catch (_){
+        const ta = document.createElement("textarea");
+        ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        try { ok = document.execCommand("copy"); } catch (__) {}
+        ta.remove();
+      }
+      if (ok){
+        const label = btn.querySelector("span");
+        const old = label.textContent;
+        btn.classList.add("copied");
+        label.textContent = "کپی شد ✓";
+        toast("شماره کارت کپی شد.", "ok");
+        setTimeout(() => { btn.classList.remove("copied"); label.textContent = old; }, 2000);
+      } else toast("کپی انجام نشد؛ شماره را دستی یادداشت کنید.", "err");
+    });
+  });
+
+  /* ---------- progress ---------- */
+  function setProgress(bar, label, done, total){
+    const pct = Math.round(done / total * 100);
+    bar.style.width = pct + "%";
+    label.textContent = toFa(pct) + "٪";
+    return pct;
+  }
+
+  /* ---------- benefits ---------- */
+  const BENEFITS = {
+    perm: {
+      title: "هدایای فعال‌سازی سیم‌کارت دائمی ایرانسل",
+      rows: [
+        "۱۸۰ دقیقه مکالمهٔ رایگان بدون محدودیت",
+        "۶ ماه پیامک رایگان تا سقف ۴۵۰ پیامک",
+        "۱۰ گیگ اینترنت هدیهٔ فعال‌سازی یک‌ماهه"
+      ]
+    },
+    prep: {
+      title: "هدایای فعال‌سازی سیم‌کارت اعتباری ایرانسل",
+      rows: [
+        "۳۰ دقیقه مکالمهٔ رایگان درون‌شبکه یک‌ماهه",
+        "۱۰۰ پیامک رایگان یک‌ماهه",
+        "۱.۵ گیگ اینترنت هفتگی هدیهٔ فعال‌سازی"
+      ]
+    }
+  };
+  function renderBenefits(kind){
+    const data = BENEFITS[kind];
+    $("simBenefitsTitle").textContent = data.title;
+    $("simBenefitsList").innerHTML = data.rows.map(r =>
+      '<div class="benefit-row"><span class="b-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span><span>' + r + "</span></div>"
+    ).join("");
+  }
+
+  /* ---------- packages ---------- */
+  const PKGS = {
+    mci: {
+      perm: [{ g: 5, p: 25000 }, { g: 10, p: 35000 }, { g: 20, p: 69000 }],
+      prep: [{ g: 5, p: 28000 }, { g: 10, p: 38000 }, { g: 15, p: 68000 }]
+    },
+    irancell: {
+      perm: [{ g: 6, p: 29000 }, { g: 7, p: 32000 }, { g: 10, p: 49000 }],
+      prep: [{ g: 7, p: 31000 }, { g: 10, p: 48000 }, { g: 12, p: 54000 }]
+    },
+    rightel: {
+      perm: [{ g: 10, p: 40000 }, { g: 15, p: 55000 }]
+    }
+  };
+  const OP_LABEL = { mci: "همراه اول", irancell: "ایرانسل", rightel: "رایتل" };
+  const KIND_LABEL = { perm: "دائمی", prep: "اعتباری" };
+
+  /* ---------- modal ---------- */
+  const modal = $("modal");
+  let modalSection = null, lastFocus = null;
+  const CONF_COLORS = ["#e9fa76", "#7046e8", "#ff7048", "#ffb8d4", "#3f9d4f"];
+
+  function burstConfetti(){
+    const box = $("confetti");
+    box.innerHTML = "";
+    for (let i = 0; i < 18; i++){
+      const p = document.createElement("i");
+      p.style.right = (6 + Math.random() * 88) + "%";
+      p.style.background = CONF_COLORS[i % CONF_COLORS.length];
+      p.style.setProperty("--x", (Math.random() * 160 - 80) + "px");
+      p.style.setProperty("--r", (Math.random() * 540 - 270) + "deg");
+      p.style.animationDelay = (Math.random() * .25) + "s";
+      box.appendChild(p);
+    }
+    setTimeout(() => { box.innerHTML = ""; }, 1400);
+  }
+
+  function openModal(section, summaryHTML, metaHTML){
+    modalSection = section;
+    lastFocus = document.activeElement;
+    $("modalSummary").innerHTML = summaryHTML;
+    $("modalMeta").innerHTML = metaHTML;
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    burstConfetti();
+    setTimeout(() => $("modalConfirm").focus(), 60);
+  }
+  function closeModal(){
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lastFocus) lastFocus.focus();
+  }
+  $("modalScrim").addEventListener("click", closeModal);
+  $("modalEdit").addEventListener("click", closeModal);
+  modal.addEventListener("keydown", e => {
+    if (e.key === "Escape"){ closeModal(); return; }
+    if (e.key !== "Tab") return;
+    const f = [...modal.querySelectorAll("button")];
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  });
+
+  const newCode = () => "RZ-" + Math.floor(100000 + Math.random() * 900000);
+  const todayFa = () => new Date().toLocaleDateString("fa-IR");
+
+  /* ================= SIM ================= */
+  const simInputs = {
+    name: $("simName"), national: $("simNational"),
+    phone: $("simPhone"), postal: $("simPostal"), address: $("simAddress")
+  };
+  const simType = makeChoices($("simType"), v => {
+    setErr($("simTypeField"), false);
+    renderBenefits(v);
+    showStep($("simBenefitsStep"), true);
+    refreshSim();
+  });
+  const simPrefix = makeShutter($("ddPrefix"), () => { setErr($("simPrefixField"), false); refreshSim(); });
+  const upSimFront = makeUpload($("upSimFront"), () => refreshSim());
+  const upSimBack = makeUpload($("upSimBack"), () => refreshSim());
+  const upSimReceipt = makeUpload($("upSimReceipt"), () => refreshSim());
+
+  function simChecks(){
+    return [
+      simInputs.name.value.trim().length >= 3,
+      validNational(simInputs.national.value),
+      validPhone(simInputs.phone.value),
+      validPostal(simInputs.postal.value),
+      simInputs.address.value.trim().length >= 10,
+      !!simType.value,
+      !!simPrefix.value,
+      !!upSimFront.file,
+      !!upSimBack.file,
+      !!upSimReceipt.file
+    ];
+  }
+  function refreshSim(){
+    const checks = simChecks();
+    const pct = setProgress($("simProgressBar"), $("simProgressLabel"), checks.filter(Boolean).length, checks.length);
+    $("simSubmit").classList.toggle("ready", pct === 100);
+  }
+  Object.values(simInputs).forEach(inp => {
+    inp.addEventListener("input", () => { setErr(inp.closest(".field"), false); refreshSim(); });
+  });
+
+  $("simForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const checks = simChecks();
+    const fields = [
+      simInputs.name.closest(".field"), simInputs.national.closest(".field"),
+      simInputs.phone.closest(".field"), simInputs.postal.closest(".field"),
+      simInputs.address.closest(".field"), $("simTypeField"), $("simPrefixField")
+    ];
+    fields.forEach((f, i) => setErr(f, !checks[i]));
+    setUpErr($("upSimFront"), checks[7] ? "" : "بارگذاری این مدرک الزامی است.");
+    setUpErr($("upSimBack"), checks[8] ? "" : "بارگذاری این مدرک الزامی است.");
+    setUpErr($("upSimReceipt"), checks[9] ? "" : "بارگذاری رسید واریز الزامی است.");
+
+    if (!checks.every(Boolean)){
+      const first = $("simForm").querySelector(".invalid");
+      if (first){ first.scrollIntoView({ behavior: "smooth", block: "center" }); }
+      toast("لطفاً موارد مشخص‌شده را کامل کنید.", "err");
+      return;
+    }
+
+    const btn = $("simSubmit");
+    btn.classList.add("loading"); btn.disabled = true;
+    btn.querySelector(".b-label").textContent = "در حال ثبت…";
+
+    setTimeout(() => {
+      btn.classList.remove("loading"); btn.disabled = false;
+      btn.querySelector(".b-label").textContent = "ثبت درخواست";
+      const code = newCode();
+      $("simBanner").dataset.code = code;
+      const typeLabel = simType.value === "perm" ? "دائمی" : "اعتباری";
+      const summary =
+        "اینجانب <b>" + simInputs.name.value.trim() + "</b>، به شمارهٔ تماس <b>" + toFa(digits(simInputs.phone.value)) +
+        "</b> و کد ملی <b>" + toFa(digits(simInputs.national.value)) +
+        "</b>، درخواست دریافت <b>سیم‌کارت رایگان ایرانسل " + typeLabel + "</b> با پیش‌شمارهٔ <b>" + toFa(simPrefix.value) +
+        "</b> را دارم. مدارک شناسایی خود را بارگذاری کرده‌ام و مبلغ <b>۲۵٬۰۰۰ تومان</b> بابت خدمات آنلاین به کارت بانک پاسارگاد به نام حمیدرضا سلیمی واریز کرده و تصویر رسید آن را ارسال نموده‌ام. نشانی ارسال: " +
+        simInputs.address.value.trim() + " — کد پستی <b>" + toFa(digits(simInputs.postal.value)) + "</b>.";
+      const meta =
+        "<span>کد پیگیری <b>" + code + "</b></span><span>تاریخ <b>" + todayFa() + "</b></span><span>مبلغ <b>۲۵٬۰۰۰ تومان</b></span>";
+      openModal("sim", summary, meta);
+    }, 1400);
+  });
+
+  $("simReset").addEventListener("click", () => {
+    Object.values(simInputs).forEach(i => { i.value = ""; setErr(i.closest(".field"), false); });
+    simType.reset(); simPrefix.reset();
+    showStep($("simBenefitsStep"), false);
+    upSimFront.reset(); upSimBack.reset(); upSimReceipt.reset();
+    setErr($("simTypeField"), false); setErr($("simPrefixField"), false);
+    $("simBanner").classList.remove("show");
+    refreshSim();
+    $("sim").scrollIntoView({ behavior: "smooth" });
+  });
+
+  /* ================= NET ================= */
+  const netName = $("netName"), netNumber = $("netNumber");
+  const netState = { operator: null, kind: null, pkg: null };
+  const netKind = makeChoices($("netKind"), v => {
+    netState.kind = v;
+    setErr($("netKindField"), false);
+    netState.pkg = null;
+    showStep($("netPayStep"), false);
+    renderPackages();
+    showStep($("netDetailStep"), true);
+    showStep($("netPkgStep"), true);
+    refreshNet();
+  });
+  const netOperator = makeShutter($("ddOperator"), v => {
+    netState.operator = v;
+    setErr($("netOperatorField"), false);
+    netState.kind = null; netState.pkg = null;
+    netKind.reset();
+    showStep($("netDetailStep"), false);
+    showStep($("netPkgStep"), false);
+    showStep($("netPayStep"), false);
+    const prep = $("netPrepTile");
+    const isRightel = v === "rightel";
+    prep.disabled = isRightel;
+    $("rightelHint").style.display = isRightel ? "block" : "none";
+    showStep($("netKindStep"), true);
+    refreshNet();
+  });
+  const upNetReceipt = makeUpload($("upNetReceipt"), () => refreshNet());
+
+  function renderPackages(){
+    const list = PKGS[netState.operator]?.[netState.kind] || [];
+    const box = $("netPkgList");
+    box.classList.toggle("two", list.length === 2);
+    box.innerHTML = "";
+    list.forEach(item => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "pkg"; b.setAttribute("role", "radio");
+      b.setAttribute("aria-checked", "false");
+      b.innerHTML =
+        '<span class="pkg-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4.5 4.5L19 7"/></svg></span>' +
+        '<div class="pkg-gig">' + toFa(item.g) + " <small>گیگ</small></div>" +
+        '<div class="pkg-dur">بستهٔ یک‌ماهه</div>' +
+        '<span class="pkg-price">' + toman(item.p) + "</span>";
+      b.addEventListener("click", () => {
+        [...box.children].forEach(x => x.setAttribute("aria-checked", String(x === b)));
+        netState.pkg = item;
+        setErr($("netPkgField"), false);
+        $("netAmount").textContent = toman(item.p);
+        showStep($("netPayStep"), true);
+        refreshNet();
+      });
+      box.appendChild(b);
+    });
+  }
+
+  function netChecks(){
+    return [
+      netName.value.trim().length >= 2,
+      !!netState.operator,
+      !!netState.kind,
+      validPhone(netNumber.value),
+      !!netState.pkg,
+      !!upNetReceipt.file
+    ];
+  }
+  function refreshNet(){
+    const checks = netChecks();
+    const pct = setProgress($("netProgressBar"), $("netProgressLabel"), checks.filter(Boolean).length, checks.length);
+    $("netSubmit").classList.toggle("ready", pct === 100);
+  }
+  netName.addEventListener("input", () => { setErr(netName.closest(".field"), false); refreshNet(); });
+  netNumber.addEventListener("input", () => { setErr(netNumber.closest(".field"), false); refreshNet(); });
+
+  $("netForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const checks = netChecks();
+    setErr(netName.closest(".field"), !checks[0]);
+    setErr($("netOperatorField"), !checks[1]);
+    setErr($("netKindField"), !checks[2]);
+    setErr(netNumber.closest(".field"), !checks[3]);
+    setErr($("netPkgField"), !checks[4]);
+    setUpErr($("upNetReceipt"), checks[5] ? "" : "بارگذاری رسید واریز الزامی است.");
+
+    if (!checks.every(Boolean)){
+      const first = $("netForm").querySelector(".invalid");
+      if (first){ first.scrollIntoView({ behavior: "smooth", block: "center" }); }
+      toast("لطفاً موارد مشخص‌شده را کامل کنید.", "err");
+      return;
+    }
+
+    const btn = $("netSubmit");
+    btn.classList.add("loading"); btn.disabled = true;
+    btn.querySelector(".b-label").textContent = "در حال ثبت…";
+
+    setTimeout(() => {
+      btn.classList.remove("loading"); btn.disabled = false;
+      btn.querySelector(".b-label").textContent = "ثبت درخواست";
+      const code = newCode();
+      $("netBanner").dataset.code = code;
+      const summary =
+        "اینجانب <b>" + netName.value.trim() + "</b>، درخواست خرید <b>بستهٔ اینترنت یک‌ماههٔ " +
+        toFa(netState.pkg.g) + " گیگابایتی</b> اپراتور <b>" + OP_LABEL[netState.operator] +
+        " (" + KIND_LABEL[netState.kind] + ")</b> را برای شمارهٔ <b>" + toFa(digits(netNumber.value)) +
+        "</b> دارم و مبلغ <b>" + toman(netState.pkg.p) +
+        "</b> را به کارت بانک پاسارگاد به نام حمیدرضا سلیمی واریز کرده و تصویر رسید واریز را بارگذاری نموده‌ام.";
+      const meta =
+        "<span>کد پیگیری <b>" + code + "</b></span><span>تاریخ <b>" + todayFa() + "</b></span><span>مبلغ <b>" + toman(netState.pkg.p) + "</b></span>";
+      openModal("net", summary, meta);
+    }, 1400);
+  });
+
+  $("netReset").addEventListener("click", () => {
+    netName.value = ""; netNumber.value = "";
+    setErr(netName.closest(".field"), false); setErr(netNumber.closest(".field"), false);
+    netOperator.reset(); netKind.reset();
+    netState.operator = null; netState.kind = null; netState.pkg = null;
+    $("netPrepTile").disabled = false;
+    $("rightelHint").style.display = "none";
+    showStep($("netKindStep"), false);
+    showStep($("netDetailStep"), false);
+    showStep($("netPkgStep"), false);
+    showStep($("netPayStep"), false);
+    upNetReceipt.reset();
+    setErr($("netOperatorField"), false); setErr($("netKindField"), false); setErr($("netPkgField"), false);
+    $("netBanner").classList.remove("show");
+    refreshNet();
+    $("net").scrollIntoView({ behavior: "smooth" });
+  });
+
+  /* ---------- modal confirm ---------- */
+  $("modalConfirm").addEventListener("click", () => {
+    const section = modalSection;
+    closeModal();
+    if (section === "sim"){
+      $("simCode").textContent = $("simBanner").dataset.code;
+      $("simBanner").classList.add("show");
+      $("simBanner").scrollIntoView({ behavior: "smooth", block: "center" });
+    } else if (section === "net"){
+      $("netCode").textContent = $("netBanner").dataset.code;
+      $("netBanner").classList.add("show");
+      $("netBanner").scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    toast("درخواست شما ثبت شد؛ از طریق چت راضی قابل پیگیری است.", "ok");
+  });
+
+  /* ---------- dock ---------- */
   document.querySelectorAll(".dock-item").forEach(item => {
-    item.addEventListener("click",() => {
+    item.addEventListener("click", () => {
       document.querySelectorAll(".dock-item").forEach(el => el.classList.remove("active"));
       item.classList.add("active");
     });
   });
 
-  /* حرکت ملایم کارت اصلی با ماوس، فقط در دسکتاپ */
-  const art = document.querySelector(".hero-art");
-  const phone = document.querySelector(".phone-card");
-  const finePointer = matchMedia("(hover:hover) and (pointer:fine)").matches;
-  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if(art && phone && finePointer && !reduceMotion){
-    art.addEventListener("pointermove",event => {
-      const rect = art.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - .5;
-      const y = (event.clientY - rect.top) / rect.height - .5;
-      phone.style.transform =
-        `rotate(-5deg) perspective(900px) rotateY(${x*7}deg) rotateX(${y*-6}deg)`;
-    });
-
-    art.addEventListener("pointerleave",() => {
-      phone.style.transform = "rotate(-5deg)";
-    });
-  }
-
+  /* ---------- init ---------- */
+  showStep($("simBenefitsStep"), false);
+  showStep($("netKindStep"), false);
+  showStep($("netDetailStep"), false);
+  showStep($("netPkgStep"), false);
+  showStep($("netPayStep"), false);
+  refreshSim();
+  refreshNet();
 })();
 </script>
 
 </body>
-  </html>
+                                                                                                                                                                                             </html>
