@@ -41,26 +41,9 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
 .hero h1 .dark-line{display:block}
 .hero h1 .color-line{display:inline-block;color:var(--purple);position:relative;z-index:1}
 .hero h1 .color-line:after{content:"";position:absolute;right:0;bottom:5px;width:100%;height:13px;background:var(--lemon);z-index:-1;transform:rotate(-2deg)}
-
-/* NEW PROMINENT HERO NOTICE */
-.hero-notice{
-  max-width:720px;margin:24px auto 0;display:flex;align-items:flex-start;gap:16px;
-  padding:22px 26px;background:linear-gradient(135deg,#fff 0%,#fbfaff 100%);
-  border:1.5px solid rgba(112,70,232,.25);border-radius:22px;
-  box-shadow:0 12px 35px rgba(112,70,232,.08);text-align:right;
-  animation:fadeUp .6s cubic-bezier(.2,.7,.2,1) .2s both;
-}
-.hero-notice-icon{
-  width:46px;height:46px;flex-shrink:0;background:var(--purple);color:#fff;
-  border-radius:14px;display:grid;place-items:center;
-}
-.hero-notice-icon svg{width:22px;height:22px}
-.hero-notice-content strong{display:block;font-size:15px;font-weight:950;color:var(--purple-dark);margin-bottom:6px}
-.hero-notice-content p{font-size:13.5px;color:var(--muted);line-height:2.1;font-weight:700}
-@keyframes fadeUp{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-
-.hero-description{max-width:600px;margin:20px auto 0;color:#716c77;font-size:13px;line-height:2.2;font-weight:650}
-.hero-description strong{color:var(--ink);font-weight:950}
+.hero-description{max-width:700px;margin:12px auto 0;color:#716c77;font-size:14px;line-height:2.3;font-weight:700}
+.hero-description strong{color:var(--ink);font-weight:1000}
+.hero-highlight{color:var(--purple-dark);font-weight:1000;display:inline-block;margin-top:8px;padding:4px 12px;background:var(--lav);border-radius:8px;border:1px dashed var(--purple)}
 
 /* NOTICE */
 .notice{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 18px;margin-bottom:22px;background:#fff;border:1.5px dashed rgba(112,70,232,.30);border-radius:20px 20px 20px 6px;box-shadow:var(--shadow)}
@@ -125,4 +108,329 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--purple);outline-off
 @keyframes msgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
 .chat-input{display:flex;align-items:center;gap:10px;padding:12px 14px;background:var(--white);border-top:1px solid var(--line)}
-.chat-input input{flex:1
+.chat-input input{flex:1;min-height:48px;padding:0 18px;border:1.5px solid var(--line);border-radius:50px;background:var(--paper);font:inherit;font-size:12.5px;font-weight:650;color:var(--ink);outline:none;transition:.2s;min-width:0}
+.chat-input input:focus{border-color:var(--purple);background:#fff}
+.chat-input input::placeholder{color:#a29a90}
+.send-btn{width:48px;height:48px;border-radius:50%;border:none;flex-shrink:0;background:var(--purple);color:#fff;display:grid;place-items:center;box-shadow:0 5px 0 #4c2bb3;transition:.2s}
+.send-btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 #4c2bb3}
+.send-btn:active{transform:translateY(2px);box-shadow:0 2px 0 #4c2bb3}
+.send-btn:disabled{opacity:.45;transform:none;box-shadow:0 5px 0 #4c2bb3;cursor:default}
+.send-btn svg{width:20px;height:20px;transform:scaleX(-1)}
+.chat-caption{margin-top:12px;text-align:center;color:#8b8291;font-size:9px;letter-spacing:2px;font-weight:900;direction:ltr}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--line);padding:22px 0 12px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-mark{width:34px;height:34px;padding:3px;background:var(--ink);color:var(--lemon);display:grid;place-items:center;border-radius:11px 11px 11px 3px}
+.footer-mark img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
+.footer-brand strong{font-size:13px;font-weight:1000}
+.footer-brand small{display:block;color:var(--muted);font-size:9px;margin-top:3px}
+.footer-copy{font-size:9px;color:#938d96;font-weight:700}
+
+/* MOBILE DOCK */
+.mobile-dock{display:none;position:fixed;z-index:50;bottom:calc(12px + env(safe-area-inset-bottom));left:14px;right:14px;padding:8px;background:#191621;color:white;border-radius:22px 22px 22px 7px;box-shadow:0 14px 45px #17121e38;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px}
+.dock-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:53px;color:#c6c0d0;font-size:9px;font-weight:850;border-radius:14px;transition:.2s}
+.dock-item svg{width:20px;height:20px}
+.dock-item.active{background:#ffffff16;color:var(--lemon)}
+.dock-item:active{transform:scale(.96)}
+
+/* RESPONSIVE */
+@media(min-width:900px){.mobile-dock{display:none!important}}
+@media(max-width:899px){.wrap{width:min(calc(100% - 38px),680px)}}
+@media(max-width:600px){
+  body{padding-bottom:100px}
+  .wrap{width:calc(100% - 34px)}
+  .hero{padding:24px 0 14px}
+  .hero h1{font-size:clamp(26px,7.6vw,36px);letter-spacing:-1.2px}
+  .hero-description{font-size:12.5px;line-height:2.1}
+  .notice{padding:14px;gap:12px}
+  .notice-actions{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .notice-btn{justify-content:center;padding:11px 8px;font-size:10px}
+  .chat-zone{width:calc(100% - 20px);padding-bottom:26px}
+  .chat-shell{height:calc(100dvh - 160px);min-height:440px;max-height:none;border-radius:24px 24px 24px 7px}
+  .chat-head{padding:12px 14px}
+  .chat-name{font-size:12px}
+  .chat-badge{font-size:8.5px;padding:7px 10px}
+  .chat-body{padding:14px 11px}
+  .msg{max-width:86%;font-size:11.5px}
+  .chat-input{padding:10px 11px}
+  .chat-input input{min-height:46px;font-size:11.5px;padding:0 15px}
+  .send-btn{width:46px;height:46px}
+  .footer-inner{align-items:flex-start;flex-direction:column;gap:10px}
+  .mobile-dock{display:grid}
+}
+@media(max-width:360px){
+  .chat-badge{display:none}
+  .notice-actions{grid-template-columns:1fr}
+  .hero h1{font-size:25px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+
+<body>
+
+<div class="background" aria-hidden="true">
+  <div class="bg-shape one"></div><div class="bg-shape two"></div><div class="bg-shape three"></div>
+</div>
+
+<main id="home">
+
+<!-- HERO -->
+<section class="hero wrap">
+  <div class="hero-label"><span class="soon-dot"></span> چت خدمات آنلاین · به‌زودی</div>
+  <h1>
+    <span class="dark-line">همین‌جا پیام بده؛</span>
+    <span class="color-line">راضی پاسخ می‌دهد!</span>
+  </h1>
+  <p class="hero-description">
+    ارائهٔ خدمات آنلاین <strong>به‌زودی</strong>؛ فقط با ارسال پیام به <strong>خدمات امور مشترکین راضی</strong>، در همین صفحه.
+    <br>
+    <span class="hero-highlight">⚠️ توجه: در حال حاضر تنها بخش‌های «خرید سیم‌کارت رایگان» و «خرید بسته اینترنت» فعال هستند.</span>
+    <br>
+    <small style="color:var(--muted);font-weight:600;display:block;margin-top:10px">پس از ثبت اولین خرید بسته اینترنت یا اولین درخواست سیم‌کارت رایگان ایرانسل، شماره‌های پشتیبانی واتساب، ایتا، پیامک و تماس همراه با مدارک فعال‌سازی و فاکتور خریدتان برای شما ارسال خواهد شد تا بتوانید به راحتی پیگیری نمایید.</small>
+  </p>
+</section>
+
+<!-- NOTICE -->
+<section class="notice wrap" aria-label="اطلاعیه راه‌اندازی">
+  <div class="notice-icon">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/></svg>
+  </div>
+  <div class="notice-copy">
+    <strong>بخش خدمات آنلاین به‌زودی افتتاح می‌شود؛ همین روزها!</strong>
+    <p>فعلاً می‌توانی از سایر خدمات، از جمله دریافت سیم‌کارت رایگان یا خرید بستهٔ اینترنت ارزان بهره‌مند شوی.</p>
+  </div>
+  <div class="notice-actions">
+    <a href="sim.html" class="notice-btn sim">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><rect x="8.5" y="12" width="7" height="6" rx="1.5"/><path d="M12 12v6M8.5 15h7"/></svg>
+      سیم‌کارت رایگان
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+    </a>
+    <a href="internet.html" class="notice-btn net">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg>
+      بستهٔ اینترنت ارزان
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- CHAT -->
+<section class="chat-zone wrap" id="chat">
+  <div class="chat-shell">
+    <div class="chat-head">
+      <div class="chat-id">
+        <div class="chat-avatar">
+          <img src="icon.png" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="brand-fallback">ر</span>
+        </div>
+        <div>
+          <div class="chat-name">خدمات امور مشترکین راضی</div>
+          <div class="chat-status" id="chatStatus">آنلاین</div>
+        </div>
+      </div>
+      <div class="chat-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v5c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>
+        پاسخ‌گوی رسمی راضی
+      </div>
+    </div>
+
+    <div class="chat-body" id="chatBody" role="log" aria-live="polite" aria-label="گفتگو با خدمات راضی">
+      <span class="day-chip">امروز</span>
+      <span class="lock-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+        گفتگوی شما با راضی خصوصی و محفوظ است.
+      </span>
+      <div class="msg in">
+        <p>سلام و عرض ادب 🌷 به چت رسمی خدمات امور مشترکین راضی خوش آمدی. خدمت موردنیازت را همین‌جا بنویس یا از دکمه‌های پیگیری سریع در پایین صفحه استفاده کن.</p>
+        <span class="meta"><span class="js-now"></span></span>
+      </div>
+    </div>
+
+    <form class="chat-input" id="chatForm">
+      <input id="chatInput" type="text" maxlength="400" autocomplete="off" enterkeyhint="send" placeholder="خدمت موردنیازت را بنویس…" aria-label="متن پیام">
+      <button class="send-btn" id="sendBtn" type="submit" disabled aria-label="ارسال پیام">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- QUICK ACTIONS BELOW CHAT -->
+  <div style="display:flex; gap:12px; margin-top:20px; flex-wrap:wrap; justify-content:center;">
+    <button class="notice-btn sim" onclick="triggerChat('sim')" style="cursor:pointer; font:inherit;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><rect x="8.5" y="12" width="7" height="6" rx="1.5"/><path d="M12 12v6M8.5 15h7"/></svg>
+      پیگیری سیم‌کارت رایگان
+    </button>
+    <button class="notice-btn net" onclick="triggerChat('net')" style="cursor:pointer; font:inherit;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg>
+      پیگیری بسته اینترنتی
+    </button>
+  </div>
+
+  <div class="chat-caption">RAZI / ONLINE SERVICES — COMING SOON</div>
+</section>
+
+</main>
+
+<footer class="footer wrap">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-mark"><img src="icon.png" alt="" onerror="this.style.display='none'"></div>
+      <div><strong>راضی</strong><small>خدمات امور مشترکین، آنلاین</small></div>
+    </div>
+    <div class="footer-copy">پاسخ‌گوی آنلاین راضی؛ همیشه در دسترس.</div>
+  </div>
+</footer>
+
+<!-- MOBILE DOCK (4 Items) -->
+<nav class="mobile-dock" aria-label="ناوبری پایین">
+  <a href="index.html" class="dock-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7M5 9v11h14V9M9 20v-7h6v7"/></svg>خانه
+  </a>
+  <a href="sim.html" class="dock-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><rect x="8.5" y="12" width="7" height="6" rx="1.5"/><path d="M12 12v6M8.5 15h7"/></svg>سیم کارت
+  </a>
+  <a href="internet.html" class="dock-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg>اینترنت
+  </a>
+  <a href="guide.html" class="dock-item active" aria-current="page">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22.5z"/><path d="M4 5.5v17M8 8h8M8 12h7"/></svg>خدمات
+  </a>
+</nav>
+
+<!-- AUTO REPLY TEMPLATE -->
+<template id="replyTemplate">
+  <p>عرض ادب و احترام خدمت شما، مخاطب گرامی 🌷</p>
+  <p>این بخش در حال راه‌اندازی نهایی است؛ هرچند از نظر فنی تکمیل شده، اما برای ارائهٔ خدمات آنلاین به زیرساخت نیازمندیم.</p>
+  <p>از شما خواهشمندیم تا راه‌اندازی کامل این بخش، از سایر خدمات ما بهره‌مند شوید:</p>
+  <div class="reply-chips">
+    <a class="reply-chip" href="sim.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><rect x="8.5" y="12" width="7" height="6" rx="1.5"/><path d="M12 12v6M8.5 15h7"/></svg>
+      دریافت سیم‌کارت رایگان
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+    </a>
+    <a class="reply-chip" href="internet.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5a14 14 0 0 1 18 0M6 13a9 9 0 0 1 12 0M9.5 16.5a4 4 0 0 1 5 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg>
+      خرید بستهٔ اینترنت ارزان
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m6-6-6 6 6 6"/></svg>
+    </a>
+  </div>
+  <p>به‌زودی بخش خدمات آنلاین فعال خواهد شد. اپلیکیشن به‌روز و آنلاین است و نیازی به به‌روزرسانی ندارد.</p>
+</template>
+
+<script>
+(() => {
+  "use strict";
+  const chatBody = document.getElementById("chatBody");
+  const form     = document.getElementById("chatForm");
+  const input    = document.getElementById("chatInput");
+  const sendBtn  = document.getElementById("sendBtn");
+  const status   = document.getElementById("chatStatus");
+  const tpl      = document.getElementById("replyTemplate");
+
+  const TICKS = '<svg class="ticks" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m1.5 12.5 4.5 4.5L15 8"/><path d="m8.5 17 1.5 1.5L23 8"/></svg>';
+  const now = () => new Date().toLocaleTimeString("fa-IR",{hour:"2-digit",minute:"2-digit"});
+  document.querySelectorAll(".js-now").forEach(el => el.textContent = now());
+
+  const scrollDown = () => chatBody.scrollTo({top:chatBody.scrollHeight,behavior:"smooth"});
+  let typingEl = null, pending = 0;
+
+  function setTyping(on){
+    status.textContent = on ? "در حال نوشتن…" : "آنلاین";
+    status.classList.toggle("typing",on);
+    if(on && !typingEl){
+      typingEl = document.createElement("div");
+      typingEl.className = "typing";
+      typingEl.setAttribute("aria-hidden","true");
+      typingEl.innerHTML = "<i></i><i></i><i></i>";
+      chatBody.appendChild(typingEl);
+      scrollDown();
+    }
+    if(!on && typingEl){ typingEl.remove(); typingEl = null; }
+  }
+
+  function metaHTML(withTicks){
+    return '<span class="meta"><span>' + now() + '</span>' + (withTicks ? TICKS : "") + '</span>';
+  }
+
+  function addUserMessage(text){
+    const msg = document.createElement("div");
+    msg.className = "msg out";
+    const p = document.createElement("p");
+    p.textContent = text;
+    msg.appendChild(p);
+    msg.insertAdjacentHTML("beforeend",metaHTML(true));
+    chatBody.appendChild(msg);
+    scrollDown();
+  }
+
+  function addReply(){
+    const msg = document.createElement("div");
+    msg.className = "msg in";
+    msg.appendChild(tpl.content.cloneNode(true));
+    msg.insertAdjacentHTML("beforeend",metaHTML(false));
+    chatBody.appendChild(msg);
+    chatBody.querySelectorAll(".msg.out:not(.read)").forEach(el => el.classList.add("read"));
+    scrollDown();
+  }
+
+  // Trigger Chat Function for Quick Actions
+  window.triggerChat = function(type) {
+    let userMsg = "", botReply = "";
+    if (type === 'sim') {
+      userMsg = "سلام، خسته نباشید. اینجانب درخواست دریافت سیم‌کارت رایگان را ثبت نمودم و کد پستی و آدرس دقیق را وارد کردم. می‌خواهم بدانم آیا درخواست من ثبت شده است یا خیر و کی سیم‌کارت به دستم خواهد رسید؟";
+      botReply = "سلام و عرض ادب 🌷\nشما هنوز درخواست معتبری ثبت نکرده‌اید. به محض پرکردن فرم درخواست، مدارک شما مستقیماً برای شرکت ایرانسل ارسال شده و سیم‌کارت به آدرس ثبت‌شده پست می‌شود.\nمعمولاً نیازی به پیگیری نیست، اما اگر پس از ۱۴ روز کاری بسته به دستتان نرسید، می‌توانید با در دست داشتن کد ملی به اداره پست منطقه مراجعه کنید (هزینه پست قبلاً پرداخت شده است و اداره پست موظف به تحویل مرسوله به آدرس اعلامی شماست و به ندرت این مشکل ممکن است رخ دهد).\nآسوده خاطر باشید؛ ما ضمانت بازگشت وجه داریم و کارشناسان ما برای اطمینان از رضایت شما، به‌زودی با شماره تماس‌تان ارتباط خواهند گرفت. 💙";
+    } else if (type === 'net') {
+      userMsg = "سلام، اینجانب بسته اینترنتی خریداری کرده‌ام و رسید واریز را ارسال نمودم و شماره خود را به درستی وارد کردم، اما بسته‌ای برای من فعال نشده است. درخواست فوری فعال‌سازی بسته را دارم.";
+      botReply = "سلام و عرض ادب 🌷\nدر حال حاضر خرید یا رسید واریز تأییدشده‌ای از طرف شما ارسال نشده است.\nلطفاً نگران نباشید؛ فعال‌سازی بسته‌ها به‌صورت شبانه‌روزی و معمولاً ظرف چند دقیقه انجام می‌شود.\nپیشنهاد می‌کنیم فرم خرید را مجدداً تکمیل و تصویر رسید (شامل تاریخ، ساعت و کد پیگیری) را به‌وضوح بارگذاری نمایید.";
+    }
+    
+    addUserMessage(userMsg);
+    pending++;
+    setTimeout(() => setTyping(true), 550);
+    setTimeout(() => {
+      pending--;
+      if(pending <= 0){ pending = 0; setTyping(false); }
+      const msg = document.createElement("div");
+      msg.className = "msg in";
+      const p = document.createElement("p");
+      p.style.whiteSpace = "pre-wrap";
+      p.textContent = botReply;
+      msg.appendChild(p);
+      msg.insertAdjacentHTML("beforeend", metaHTML(false));
+      chatBody.appendChild(msg);
+      chatBody.querySelectorAll(".msg.out:not(.read)").forEach(el => el.classList.add("read"));
+      scrollDown();
+    }, 1500 + Math.random() * 500);
+  };
+
+  form.addEventListener("submit",event => {
+    event.preventDefault();
+    const text = input.value.trim();
+    if(!text) return;
+    addUserMessage(text);
+    input.value = "";
+    sendBtn.disabled = true;
+    input.focus();
+    pending++;
+    setTimeout(() => setTyping(true),550);
+    setTimeout(() => {
+      pending--;
+      if(pending <= 0){ pending = 0; setTyping(false); }
+      addReply();
+    },1900 + Math.random()*500);
+  });
+
+  input.addEventListener("input",() => { sendBtn.disabled = !input.value.trim(); });
+
+  document.querySelectorAll(".dock-item").forEach(item => {
+    item.addEventListener("click",() => {
+      document.querySelectorAll(".dock-item").forEach(el => el.classList.remove("active"));
+      item.classList.add("active");
+    });
+  });
+})();
+</script>
+</body>
+  </html>
