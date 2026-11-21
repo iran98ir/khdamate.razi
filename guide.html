@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F7F4ED">
+<meta name="description" content="دانلود آخرین نسخه اپلیکیشن Razi">
+<title>دانلود اپلیکیشن Razi</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#F7F4ED;
+  --purple:#7046E8;
+  --purple-dark:#4930A5;
+  --lime:#E9FA76;
+  --ink:#28213D;
+  --muted:#898398;
+  --line:rgba(112,70,232,.17);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  -webkit-tap-highlight-color:transparent;
+}
+
+body{
+  min-height:100vh;
+  padding:20px 16px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  color:var(--ink);
+  font-family:'Vazirmatn',sans-serif;
+  background:
+    radial-gradient(ellipse at 15% 8%,rgba(112,70,232,.10),transparent 30%),
+    radial-gradient(ellipse at 88% 92%,rgba(233,250,118,.32),transparent 28%),
+    #F7F4ED;
+}
+
+/* خط عمودی تزئینی سمت راست */
+body::before{
+  content:"";
+  position:fixed;
+  top:60px;
+  right:22px;
+  bottom:60px;
+  width:1px;
+  background-image:linear-gradient(to bottom,rgba(112,70,232,.30) 50%,transparent 50%);
+  background-size:1px 10px;
+  pointer-events:none;
+  opacity:.5;
+}
+
+.page{
+  width:100%;
+  max-width:430px;
+  margin:0 auto;
+}
+
+/* ===== بالای صفحه: برند ===== */
+.top-bar{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:20px;
+  padding:0 4px;
+}
+
+.top-bar .dash{
+  flex:1;
+  height:1.5px;
+  max-width:48px;
+  background-image:linear-gradient(90deg,rgba(112,70,232,.45) 50%,transparent 50%);
+  background-size:6px 1.5px;
+}
+
+.top-bar .dash.right{
+  transform:scaleX(-1);
+}
+
+.top-bar .label{
+  color:var(--purple);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.4px;
+  white-space:nowrap;
+}
+
+/* ===== کارت اصلی ===== */
+.card{
+  position:relative;
+  border-radius:28px;
+  background:rgba(255,255,255,.80);
+  border:1.5px solid rgba(112,70,232,.20);
+  box-shadow:0 20px 55px rgba(66,43,124,.10);
+  overflow:hidden;
+}
+
+/* گوشه بالا راست: خط ضخیم */
+.card::before{
+  content:"";
+  position:absolute;
+  top:14px;
+  right:14px;
+  width:42px;
+  height:42px;
+  border-top:2.5px solid rgba(112,70,232,.50);
+  border-right:2.5px solid rgba(112,70,232,.50);
+  border-radius:0 16px 0 0;
+  pointer-events:none;
+  z-index:2;
+}
+
+/* گوشه پایین چپ: نقطه‌چین */
+.card::after{
+  content:"";
+  position:absolute;
+  bottom:14px;
+  left:14px;
+  width:42px;
+  height:42px;
+  border-bottom:2px dotted rgba(112,70,232,.42);
+  border-left:2px dotted rgba(112,70,232,.42);
+  border-radius:0 0 0 16px;
+  pointer-events:none;
+  z-index:2;
+}
+
+/* ===== هدر: آیکون + نام + دکمه ===== */
+.hero{
+  position:relative;
+  padding:30px 22px 26px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,255,255,.20),transparent 55%),
+    linear-gradient(160deg,#7A54EF 0%,#7046E8 45%,#5031B4 100%);
+}
+
+/* نقطه‌های پراکنده ظریف روی هدر */
+.hero .dot{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(233,250,118,.55);
+  pointer-events:none;
+}
+.hero .dot.a{ top:18px; left:24px; width:4px; height:4px; }
+.hero .dot.b{ top:42px; left:40px; width:3px; height:3px; opacity:.4; }
+.hero .dot.c{ bottom:20px; right:30px; width:3px; height:3px; opacity:.5; }
+
+/* آیکون */
+.icon-box{
+  position:relative;
+  z-index:1;
+  width:88px;
+  height:88px;
+  padding:5px;
+  border-radius:24px;
+  border:1.5px dashed rgba(255,255,255,.48);
+  background:rgba(255,255,255,.12);
+  box-shadow:0 10px 28px rgba(34,16,86,.22);
+}
+
+.icon-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:19px;
+  background:#F7F4ED;
+  display:block;
+}
+
+/* نام و زیرنویس */
+.app-name{
+  position:relative;
+  z-index:1;
+  margin-top:16px;
+  color:#fff;
+  font-size:23px;
+  font-weight:900;
+  line-height:1.5;
+  text-align:center;
+}
+
+.app-sub{
+  position:relative;
+  z-index:1;
+  margin-top:2px;
+  color:rgba(255,255,255,.80);
+  font-size:10.5px;
+  font-weight:500;
+  text-align:center;
+}
+
+/* ===== بخش بدنه ===== */
+.body{
+  padding:22px 20px 20px;
+}
+
+/* ردیف اعتماد: نسخه + سیستم */
+.trust-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:18px;
+}
+
+.trust-badge{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 12px;
+  border-radius:24px;
+  border:1.5px dotted rgba(112,70,232,.38);
+  background:rgba(112,70,232,.05);
+  color:var(--purple-dark);
+  font-size:9.5px;
+  font-weight:800;
+}
+
+.trust-badge .dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#86A800;
+  box-shadow:0 0 0 3px rgba(134,168,0,.13);
+}
+
+.trust-version{
+  color:#9992A7;
+  font-size:9.5px;
+  font-weight:700;
+  direction:ltr;
+  padding:6px 10px;
+  border-radius:20px;
+  border:1px solid rgba(112,70,232,.12);
+  background:rgba(255,255,255,.55);
+}
+
+/* توضیح یک‌خطی */
+.pitch{
+  text-align:center;
+  color:#5E576E;
+  font-size:11.5px;
+  line-height:2;
+  margin-bottom:20px;
+}
+
+/* ===== دکمه دانلود اصلی ===== */
+.download-btn{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:100%;
+  min-height:58px;
+  border-radius:16px;
+  border:1.5px solid rgba(75,45,156,.18);
+  background:linear-gradient(110deg,#8057F1,#7046E8 55%,#5A38C5);
+  box-shadow:0 8px 22px rgba(112,70,232,.24);
+  color:#fff;
+  font-family:inherit;
+  font-size:14.5px;
+  font-weight:900;
+  text-decoration:none;
+  transition:transform .15s ease;
+}
+
+.download-btn:active{
+  transform:scale(.98);
+}
+
+.download-btn .icon{
+  width:30px;
+  height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  background:var(--lime);
+  color:#3B2B78;
+  font-size:18px;
+  line-height:1;
+  flex-shrink:0;
+}
+
+.download-btn .text{
+  position:relative;
+  z-index:1;
+}
+
+/* نقطه‌چین داخل دکمه */
+.download-btn::after{
+  content:"";
+  position:absolute;
+  inset:5px;
+  border-radius:12px;
+  border:1px dashed rgba(255,255,255,.22);
+  pointer-events:none;
+}
+
+.download-caption{
+  text-align:center;
+  color:#A09AAA;
+  font-size:9px;
+  line-height:1.9;
+  margin-top:10px;
+}
+
+/* ===== مشخصات فشرده ===== */
+.specs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin:20px 0 18px;
+}
+
+.spec{
+  position:relative;
+  padding:12px 4px 10px;
+  text-align:center;
+  border-radius:14px;
+  background:rgba(255,255,255,.70);
+  border:1px solid rgba(112,70,232,.12);
+}
+
+.spec:nth-child(1){ border-bottom:2.5px solid var(--purple); }
+.spec:nth-child(2){ border-top:2.5px dotted var(--purple); }
+.spec:nth-child(3){ border-left:2.5px dashed var(--purple); }
+
+.spec-value{
+  color:var(--purple-dark);
+  font-size:11.5px;
+  font-weight:900;
+  direction:ltr;
+  white-space:nowrap;
+}
+
+.spec-label{
+  margin-top:4px;
+  color:#9690A1;
+  font-size:8.5px;
+  font-weight:600;
+}
+
+/* ===== پنل امنیت ===== */
+.security-note{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding:13px 14px;
+  border-radius:14px;
+  border:1.5px dashed rgba(112,70,232,.26);
+  background:rgba(255,255,255,.50);
+}
+
+.security-note .check{
+  width:26px;
+  height:26px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  background:var(--lime);
+  color:#423080;
+  font-size:13px;
+  font-weight:900;
+}
+
+.security-note .txt{
+  font-size:10px;
+  line-height:1.9;
+  color:#777184;
+}
+
+.security-note .txt strong{
+  display:block;
+  color:var(--purple-dark);
+  font-size:11px;
+  font-weight:800;
+  margin-bottom:1px;
+}
+
+/* ===== جداکننده نقطه‌چین ===== */
+.divider{
+  height:1px;
+  margin:18px 0 14px;
+  background-image:linear-gradient(90deg,rgba(112,70,232,.30) 50%,transparent 50%);
+  background-size:7px 1px;
+  background-repeat:repeat-x;
+}
+
+/* ===== فوتر ===== */
+.footer{
+  text-align:center;
+  color:#9891A1;
+  font-size:9.5px;
+  line-height:1.9;
+}
+
+.footer strong{
+  color:var(--purple);
+  font-weight:900;
+}
+
+/* ===== ریسپانسیو ===== */
+@media(max-width:360px){
+  body{ padding:16px 12px; }
+  .hero{ padding:26px 18px 22px; }
+  .body{ padding:20px 16px 18px; }
+  .app-name{ font-size:21px; }
+  .spec-value{ font-size:10.5px; }
+}
+
+/* ===== ناوبری پایین (افزوده‌شده) ===== */
+body{
+  padding-bottom:calc(112px + env(safe-area-inset-bottom));
+}
+
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:50;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(247,244,237,.94);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-top:1.5px dashed rgba(112,70,232,.28);
+}
+
+.nav-inner{
+  width:100%;
+  max-width:430px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.nav-item{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  min-height:62px;
+  border-radius:14px;
+  border:1.5px solid transparent;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:800;
+  text-decoration:none;
+  transition:transform .15s ease;
+}
+
+.nav-item svg{
+  width:22px;
+  height:22px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.nav-item:active{
+  transform:scale(.96);
+}
+
+.nav-item.active{
+  color:var(--purple-dark);
+  background:rgba(112,70,232,.07);
+  border:1.5px dotted rgba(112,70,232,.40);
+}
+
+.nav-item.active svg{
+  stroke-width:2.2;
+}
+
+.nav-item.active::before{
+  content:"";
+  position:absolute;
+  top:-11px;
+  width:26px;
+  height:3px;
+  border-radius:0 0 6px 6px;
+  background:var(--purple);
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+  <!-- برند بالا -->
+  <div class="top-bar">
+    <span class="dash"></span>
+    <span class="label">دریافت نسخه رسمی</span>
+    <span class="dash right"></span>
+  </div>
+
+  <!-- کارت -->
+  <section class="card">
+
+    <!-- هدر: آیکون + نام -->
+    <div class="hero">
+      <span class="dot a"></span>
+      <span class="dot b"></span>
+      <span class="dot c"></span>
+
+      <div class="icon-box">
+        <img
+          src="icon.png"
+          alt="Razi"
+          onerror="this.style.display='none'"
+        >
+      </div>
+
+      <h1 class="app-name">Razi</h1>
+      <p class="app-sub">دسترسی آسان به خدمات و امکانات</p>
+    </div>
+
+    <!-- بدنه -->
+    <div class="body">
+
+      <!-- نشان‌های اعتماد -->
+      <div class="trust-row">
+        <div class="trust-badge">
+          <span class="dot"></span>
+          آخرین نسخه
+        </div>
+        <div class="trust-version">ANDROID · APK</div>
+      </div>
+
+      <!-- توضیح -->
+      <p class="pitch">
+        نسخه رسمی برنامه را دریافت کنید و از امکانات آن در دستگاه اندرویدی خود استفاده کنید.
+      </p>
+
+      <!-- دکمه دانلود -->
+      <a
+        id="downloadBtn"
+        class="download-btn"
+        href="https://github.com/iran98ir/Khadamat-razi/releases/latest"
+      >
+        <span class="icon">↓</span>
+        <span class="text">دانلود و نصب اپلیکیشن</span>
+      </a>
+
+      <p class="download-caption">
+        فایل نصب اندروید با فرمت APK · دریافت از مخزن رسمی GitHub
+      </p>
+
+      <!-- مشخصات -->
+      <div class="specs">
+        <div class="spec">
+          <div class="spec-value">20.02.12</div>
+          <div class="spec-label">شماره نسخه</div>
+        </div>
+        <div class="spec">
+          <div class="spec-value">ANDROID</div>
+          <div class="spec-label">سیستم‌عامل</div>
+        </div>
+        <div class="spec">
+          <div class="spec-value">APK</div>
+          <div class="spec-label">نوع فایل</div>
+        </div>
+      </div>
+
+      <!-- امنیت -->
+      <div class="security-note">
+        <span class="check">✓</span>
+        <div class="txt">
+          <strong>دریافت مستقیم از مخزن رسمی</strong>
+          فایل نصب از بخش انتشار نسخه‌های مخزن رسمی GitHub دریافت می‌شود.
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <footer class="footer">
+        نسخه رسمی اپلیکیشن <strong>Razi</strong>
+      </footer>
+
+    </div>
+
+  </section>
+
+</main>
+
+<!-- ناوبری پایین -->
+<nav class="bottom-nav" aria-label="ناوبری اصلی">
+  <div class="nav-inner">
+
+    <a class="nav-item" href="index.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="m3 10 9-7 9 7"/>
+        <path d="M5 9v11h14V9"/>
+        <path d="M9 20v-6h6v6"/>
+      </svg>
+      <span>خانه</span>
+    </a>
+
+    <a class="nav-item active" href="guide.html" aria-current="page">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5Z"/>
+        <path d="M4 17a2.5 2.5 0 0 1 2.5-2.5H20M8 7h8M8 10h6"/>
+      </svg>
+      <span>راهنما</span>
+    </a>
+
+    <a class="nav-item" href="plans.html">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/>
+        <path d="m3 8 9 5 9-5"/>
+        <path d="M12 13v8"/>
+      </svg>
+      <span>طرح‌ها</span>
+    </a>
+
+  </div>
+</nav>
+
+<script>
+(function(){
+
+  var btn = document.getElementById('downloadBtn');
+  var repo = 'iran98ir/Khadamat-razi';
+
+  var fallback =
+    'https://github.com/' + repo + '/releases/latest';
+
+  btn.href = fallback;
+
+  fetch('https://api.github.com/repos/' + repo + '/releases/latest', {
+    headers: { 'Accept':'application/vnd.github+json' }
+  })
+  .then(function(response){
+    if(!response.ok){
+      throw new Error('GitHub API error: ' + response.status);
+    }
+    return response.json();
+  })
+  .then(function(data){
+    var assets = data.assets || [];
+    var apk = assets.find(function(asset){
+      return /\.apk$/i.test(asset.name);
+    });
+    if(apk && apk.browser_download_url){
+      btn.href = apk.browser_download_url;
+    }else{
+      btn.href = fallback;
+    }
+  })
+  .catch(function(){
+    btn.href = fallback;
+  });
+
+})();
+</script>
+
+</body>
+  </html>
